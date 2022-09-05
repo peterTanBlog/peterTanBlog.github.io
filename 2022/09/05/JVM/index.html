@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="perter的技术分享"><title>JVM | perter blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script src="https://www.googletagmanager.com/gtag/js?id=G-MDFK5LR2L9" async></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MDFK5LR2L9');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?' + '51cd3d8b2f315ceeb62cbeda68c1d672';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JVM</h1><a id="logo" href="/.">perter blog</a><p class="description">perter的技术分享</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">JVM</h1><div class="post-meta">2022-09-05<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 2.2k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 7</span><span class="post-meta-item-text"> 分钟</span></span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E4%BB%A3%E7%A0%81%E6%97%B6%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%E8%B5%B7%E6%9D%A5"><span class="toc-number">1.</span> <span class="toc-text">java代码时如何运行起来</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM%E5%9C%A8%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E5%8A%A0%E8%BD%BD%E4%B8%80%E4%B8%AA%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">JVM在什么情况下会加载一个类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6"><span class="toc-number">2.1.</span> <span class="toc-text">双亲委派机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">2.2.</span> <span class="toc-text">Tomcat的类加载机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">java内存区域划分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-number">4.</span> <span class="toc-text">java 垃圾回收</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jvm-%E5%88%86%E4%BB%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">jvm 分代模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B4%E8%BD%BB%E4%BB%A3"><span class="toc-number">5.1.</span> <span class="toc-text">年轻代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-number">5.2.</span> <span class="toc-text">老年代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E4%BB%A3"><span class="toc-number">5.3.</span> <span class="toc-text">永久代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-number">5.4.</span> <span class="toc-text">参数：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%B0%E5%BA%95%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E8%A7%A6%E5%8F%91%E6%96%B0%E7%94%9F%E4%BB%A3%E7%9A%84%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">到底什么情况下会触发新生代的垃圾回收？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jvm-%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">jvm 问题</span></a></li></ol></div></div><div class="post-content"><h1 id="java代码时如何运行起来"><a href="#java代码时如何运行起来" class="headerlink" title="java代码时如何运行起来"></a>java代码时如何运行起来</h1><ul>
+<li>1 把我们的代码编译打包 jar</li>
+<li>2 java -jar 运行我们得代码</li>
+<li>3 java采用类加载器把编译好得那些class 字节码文件给加载到JVM中，然后供后续代码运行来使用</li>
+<li>4 jvm就会基于自己得字节码执行引擎，来执行加载到内存里得类<br>（比如你的代码有一个 main 方法那么JVM就会有这个 main 方法开始执行里面得代码，它需要哪个类，就会使用类加载器来加载对应，反正对应得类就在.class文件中）</li>
+</ul>
+<p><img src="/2022/08/26/JV/pasted-0.png" alt="java代码时如何运行起来"></p>
+<h1 id="JVM在什么情况下会加载一个类"><a href="#JVM在什么情况下会加载一个类" class="headerlink" title="JVM在什么情况下会加载一个类"></a>JVM在什么情况下会加载一个类</h1><p>其实类加载过程非常的琐碎复杂，但是对于我们平时从工作中实用的角度来说，主要是把握他的核心工作原理就可以。</p>
+<p>一个类从加载到使用，一般会经历下面的这个过程：<br>加载 -&gt; 验证 -&gt; 准备 -&gt; 解析 -&gt; 初始化 -&gt; 使用 -&gt; 卸载</p>
+<p>所以首先要搞明白的第一个问题，就是JVM在执行我们写好的代码的过程中，一般在什么情况下会去加载一个类呢？</p>
+<p>也就是说，啥时候会从“.class”字节码文件中加载这个类到JVM内存里来。</p>
+<p>其实答案非常简单，就是在你的代码中用到这个类的时候。</p>
+<ul>
+<li>加载</li>
+<li>验证<br>校验你加载进来JVM规范</li>
+<li>准备<br>类变量分配一定的内存空间 </li>
+<li>解析<br>符号引用替换为直接引用的过程<br>此过程很复杂，涉及到JVM的底层</li>
+<li>核心阶段：初始化<br>类初始化代码<br>规则：初始化一个类的时候，发现他的父亲还未初始化，那么必须先初始化父类？</li>
+<li>类加载器+双亲委派机制<ul>
+<li>启动类加载器 Bootstrap ClassLoader，他主要是负责加载我们在机器上安装的Java目录下的核心类的，java安装目录lib</li>
+<li>扩展类加载器 Extension ClassLoader，这个类加载器其实也是类似的，就是你的Java安装目录下，有一个“lib\ext”目录</li>
+<li>应用程序类加载Application ClassLoader</li>
+<li>自定义类加载器<br>  自定义类加载器，去根据你自己的需求加载你的类。</li>
+</ul>
+</li>
+</ul>
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><p><img src="/2022/08/26/JV/pasted-1.png" alt=" 双亲委派机制"></p>
+<p>就是假设你的应用程序类加载器需要加载一个类，他首先会委派给自己的父类加载器去加载，最终传导到顶层的类加载器去加载<br>但是如果父类加载器在自己负责加载的范围内，没找到这个类，那么就会下推加载权利给自己的子类加载器。</p>
+<p>这就是所谓的双亲委派模型：先找父亲去加载，不行的话再由儿子来加载。<br>这样的话，可以避免多层级的加载器结构重复加载某些类。</p>
+<p><img src="/2022/08/26/JV/pasted-2.png" alt="双亲委派机制1"></p>
+<h2 id="Tomcat的类加载机制"><a href="#Tomcat的类加载机制" class="headerlink" title="Tomcat的类加载机制"></a>Tomcat的类加载机制</h2><p>首先Tomcat的 类加载器体系如下图所示，他是自定义了很多类加载器的。</p>
+<p><img src="/2022/08/26/JV/pasted-6.png" alt="Tomcat的类加载机制"><br>Tomcat自定义了Common、Catalina、Shared等类加载器，其实就是用来加载Tomcat自己的一些核心基础类库的。然后Tomcat为每个部署在里面的Web应用都有一个对应的WebApp类加载器，负责加载我们部署的这个Web应用的类<br>至于Jsp类加载器，则是给每个JSP都准备了一个Jsp类加载器。<br>而且大家一定要记得，Tomcat是打破了双亲委派机制的<br>每个WebApp负责加载自己对应的那个Web应用的class文件，也就是我们写好的某个系统打包好的war包中的所有class文件，不会传导给上层类加载器去加载。<br>tomcat打破了双亲委派的原则，实际是在应用类加载器中打破了双亲委派，其他类加载器还是遵循双亲委派的。</p>
+<h1 id="java内存区域划分"><a href="#java内存区域划分" class="headerlink" title="java内存区域划分"></a>java内存区域划分</h1><ul>
+<li><p>存在类的方法区<br>主要是放从“.class”文件里加载进来的类，还会有一些类似常量池的东西放在这个区域里。</p>
+<ul>
+<li>1.8前:方法区</li>
+<li>1.8后：Metaspace</li>
+</ul>
+</li>
+<li><p>执行代码指令用的程序计数器</p>
+</li>
+</ul>
+<p>我们写好的Java代码会被翻译成字节码，对应各种字节码指令</p>
+<p>就是用来记录当前执行的字节码指令的位置的，也就是记录目前执行到了哪一条字节码指令</p>
+<ul>
+<li>java虚拟机栈</li>
+</ul>
+<p>JVM必须有一块区域是来保存每个方法内的局部变量等数据的，这个区域就是Java虚拟机栈<br>每个线程都有自己的Java虚拟机栈</p>
+<ul>
+<li><p>java 堆内存<br>这里就是存放我们在代码中创建的各种对象的</p>
+</li>
+<li><p>本地方法栈</p>
+</li>
+</ul>
+<p>在调用这种native方法的时候，就会有线程对应的本地方法栈<br>是跟Java虚拟机栈类似的，也是存放各种native方<br>法的局部变量表之类的信息。</p>
+<p><img src="/2022/08/26/JV/pasted-3.png" alt="java 内存区域"></p>
+<h1 id="java-垃圾回收"><a href="#java-垃圾回收" class="headerlink" title="java 垃圾回收"></a>java 垃圾回收</h1><p>我们在Java堆内存里创建的对象，都是占用内存资源的，而且内存资源有限。</p>
+<p>你只要启动一个JVM进程，他就会自带这么一个垃圾回收的后台线程。<br>这个线程会在后台不断检查JVM堆内存中的各个实例对象，这些不再被人指向的对象实例，即JVM中的“垃圾”，就会定期的被后台垃圾回收线程清理掉，不断释放内存资源</p>
+<p><img src="/2022/08/26/JV/pasted-4.png" alt="java 垃圾回收"></p>
+<h1 id="jvm-分代模型"><a href="#jvm-分代模型" class="headerlink" title="jvm 分代模型"></a>jvm 分代模型</h1><p>年轻代，老年代，永久代</p>
+<ul>
+<li>大部分对象都是存活周期短的</li>
+<li>少数对象时长期活的</li>
+</ul>
+<h2 id="年轻代"><a href="#年轻代" class="headerlink" title="年轻代"></a>年轻代</h2><ul>
+<li>很快就要被回收的对象</li>
+<li>大部分的正常对照都是优先再新生代分配内存</li>
+<li>新生代的内存垃圾回收叫Minor GC 或者叫Young GC</li>
+<li>新生代如果对象满了，会触发Minor GC 回收掉没有人引用的垃圾对象</li>
+<li>大部分的正常对象，都是优先在新生代分配内存的</li>
+</ul>
+<h2 id="老年代"><a href="#老年代" class="headerlink" title="老年代"></a>老年代</h2><ul>
+<li>长期存在的对象</li>
+<li>长期存活的对象躲过多次垃圾回收 就会进入老年代，15（动态对象年龄判断机制）次</li>
+<li>如果老年代也满了，那么也会触发垃圾回收，把老年代里没人引用的垃圾对象清理掉</li>
+</ul>
+<h2 id="永久代"><a href="#永久代" class="headerlink" title="永久代"></a>永久代</h2><p>我们之前说的方法区，可以放一些类信息</p>
+<p>一般永久代刚开始上线一个系统，没太多可以参考的规范，但是一般你设置个几百MB</p>
+<h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul>
+<li>-Xms：<br>Java堆内存的刚开始的大小</li>
+<li>-Xmx：<br>Java堆内存的最大大小<br>-Xms喝-Xmx通常会设置完全一样的大小</li>
+<li>-Xmn：<br>Java堆内存中的新生代大小，扣除新生代剩下的就是老年代的内存大小了</li>
+<li>-XX:PermSize：<br>永久代大小</li>
+<li>-XX:MaxPermSize：<br>永久代最大大小</li>
+</ul>
+<p>JDK 1.8以后的版本，那么这俩参数被替换为了-XX:MetaspaceSize和-XX:MaxMetaspaceSize，</p>
+<ul>
+<li>-Xss：每个线程的栈内存大小</li>
+</ul>
+<p>，每个线程都有一个自己的虚拟机栈，然后每次执行一个方法，就会将方法的栈帧压入线程的栈里，方法执行完<br>毕，那么栈帧就会从线程的栈里出栈<br>一般也不会特别的去预估和设置的，一般默认就是比如512KB到1MB<br><img src="/2022/08/26/JV/pasted-5.png" alt="jvm 分代模型"></p>
+<ul>
+<li>下面如何设置java程序 jvm参数<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms512M -Xmx512M -Xmn256M -Xss1M -XX:<span class="attribute">PermSize</span>=128M -XX:<span class="attribute">MaxPermSize</span>=128M -jar App.jar</span><br></pre></td></tr></table></figure></li>
+<li>Tomcat、Spring Boot部署启动系统的时候，JVM参数如何设置？<br> tomcat jvm参数: <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">JAVA_OPTS</span>=<span class="string">&quot;-Xms512M -Xmx512M -Xmn256M -Xss1M -XX:PermSize=128M -XX:MaxPermSize=128M&quot;</span></span><br></pre></td></tr></table></figure>
+ Spring Boot jvm参数： <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms512M -Xmx512M -Xmn256M -Xss1M -XX:<span class="attribute">PermSize</span>=128M -XX:<span class="attribute">MaxPermSize</span>=128M -jar App.jar</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="到底什么情况下会触发新生代的垃圾回收？"><a href="#到底什么情况下会触发新生代的垃圾回收？" class="headerlink" title="到底什么情况下会触发新生代的垃圾回收？"></a>到底什么情况下会触发新生代的垃圾回收？</h1><h1 id="jvm-问题"><a href="#jvm-问题" class="headerlink" title="jvm 问题"></a>jvm 问题</h1><ul>
+<li>我们在Java堆内存中分配的那些对象，到底会占用多少内存？一般怎么来计算和估算我们的系统创建的对象对内存占用的一个压力呢？<br>答：<br>一个对象对内存空间的占用，大致分为两块：<br>一个是对象自己本身的一些信息<br>一个是对象的实例变量作为数据占用的空间<br>比如对象头，如果在64位的linux操作系统上，会占用16字节，然后如果你的实例对象内部有个int类型的实例变量，他<br>会占用4个字节，如果是long类型的实例变量，会占用8个字节。如果是数组、Map之类的，那么就会占用更多的内存<br>了。</li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css?v=1.0.0"><p><span>本文标题：</span>JVM</p><p><span>文章作者：</span>peter.tan</p><p><span>发布时间：</span>2022-09-05</p><p><span>最后更新：</span>2022-09-05</p><p><span>原始链接：</span><a href="/2022/09/05/JVM/">https://petertanblog.github.io/2022/09/05/JVM/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://petertanblog.github.io/2022/09/05/JVM/"></i></span></p><p><span>版权声明：</span>Copyright © 2022 Peter.tan</p></div><br><script type="text/javascript" src="/js/share.js?v=1.0.0" async></script><a class="article-share-link" data-url="https://petertanblog.github.io/2022/09/05/JVM/" data-id="cl7m10mdn0001t55k8xw05h33" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS47bQAwFQN3/0g6Q1QSIpEdSDmK6emV4bLmrFxx++jji9fq9fr7+uaqfSdbxjoWBgfGxjORxZ4/Ot3L9Tn4cp1QMDIwvYCRBthqCr59Z5d3sGQMDA+OhRHASfDEwMDDmAfep8IqBgYExKWLPNnH9fu+Zb6zFMTAwPpDRGwz8m9dvn29gYGD894zXQ2syKugNOP/4LgYGxmrGdYrWu3hRbd7liePNDjEwMJYyetcseqXsJMe7OVAMDIzVjPwPeQpY/VY+JIgAGBgY6xiTpnyvxZ8UsUny+pdaHAMDYzVjnrolobZaHudhGgMDYzejGharw4BJKC+HeAwMjKWMvMislpfV715//uawMDAwVjOqiWD+M8kT8uMoT2UxMDAWMfKiNK8Ze4Vu/oun/zcwMDBWM3qtrup2k2sTTSoGBsYXMPK072itXmpYviGCgYGxlJGH1F5Rml+w6I1Cb0pZDAyMFYxk09HFrIfGn81mHwYGxmpGdYh4HQqbP9w6ptO0EgMDYymjWsT2mmLz4NvsHWJgYCxiJI3+3njy2THDTVKIgYGxlNELedWWWZ5K9vr/GBgYWxmv4spJyRHMG20YGBjfwKhemOg12ibz1fyAMDAwdjN6QbbX75oE3PKdEQwMjHWMycCgF1irsf8mDcXAwMCIm/iTMcOk9MXAwMCoXoOYBPGkVC5EbgwMjEWMPDgexdUL1qMLFhgYGOsY863kBef8yHpXNDAwMD6W8QtiA3XT4nvKJQAAAABJRU5ErkJggg==">分享</a><div class="tags"></div><div class="post-nav"><a class="next" href="/2022/09/03/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></div><script src="https://utteranc.es/client.js" repo="peterTanBlog/blog_comments" issue-term="title" theme="github-light" crossorigin="anonymous" async> </script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="author-info"><a class="info-avatar" href="/about/" title="关于"><img src="/images/head.jpg"/></a><p>我喜欢计算编程,专注后端开发 性能调优 spring 框架 spring boot docker k8s</p><a class="info-icon" href="mailto:beityw@hotmail.com" title="Email" target="_blank" style="margin-inline:5px"> <i class="fa fa-envelope-square" style="margin-inline:5px"></i></a><a class="info-icon" href="https://github.com/peterTanBlog/" title="Github" target="_blank" style="margin-inline:5px"> <i class="fa fa-github-square" style="margin-inline:5px"></i></a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Eclipse/">Eclipse</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kubernetes/">Kubernetes</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 15px;">Eclipse</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Hexo-admin/" style="font-size: 15px;">Hexo admin</a> <a href="/tags/hexo-%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" style="font-size: 15px;">hexo 站内搜索</a> <a href="/tags/hexo-%E7%99%BE%E5%BA%A6%E7%BB%9F%E8%AE%A1/" style="font-size: 15px;">hexo 百度统计</a> <a href="/tags/hexo-google%E7%BB%9F%E8%AE%A1/" style="font-size: 15px;">hexo google统计</a> <a href="/tags/%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95hexo%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">百度收录hexo博客</a> <a href="/tags/google%E6%94%B6%E5%BD%95hexo-%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">google收录hexo 博客</a> <a href="/tags/maupassant-%E4%B8%BB%E9%A2%98/" style="font-size: 15px;">maupassant 主题</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">博客</a> <a href="/tags/utterances-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" style="font-size: 15px;">utterances 评论插件</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/Kubernetes/" style="font-size: 15px;">Kubernetes</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/mysql%E9%87%8D%E7%BD%AEroot%E5%AF%86%E7%A0%81/" style="font-size: 15px;">mysql重置root密码</a> <a href="/tags/Mysql%E4%BF%AE%E6%94%B9Root%E5%AF%86%E7%A0%81/" style="font-size: 15px;">Mysql修改Root密码</a> <a href="/tags/Mysql-%E5%BC%80%E5%90%AF%E7%94%A8%E6%88%B7%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" style="font-size: 15px;">Mysql 开启用户远程访问</a> <a href="/tags/Mysql-%E7%BB%BF%E8%89%B2%E7%89%88%E5%AE%89%E8%A3%85/" style="font-size: 15px;">Mysql 绿色版安装</a> <a href="/tags/Mysql%E4%BF%AE%E6%94%B9root%E5%AF%86%E7%A0%81/" style="font-size: 15px;">Mysql修改root密码</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">微服务</a> <a href="/tags/spring-cloud/" style="font-size: 15px;">spring cloud</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/09/05/JVM/">JVM</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/03/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/22/K8S%E7%9F%A5%E8%AF%86/">Kubernetes知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/21/Docker%E7%9F%A5%E8%AF%86/">Docker知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/21/Mac%E6%8A%80%E5%B7%A7/">Mac技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/18/IDEA%E6%8A%80%E5%B7%A7/">IDEA技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/18/Eclipse-%E6%8A%80%E5%B7%A7/">Eclipse 技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/16/mysql%E7%BB%BF%E8%89%B2%E7%89%88%E5%AE%89%E8%A3%85/">mysql绿色版安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/16/%E5%85%B3%E4%BA%8Emysql/">mysql重置root密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/10/Hexo-Admin/">Hexo Admin</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://smallwenzi.github.io" title="我的博客" target="_blank">我的博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">perter blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/latest/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+  search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/love.js?v=1.0.0"></script><script type="text/javascript" src="/js/copycode.js?v=1.0.0" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
