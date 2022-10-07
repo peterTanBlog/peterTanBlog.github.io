@@ -1,5 +1,7 @@
+https://petertanblog.github.io/2022/10/07/maven/
 https://petertanblog.github.io/2022/09/30/Spring/
 https://petertanblog.github.io/2022/09/30/Java/
+https://petertanblog.github.io/2022/09/09/Mysql/
 https://petertanblog.github.io/2022/09/09/Linux/
 https://petertanblog.github.io/2022/09/09/Junittest/
 https://petertanblog.github.io/2022/09/08/windows-%E6%8A%80%E5%B7%A7/
