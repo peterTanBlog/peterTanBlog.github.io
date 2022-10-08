@@ -1,3 +1,5 @@
+https://petertanblog.github.io/2022/10/08/Markdown-%E8%AF%AD%E6%B3%95/
+https://petertanblog.github.io/2022/10/08/Java-%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/
 https://petertanblog.github.io/2022/10/07/maven/
 https://petertanblog.github.io/2022/09/30/Spring/
 https://petertanblog.github.io/2022/09/30/Java/

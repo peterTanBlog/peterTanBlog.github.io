@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://petertanblog.github.io/2022/10/08/Java-%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/</loc>
+    
+    <lastmod>2022-10-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://petertanblog.github.io/2022/10/08/Markdown-%E8%AF%AD%E6%B3%95/</loc>
+    
+    <lastmod>2022-10-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://petertanblog.github.io/2022/09/09/Junittest/</loc>
     
     <lastmod>2022-10-08</lastmod>
@@ -402,6 +420,34 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://petertanblog.github.io/tags/java/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://petertanblog.github.io/tags/Junit4/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://petertanblog.github.io/tags/Spring-junittest/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://petertanblog.github.io/tags/Springboot-junittest/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -483,6 +529,13 @@
   
   <url>
     <loc>https://petertanblog.github.io/categories/Maven/</loc>
+    <lastmod>2022-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://petertanblog.github.io/categories/Markdown/</loc>
     <lastmod>2022-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
