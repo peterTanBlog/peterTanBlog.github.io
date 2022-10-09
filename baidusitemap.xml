@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://petertanblog.github.io/2022/10/08/Java-%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE/</loc>
-    <lastmod>2022-10-08</lastmod>
+    <loc>https://petertanblog.github.io/2022/10/09/git/</loc>
+    <lastmod>2022-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://petertanblog.github.io/2022/10/07/maven/</loc>
+    <lastmod>2022-10-09</lastmod>
   </url>
   <url>
     <loc>https://petertanblog.github.io/2022/10/08/Markdown-%E8%AF%AD%E6%B3%95/</loc>
@@ -11,10 +15,6 @@
   <url>
     <loc>https://petertanblog.github.io/2022/09/09/Junittest/</loc>
     <lastmod>2022-10-08</lastmod>
-  </url>
-  <url>
-    <loc>https://petertanblog.github.io/2022/10/07/maven/</loc>
-    <lastmod>2022-10-07</lastmod>
   </url>
   <url>
     <loc>https://petertanblog.github.io/2022/09/09/Mysql/</loc>
