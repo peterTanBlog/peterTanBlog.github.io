@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17236B75F11" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test08;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@Auther</span>: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestOuter</span> </span>{</li><li>    <span class="hljs-comment">//1.在局部内部类中访问到的变量必须是被final修饰的</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> num = <span class="hljs-number">10</span>;</li><li>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>{</li><li>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">a</span><span class="hljs-params">()</span></span>{</li><li>                <span class="hljs-comment">//num = 20;</span></li><li>                System.out.println(num);</li><li>            }</li><li>        }</li><li>    }</li><li>    <span class="hljs-comment">//2.如果类B在整个项目中只使用一次，那么就没有必要单独创建一个B类，使用内部类就可以了</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> Comparable <span class="hljs-title">method2</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span></span>{</li><li>            <span class="hljs-meta">@Override</span></li><li>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Object o)</span> </span>{</li><li>                <span class="hljs-keyword">return</span> <span class="hljs-number">100</span>;</li><li>            }</li><li>        }</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> B();</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> Comparable <span class="hljs-title">method3</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-comment">//3.匿名内部类</span></li><li>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Comparable(){</li><li></li><li>            <span class="hljs-meta">@Override</span></li><li>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Object o)</span> </span>{</li><li>                <span class="hljs-keyword">return</span> <span class="hljs-number">200</span>;</li><li>            }</li><li>        };</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">teat</span><span class="hljs-params">()</span></span>{</li><li>        Comparable com = <span class="hljs-keyword">new</span> Comparable(){</li><li></li><li>            <span class="hljs-meta">@Override</span></li><li>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compareTo</span><span class="hljs-params">(Object o)</span> </span>{</li><li>                <span class="hljs-keyword">return</span> <span class="hljs-number">200</span>;</li><li>            }</li><li>        };</li><li></li><li>        System.out.println(com.compareTo(<span class="hljs-string">"abc"</span>));</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

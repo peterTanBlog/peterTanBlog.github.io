@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>服务器端：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17304060C67" class="hljs arduino"><ol><li>package com.msb.test02;</li><li></li><li><span class="hljs-keyword">import</span> java.io.*;</li><li><span class="hljs-keyword">import</span> java.net.ServerSocket;</li><li><span class="hljs-keyword">import</span> java.net.Socket;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> TestServer {<span class="hljs-comment">//服务器</span></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//1.创建套接字： 指定服务器的端口号</span></li><li>        ServerSocket ss = <span class="hljs-keyword">new</span> ServerSocket(<span class="hljs-number">8888</span>);</li><li>        <span class="hljs-comment">//2.等着客户端发来的信息：</span></li><li>        Socket s = ss.accept();<span class="hljs-comment">//阻塞方法:等待接收客户端的数据，什么时候接收到数据，什么时候程序继续向下执行。</span></li><li>        <span class="hljs-comment">//accept()返回值为一个Socket，这个Socket其实就是客户端的Socket</span></li><li>        <span class="hljs-comment">//接到这个Socket以后，客户端和服务器才真正产生了连接，才真正可以通信了</span></li><li>        <span class="hljs-comment">//3.感受到的操作流：</span></li><li>        InputStream is = s.getInputStream();</li><li>        DataInputStream dis = <span class="hljs-keyword">new</span> DataInputStream(is);</li><li></li><li>        <span class="hljs-comment">//4.读取客户端发来的数据：</span></li><li>        <span class="hljs-keyword">String</span> str = dis.readUTF();</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"客户端发来的数据为："</span>+str);</li><li></li><li>        <span class="hljs-comment">//向客户端输出一句话：---》操作流---》输出流</span></li><li>        OutputStream os = s.getOutputStream();</li><li>        DataOutputStream dos = <span class="hljs-keyword">new</span> DataOutputStream(os);</li><li>        dos.writeUTF(<span class="hljs-string">"你好，我是服务器端，我接受到你的请求了"</span>);</li><li></li><li></li><li>        <span class="hljs-comment">//5.关闭流+关闭网络资源：</span></li><li>        dos.<span class="hljs-built_in">close</span>();</li><li>        os.<span class="hljs-built_in">close</span>();</li><li>        dis.<span class="hljs-built_in">close</span>();</li><li>        is.<span class="hljs-built_in">close</span>();</li><li>        s.<span class="hljs-built_in">close</span>();</li><li>        ss.<span class="hljs-built_in">close</span>();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>客户端：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_173040639C5" class="hljs arduino"><ol><li>package com.msb.test02;</li><li></li><li><span class="hljs-keyword">import</span> java.io.*;</li><li><span class="hljs-keyword">import</span> java.net.Socket;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> TestClient {<span class="hljs-comment">//客户端</span></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//1.创建套接字：指定服务器的ip和端口号：</span></li><li>        Socket s = <span class="hljs-keyword">new</span> Socket(<span class="hljs-string">"192.168.199.217"</span>,<span class="hljs-number">8888</span>);</li><li>        <span class="hljs-comment">//2.对于程序员来说，向外发送数据 感受 --》利用输出流：</span></li><li>        OutputStream os = s.getOutputStream();</li><li>        DataOutputStream dos = <span class="hljs-keyword">new</span> DataOutputStream(os);</li><li>        <span class="hljs-comment">//利用这个OutputStream就可以向外发送数据了，但是没有直接发送String的方法</span></li><li>        <span class="hljs-comment">//所以我们又在OutputStream外面套了一个处理流：DataOutputStream</span></li><li>        dos.writeUTF(<span class="hljs-string">"你好"</span>);</li><li></li><li>        <span class="hljs-comment">//接收服务器端的回话--》利用输入流：</span></li><li>        InputStream is = s.getInputStream();</li><li>        DataInputStream dis = <span class="hljs-keyword">new</span> DataInputStream(is);</li><li>        <span class="hljs-keyword">String</span> str = dis.readUTF();</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"服务器端对我说："</span>+str);</li><li></li><li>        <span class="hljs-comment">//3.关闭流  +  关闭网络资源：</span></li><li>        dis.<span class="hljs-built_in">close</span>();</li><li>        is.<span class="hljs-built_in">close</span>();</li><li>        dos.<span class="hljs-built_in">close</span>();</li><li>        os.<span class="hljs-built_in">close</span>();</li><li>        s.<span class="hljs-built_in">close</span>();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>注意：关闭防火墙
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171395329A9" class="hljs processing"><ol><li><span class="hljs-keyword">import</span> java.util.Scanner;<span class="hljs-comment">//形象理解：在java.util下将Scanner拿过来用</span></li><li><span class="hljs-keyword">public</span> class TestVar11{</li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args){</li><li>                <span class="hljs-comment">//实现功能：求圆的周长和面积</span></li><li>                <span class="hljs-comment">//【1】提取变量：提取变量，就是为了一劳永逸，以后只要改变变量的值，下面只要用到这个变量的地方，取值也都发生变化了</span></li><li>                <span class="hljs-comment">//【2】一个变量被final修饰，这个变量就变成了一个常量，这个常量的值就不可变了</span></li><li>                <span class="hljs-comment">//     这个常量就是我们所说的 字符常量  ---》pi</span></li><li>                <span class="hljs-comment">//     约定俗成的规定：字符常量的名字全部大写</span></li><li>                <span class="hljs-comment">//【3】使用扫描器：Scanner的使用--》注意通过形象的理解去使用</span></li><li>                <span class="hljs-keyword">final</span> <span class="hljs-keyword">double</span> <span class="hljs-literal">PI</span> = <span class="hljs-number">3.14</span>;</li><li>                <span class="hljs-comment">//拿来一个扫描器：</span></li><li>                Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);</li><li>                <span class="hljs-comment">//给一个友好性的提示：</span></li><li>                System.out.<span class="hljs-built_in">print</span>(<span class="hljs-string">"请录入一个半径："</span>);</li><li>                <span class="hljs-comment">//让扫描器扫描键盘录入的int类型的数据：</span></li><li>                <span class="hljs-built_in">int</span> r = sc.nextInt();</li><li>                </li><li>                <span class="hljs-comment">//求周长：</span></li><li>                <span class="hljs-keyword">double</span> c = <span class="hljs-number">2</span>*<span class="hljs-literal">PI</span>*r;</li><li>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"周长为："</span>+c);</li><li>                </li><li>                <span class="hljs-comment">//求面积：</span></li><li>                <span class="hljs-comment">//PI = 9.29;报错：TestVar11.java:12: 错误: 无法为最终变量pi分配值</span></li><li>                <span class="hljs-keyword">double</span> s = <span class="hljs-literal">PI</span>*r*r;</li><li>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"面积为："</span>+s);</li><li>                </li><li>                </li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

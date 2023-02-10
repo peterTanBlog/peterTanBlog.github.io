@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>注意事项
+		</div>
+		<div>1.关键字，表名，字段名不区分大小写
+		</div>
+		<div>2.默认情况下，内容不区分大小写
+		</div>
+		<div>3.删除操作from关键字不可缺少
+		</div>
+		<div>4.修改，删除数据别忘记加限制条件
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17535A51445" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 修改表中数据</span></li><li><span class="hljs-keyword">update</span> t_student <span class="hljs-keyword">set</span> sex = <span class="hljs-string">'女'</span> ;</li><li><span class="hljs-keyword">update</span> t_student <span class="hljs-keyword">set</span> sex = <span class="hljs-string">'男'</span> <span class="hljs-keyword">where</span> sno = <span class="hljs-number">10</span> ;</li><li><span class="hljs-keyword">UPDATE</span> T_STUDENT <span class="hljs-keyword">SET</span> AGE = <span class="hljs-number">21</span> <span class="hljs-keyword">WHERE</span> SNO = <span class="hljs-number">10</span>;</li><li><span class="hljs-keyword">update</span> t_student <span class="hljs-keyword">set</span> CLASSNAME = <span class="hljs-string">'java01'</span> <span class="hljs-keyword">where</span> sno = <span class="hljs-number">10</span> ;</li><li><span class="hljs-keyword">update</span> t_student <span class="hljs-keyword">set</span> CLASSNAME = <span class="hljs-string">'JAVA01'</span> <span class="hljs-keyword">where</span> sno = <span class="hljs-number">9</span> ;</li><li><span class="hljs-keyword">update</span> t_student <span class="hljs-keyword">set</span> age = <span class="hljs-number">29</span> <span class="hljs-keyword">where</span> classname = <span class="hljs-string">'java01'</span>;</li><li></li><li><span class="hljs-comment">-- 删除操作：</span></li><li><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> t_student <span class="hljs-keyword">where</span> sno = <span class="hljs-number">2</span>;</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

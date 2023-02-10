@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>前情提要：File &nbsp; ---》 &nbsp; 封装盘符一个文件&nbsp;
+		</div>
+		<div>【1】InetAddress &nbsp; ---》 封装了IP&nbsp;
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_173005FC070" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test01</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) throws UnknownHostException </span>{</li><li>        <span class="hljs-comment">//封装IP：</span></li><li>        <span class="hljs-comment">//InetAddress ia = new InetAddress();不能直接创建对象，因为InetAddress()被default修饰了。</span></li><li>        InetAddress ia = InetAddress.getByName(<span class="hljs-string">"192.168.199.217"</span>);</li><li>        System.<span class="hljs-keyword">out</span>.println(ia);</li><li>        InetAddress ia2 = InetAddress.getByName(<span class="hljs-string">"localhost"</span>);<span class="hljs-comment">//localhost指代的是本机的ip地址</span></li><li>        System.<span class="hljs-keyword">out</span>.println(ia2);</li><li>        InetAddress ia3 = InetAddress.getByName(<span class="hljs-string">"127.0.0.1"</span>);<span class="hljs-comment">//127.0.0.1指代的是本机的ip地址</span></li><li>        System.<span class="hljs-keyword">out</span>.println(ia3);</li><li>        InetAddress ia4 = InetAddress.getByName(<span class="hljs-string">"LAPTOP-CRIVSRRU"</span>);<span class="hljs-comment">//封装计算机名</span></li><li>        System.<span class="hljs-keyword">out</span>.println(ia4);</li><li>        InetAddress ia5 = InetAddress.getByName(<span class="hljs-string">"www.mashibing.com"</span>);<span class="hljs-comment">//封装域名</span></li><li>        System.<span class="hljs-keyword">out</span>.println(ia5);</li><li></li><li>        System.<span class="hljs-keyword">out</span>.println(ia5.getHostName());<span class="hljs-comment">//获取域名</span></li><li>        System.<span class="hljs-keyword">out</span>.println(ia5.getHostAddress());<span class="hljs-comment">//获取ip地址</span></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>【2】InetSocketAddress &nbsp;---》封装了IP，端口号
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1730061B050" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test02</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        InetSocketAddress isa = <span class="hljs-keyword">new</span> InetSocketAddress(<span class="hljs-string">"192.168.199.217"</span>,<span class="hljs-number">8080</span>);</li><li>        System.<span class="hljs-keyword">out</span>.println(isa);</li><li>        System.<span class="hljs-keyword">out</span>.println(isa.getHostName());</li><li>        System.<span class="hljs-keyword">out</span>.println(isa.getPort());</li><li></li><li>        InetAddress ia = isa.getAddress();</li><li>        System.<span class="hljs-keyword">out</span>.println(ia.getHostName());</li><li>        System.<span class="hljs-keyword">out</span>.println(ia.getHostAddress());</li><li>    }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

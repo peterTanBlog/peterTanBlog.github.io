@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span>在</span>servlet3.0之前的配置：</span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-size: 24px; ">
+				<table style="font-family: 微软雅黑; font-size: 18pt; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; border-top-width: 2px; border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px; width: 1525px; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent; ">
+					<tbody>
+						<tr>
+							<td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; ">
+								<div>
+									<pre style="border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(214, 214, 214); border-right-color: rgb(214, 214, 214); border-bottom-color: rgb(214, 214, 214); border-left-color: rgb(214, 214, 214); padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-left-radius: 3px 3px; border-top-right-radius: 3px 3px; border-bottom-right-radius: 3px 3px; border-bottom-left-radius: 3px 3px; word-wrap: normal; ">
+<code><font class="Apple-style-span" size="5"><span style="color: rgb(0, 0, 255); ">package</span> com.bjsxt.servlet;
+
+<span style="color: rgb(0, 0, 255); ">import</span> javax.servlet.*;
+<span style="color: rgb(0, 0, 255); ">import</span> java.io.IOException;
+
+<span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">class</span> HelloServlet <span style="color: rgb(0, 0, 255); ">implements</span> Servlet {
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> init(ServletConfig servletConfig) <span style="color: rgb(0, 0, 255); ">throws</span> ServletException {
+
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> ServletConfig getServletConfig() {
+        <span style="color: rgb(0, 0, 255); ">return</span> <span style="color: rgb(0, 0, 255); ">null</span>;
+    }
+
+   
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> service(ServletRequest servletRequest, ServletResponse servletResponse) <span style="color: rgb(0, 0, 255); ">throws</span> ServletException, IOException {
+        System.out.println(<span style="color: rgb(128, 0, 128); ">"service方法被调用了..."</span>);
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> String getServletInfo() {
+        <span style="color: rgb(0, 0, 255); ">return</span> <span style="color: rgb(0, 0, 255); ">null</span>;
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> destroy() {
+
+    }
+}</font></code></pre>
+								</div>
+							</td>
+						</tr>
+						<tr style="background-color: rgb(248, 248, 248); ">
+							<td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; "><a href="<?xml version='1.0' encoding='UTF-8'?>
+"></a>
+								<div>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+								</div>
+								<div>&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; version=&quot;4.0&quot;&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;!--配置Servlet--&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;!--配置Servlet的信息--&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;servlet&gt;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;servlet-class&gt;com.bjsxt.servlet.HelloServlet&lt;/servlet-class&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;/servlet&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;!--配置Servlet的映射路径--&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;servlet-mapping&gt;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;servlet-name&gt;HelloServlet&lt;/servlet-name&gt;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;!--http://localhost:8080/01-hello-servlet/hello--&gt;
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;
+								</div>
+								<div>&nbsp; &nbsp; &lt;/servlet-mapping&gt;
+								</div>
+								<div>&lt;/web-app&gt;
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span>在</span>servlet3.0之后使用注解：替代配置文件。</span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;">
+				<div><br />
+				</div>
+				<div>
+					<table style="width: 100%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+						<tbody>
+							<tr>
+								<td style="border: 1px solid gray; padding: 4px;">
+									<div>
+										<pre style="word-wrap: normal; ">
+<code><font class="Apple-style-span" size="5"><span style="color: rgb(0, 0, 255); ">package</span> com.bjsxt.servlet;
+
+<span style="color: rgb(0, 0, 255); ">import</span> javax.servlet.*;
+<span style="color: rgb(0, 0, 255); ">import</span> java.io.IOException;
+
+<font class="Apple-style-span" color="#ff6600">@WebServlet("/hello")</font>
+<span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">class</span> HelloServlet <span style="color: rgb(0, 0, 255); ">implements</span> Servlet {
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> init(ServletConfig servletConfig) <span style="color: rgb(0, 0, 255); ">throws</span> ServletException {
+
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> ServletConfig getServletConfig() {
+        <span style="color: rgb(0, 0, 255); ">return</span> <span style="color: rgb(0, 0, 255); ">null</span>;
+    }
+
+    <span style="color: rgb(0, 128, 0); ">/**</span>
+<span style="color: rgb(0, 128, 0); ">    * 用于提供服务, 接收请求, 处理响应</span>
+<span style="color: rgb(0, 128, 0); ">    *</span>
+<span style="color: rgb(0, 128, 0); ">    * @param servletRequest</span>
+<span style="color: rgb(0, 128, 0); ">    * @param servletResponse</span>
+<span style="color: rgb(0, 128, 0); ">    * @throws ServletException</span>
+<span style="color: rgb(0, 128, 0); ">    * @throws IOException</span>
+<span style="color: rgb(0, 128, 0); ">    */</span>
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> service(ServletRequest servletRequest, ServletResponse servletResponse) <span style="color: rgb(0, 0, 255); ">throws</span> ServletException, IOException {
+        System.out.println(<span style="color: rgb(128, 0, 128); ">"service方法被调用了..."</span>);
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> String getServletInfo() {
+        <span style="color: rgb(0, 0, 255); ">return</span> <span style="color: rgb(0, 0, 255); ">null</span>;
+    }
+
+    @Override
+    <span style="color: rgb(0, 0, 255); ">public</span> <span style="color: rgb(0, 0, 255); ">void</span> destroy() {
+
+    }
+}</font></code></pre>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><br /></span>
+			</p>
+			<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:宋体;mso-bidi-font-family:'Times New Roman';
+font-size:14.0000pt;mso-font-kerning:1.0000pt;"></span>
+			</p>
+			<div><br />
+				<table style="width: 100%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+					<tbody>
+						<tr>
+							<td style="border: 1px solid gray; padding: 4px;"><br />
+							</td>
+						</tr>
+						<tr>
+							<td style="border: 1px solid gray; padding: 4px;"><br />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal"><span style="font-size: x-large;"><strong><span style="font-family: Calibri; font-weight: bold; ">1.<span style="font-family: 宋体; ">主键约束</span>&nbsp;</span></strong><strong><span style="font-family: Calibri; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">主键约束（</span>PRIMARY KEY，缩写PK），是数据库中最重要的一种约束，其作用是约束表中的某个字段可以</span><strong><span class="15" style="font-family: 微软雅黑; color: rgb(255, 0, 0); font-weight: bold; "><span style="font-family: 微软雅黑">唯一标识一条记录</span></span></strong><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">。因此，使用主键约束可以快速查找表中的记录。就像人的身份证、学生的学号等等，</span></span><strong><span class="15" style="font-family: 微软雅黑; color: rgb(255, 0, 0); font-weight: bold; "><span style="font-family: 微软雅黑">设置为主键的字段取值不能重复（唯一），也不能为空（非空）</span></span></strong><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">，否则无法唯一标识一条记录。</span> </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; color: rgb(255, 0, 0); "><span style="font-family: 微软雅黑">主键可以是单个字段，也可以是多个字段组合。</span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">对于单字段主键的添加可使用表级约束，也可以使用列级约束；而对于多字段主键的添加只能使用表级约束。</span> </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><strong><span style="font-family: Calibri; font-weight: bold; ">2.<span style="font-family: 宋体">非空约束</span>&nbsp;</span></strong><strong><span style="font-family: Calibri; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">非空约束（</span>NOT NULL，缩写NK）规定了一张表中指定的某个字段的值不能为空（NULL）。设置了非空约束的字段，在插入的数据为NULL时，数据库会提示错误，导致数据无法插入。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">无论是单个字段还是多个字段非空约束的添加只能使用列级约束（非空约束无表级约束）</span></span></span>
+			</p>
+			<p>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">为已存在表中的字段添加非空约束</span></span></strong><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="710" valign="top" style="width:426.0000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;background:rgb(231,230,230);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;alter &nbsp; table student8 modify stu_sex varchar(1) not null; </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><o:p>&nbsp;</o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">使用</span>ALTER TABLE语句删除非空约束</span></strong><span style="font-family: 微软雅黑; ">&nbsp; </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="710" valign="top" style="width:426.0000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;background:rgb(231,230,230);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;alter &nbsp;table student8 modify stu_sex varchar(1) null; </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table><span style="font-size: x-large;"><strong><span style="font-family: Calibri; font-weight: bold; ">3.&nbsp;<span style="font-family: 宋体">唯一约束</span></span></strong><span style="font-family: 微软雅黑; ">
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; "><o:p>&nbsp;</o:p></span>
+			</p></span></span>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">唯一约束（</span>UNIQUE，缩写UK）比较简单，它规定了一张表中指定的某个字段的值不能重复，即这一字段的每个值都是唯一的。如果想要某个字段的值不重复，那么就可以为该字段添加为唯一约束。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">无论单个字段还是多个字段唯一约束的添加均可使用列级约束和表级约束</span> </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><strong><span style="font-family: 微软雅黑; font-weight: bold; ">4.&nbsp;</span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">检查</span></span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">约束</span> </span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">检查约束（</span>CHECK）用来限制某个字段的取值范围，可以定义为列级约束，也可以定义为表级约束。MySQL8开始支持检查约束。</span><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><strong><span style="font-family: 微软雅黑; font-weight: bold; ">5</span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; ">.&nbsp;默认值约束&nbsp;</span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">默认值约束（</span>DEFAULT）用来规定字段的默认值。如果某个被设置为DEFAULT约束的字段没插入具体值，那么该字段的值将会被默认值填充。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp; &nbsp; &nbsp;默认值约束的设置与非空约束一样，也只能使用列级约束。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><strong><span style="font-family: 微软雅黑; font-weight: bold; ">6</span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; ">.&nbsp;字段值自动增加约束 </span></strong><strong><span style="font-family: 微软雅黑; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">自增约束（</span>AUTO_INCREMENT）可以使表中某个字段的值自动增加。一张表中只能有一个自增长字段，并且该字段必须定义了约束（该约束可以是主键约束、唯一约束以及外键约束），如果自增字段没有定义约束，数据库则会提示“Incorrect table definition; there can be only one auto column and it must be defined as a key”错误。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">由于自增约束会自动生成唯一的</span>ID，所以自增约束通常会配合主键使用，并且只适用于整数类型。一般情况下，设置为自增约束字段的值会从1开始，每增加一条记录，该字段的值加1。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><strong><span style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">为已存在表中的字段添加自增约束</span></span></strong><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="710" valign="top" style="width:426.0000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;background:rgb(231,230,230);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">/*创建表student11*/</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;create &nbsp;&nbsp;table student11 (</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stu_id int(10) primary key,</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stu_name varchar(3),</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stu_sex varchar (1)</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">);</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">/*为student11表中的主键字段添加自增约束*/</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">alter &nbsp;&nbsp;table student11 modify stu_id int(10) auto_increment;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><o:p>&nbsp;</o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><strong><span style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">使用</span>ALTER TABLE语句删除自增约束</span></strong><span style="font-family: 微软雅黑; ">&nbsp; </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="710" valign="top" style="width:426.0000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;background:rgb(231,230,230);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">alter &nbsp; table studen11 modify stu_id int(10); </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p>&nbsp;</o:p></span>
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

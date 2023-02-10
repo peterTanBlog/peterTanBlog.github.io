@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172EABBB139" class="hljs arduino"><ol><li>package com.msb.io01;</li><li></li><li><span class="hljs-keyword">import</span> java.io.*;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test04 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//1.有一个源文件</span></li><li>        <span class="hljs-built_in">File</span> f1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">File</span>(<span class="hljs-string">"d:\\Test.txt"</span>);</li><li>        <span class="hljs-comment">//2.有一个目标文件：</span></li><li>        <span class="hljs-built_in">File</span> f2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">File</span>(<span class="hljs-string">"d:\\Demo.txt"</span>);</li><li>        <span class="hljs-comment">//3.搞一个输入的管 怼到源文件上：</span></li><li>        FileReader fr = <span class="hljs-keyword">new</span> FileReader(f1);</li><li>        <span class="hljs-comment">//4.搞一个输出的管，怼到目标文件上：</span></li><li>        FileWriter fw = <span class="hljs-keyword">new</span> FileWriter(f2);</li><li></li><li>        <span class="hljs-comment">//5.开始动作：</span></li><li>        <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//方式1：一个字符一个字符的复制：</span></li><li>        <span class="hljs-comment">/*int n = fr.read();</span></li><li>        while(n!=-1){</li><li>            fw.write(n);</li><li>            n = fr.read();</li><li>        }*/</li><li></li><li>        <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//方式2：利用缓冲字符数组：</span></li><li>        <span class="hljs-comment">/*char[] ch = new char[5];</span></li><li>        int len = fr.read(ch);</li><li>        while(len!=-1){</li><li>            fw.write(ch,0,len);//将缓冲数组中有效长度写出</li><li>            len = fr.read(ch);</li><li>        }*/</li><li>        <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//方式3：利用缓冲字符数组，将数组转为String写出。</span></li><li>        <span class="hljs-keyword">char</span>[] ch = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">5</span>];</li><li>        <span class="hljs-keyword">int</span> len = fr.<span class="hljs-built_in">read</span>(ch);</li><li>        <span class="hljs-built_in">while</span>(len!=<span class="hljs-number">-1</span>){</li><li>            <span class="hljs-keyword">String</span> s = <span class="hljs-keyword">new</span> <span class="hljs-keyword">String</span>(ch,<span class="hljs-number">0</span>,len);</li><li>            fw.<span class="hljs-built_in">write</span>(s);</li><li>            len = fr.<span class="hljs-built_in">read</span>(ch);</li><li>        }</li><li></li><li>        <span class="hljs-comment">//6.关闭流：(关闭流的时候，倒着关闭，后用先关)</span></li><li>        fw.<span class="hljs-built_in">close</span>();</li><li>        fr.<span class="hljs-built_in">close</span>();</li><li></li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

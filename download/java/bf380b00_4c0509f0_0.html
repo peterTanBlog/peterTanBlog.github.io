@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>注意事项
+			</div>
+			<div>
+				<ol>
+					<li>int&nbsp; 宽度是显示宽度，如果超过，可以自动增大宽度 int底层都是4个字节
+					</li>
+					<li>时间的方式多样&nbsp; &apos;1256-12-23&apos;&nbsp; &quot;1256/12/23&quot;&nbsp; &quot;1256.12.23&quot;
+					</li>
+					<li>字符串不区分单引号和双引号
+					</li>
+					<li>如何写入当前的时间&nbsp; now() , sysdate() , CURRENT_DATE()
+					</li>
+					<li>char varchar 是字符的个数，不是字节的个数，可以使用binary，varbinary表示定长和不定长的字节个数。
+					</li>
+					<li>如果不是全字段插入数据的话，需要加入字段的名字
+					</li>
+				</ol>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_17535820DCA" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 查看表记录：</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student;</li><li></li><li></li><li><span class="hljs-comment">-- 在t_student数据库表中插入数据：</span></li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">1</span>,<span class="hljs-string">'张三'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-string">'2022-5-8'</span>,<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">10010010</span>,<span class="hljs-string">'张三'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-string">'2022-5-8'</span>,<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">2</span>,<span class="hljs-string">'张三'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-string">'2022.5.8'</span>,<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">2</span>,<span class="hljs-string">"张三"</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-string">'2022.5.8'</span>,<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">7</span>,<span class="hljs-string">"张三"</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-keyword">now</span>(),<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-number">9</span>,<span class="hljs-string">"易烊千玺"</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">18</span>,<span class="hljs-keyword">now</span>(),<span class="hljs-string">'软件1班'</span>,<span class="hljs-string">'123@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student (sno,sname,enterdate) <span class="hljs-keyword">values</span> (<span class="hljs-number">10</span>,<span class="hljs-string">'李四'</span>,<span class="hljs-string">'2023-7-5'</span>);</li><li></li></ol></code></pre>
+					<div><br />
+					</div>
+				</div>
+			</div>
+			<div><br /><br /><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

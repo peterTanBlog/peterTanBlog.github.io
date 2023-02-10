@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171263D6B3F" class="hljs java"><ol><li><span class="hljs-comment">//作为一个父类</span></li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{</li><li>    <span class="hljs-comment">//属性</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;</li><li>    <span class="hljs-keyword">public</span> String name;</li><li></li><li>    <span class="hljs-comment">//方法</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"Person---eat"</span>);</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"Person---sleep"</span>);</li><li>    }</li><li>}</li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_171263D91D0" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test03;</li><li></li><li><span class="hljs-comment">//Student作为子类</span></li><li><span class="hljs-meta">@MyAnnotation</span>(value=<span class="hljs-string">"hello"</span>)</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MyInterface</span></span>{</li><li>    <span class="hljs-comment">//属性：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> sno;<span class="hljs-comment">//学号</span></li><li>    <span class="hljs-keyword">double</span> height;<span class="hljs-comment">//身高</span></li><li>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">double</span> weight;<span class="hljs-comment">//体重</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> score;<span class="hljs-comment">//成绩</span></li><li></li><li>    <span class="hljs-comment">//方法：</span></li><li>    <span class="hljs-meta">@MyAnnotation</span>(value=<span class="hljs-string">"himethod"</span>)</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showInfo</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"我是一名三好学生"</span>;</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showInfo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"重载方法====我是一名三好学生"</span>;</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"我以后会找工作--》成为码农  程序员 程序猿  程序媛"</span>);</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">happy</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"做人最重要的就是开心每一天"</span>);</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getSno</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-keyword">return</span> sno;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//构造器</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"空参构造器"</span>);</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Student</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sno)</span></span>{</li><li>        <span class="hljs-keyword">this</span>.sno = sno;</li><li>    }</li><li>    Student(<span class="hljs-keyword">int</span> sno,<span class="hljs-keyword">double</span> weight){</li><li>        <span class="hljs-keyword">this</span>.sno = sno;</li><li>        <span class="hljs-keyword">this</span>.weight = weight;</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">Student</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sno,<span class="hljs-keyword">double</span> height,<span class="hljs-keyword">double</span> weight)</span></span>{</li><li>        <span class="hljs-keyword">this</span>.sno = sno;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-meta">@MyAnnotation</span>(value=<span class="hljs-string">"hellomyMethod"</span>)</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">myMethod</span><span class="hljs-params">()</span> </span>{</li><li>        System.out.println(<span class="hljs-string">"我重写了myMethod方法。。"</span>);</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Student{"</span> +</li><li>                <span class="hljs-string">"sno="</span> + sno +</li><li>                <span class="hljs-string">", height="</span> + height +</li><li>                <span class="hljs-string">", weight="</span> + weight +</li><li>                <span class="hljs-string">", score="</span> + score +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171263DC884" class="hljs kotlin"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test03;</li><li></li><li><span class="hljs-keyword">import</span> java.lang.<span class="hljs-keyword">annotation</span>.Retention;</li><li><span class="hljs-keyword">import</span> java.lang.<span class="hljs-keyword">annotation</span>.RetentionPolicy;</li><li><span class="hljs-keyword">import</span> java.lang.<span class="hljs-keyword">annotation</span>.Target;</li><li></li><li><span class="hljs-keyword">import</span> static java.lang.<span class="hljs-keyword">annotation</span>.ElementType.*;</li><li><span class="hljs-keyword">import</span> static java.lang.<span class="hljs-keyword">annotation</span>.ElementType.LOCAL_VARIABLE;</li><li><span class="hljs-comment">/*</span></li><li>@Target:定义当前注解能够修饰程序中的哪些元素</li><li>@Retention:定义注解的声明周期</li><li> */</li><li><span class="hljs-meta">@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})</span></li><li><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span></li><li><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> MyAnnotation {</li><li>    String value();<span class="hljs-comment">//属性</span></li><li>}</li><li></li><li></li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171263DECB5" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test03;</li><li></li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MyInterface</span> </span>{<span class="hljs-comment">//自定义的接口</span></li><li>    <span class="hljs-comment">//随便定义一个抽象方法：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">myMethod</span><span class="hljs-params">()</span></span>;</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

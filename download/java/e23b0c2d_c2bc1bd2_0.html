@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>一个字符一个字符的将文件中的内容读取到程序中了：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172EA5F4E49" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.msb.io01;</li><li></li><li><span class="hljs-keyword">import</span> java.io.<span class="hljs-keyword">File</span>;</li><li><span class="hljs-keyword">import</span> java.io.FileNotFoundException;</li><li><span class="hljs-keyword">import</span> java.io.FileReader;</li><li><span class="hljs-keyword">import</span> java.io.IOException;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test01 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> IOException {</li><li>        <span class="hljs-comment">//文件--》程序：</span></li><li>        <span class="hljs-comment">//1.有一个文件：----》创建一个File类的对象</span></li><li>        <span class="hljs-keyword">File</span> f = <span class="hljs-keyword">new</span> <span class="hljs-keyword">File</span>(<span class="hljs-string">"d:\\Test.txt"</span>);</li><li>        <span class="hljs-comment">//2.利用FileReader这个流，这个“管”怼到源文件上去   ---》创建一个FileReader的流的对象</span></li><li>        FileReader fr = <span class="hljs-keyword">new</span> FileReader(f);</li><li>        <span class="hljs-comment">//3.进行操作“吸”的动作  ---》读取动作</span></li><li>        <span class="hljs-comment">/*下面的代码我们验证了：如果到了文件的结尾处，那么读取的内容为-1</span></li><li>        int n1 = fr.read();</li><li>        int n2 = fr.read();</li><li>        int n3 = fr.read();</li><li>        int n4 = fr.read();</li><li>        int n5 = fr.read();</li><li>        int n6 = fr.read();</li><li>        System.out.println(n1);</li><li>        System.out.println(n2);</li><li>        System.out.println(n3);</li><li>        System.out.println(n4);</li><li>        System.out.println(n5);</li><li>        System.out.println(n6);*/</li><li>        <span class="hljs-comment">//方式1：</span></li><li>        <span class="hljs-comment">/*int n = fr.read();</span></li><li>        while(n!=-1){</li><li>            System.out.println(n);</li><li>            n = fr.read();</li><li>        }*/</li><li></li><li>        <span class="hljs-comment">//方式2：</span></li><li>        <span class="hljs-keyword">int</span> n;</li><li>        <span class="hljs-keyword">while</span>((n = fr.<span class="hljs-keyword">read</span>())!=-<span class="hljs-number">1</span>){</li><li>            System.out.<span class="hljs-keyword">println</span>((<span class="hljs-keyword">char</span>)n);</li><li>        }</li><li></li><li>        <span class="hljs-comment">//4.“管”不用了，就要关闭  ---》关闭流</span></li><li>        <span class="hljs-comment">//流，数据库，网络资源，靠jvm本身没有办法帮我们关闭，此时必须程序员手动关闭：</span></li><li>        fr.close();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>想一次性读取五个字符，不够的话下次再读五个字符：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172EA862E3D" class="hljs arduino"><ol><li>package com.msb.io01;</li><li></li><li><span class="hljs-keyword">import</span> java.io.<span class="hljs-built_in">File</span>;</li><li><span class="hljs-keyword">import</span> java.io.FileReader;</li><li><span class="hljs-keyword">import</span> java.io.IOException;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test02 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//文件--》程序：</span></li><li>        <span class="hljs-comment">//1.创建一个File类的对象</span></li><li>        <span class="hljs-built_in">File</span> f = <span class="hljs-keyword">new</span> <span class="hljs-built_in">File</span>(<span class="hljs-string">"d:\\Test.txt"</span>);</li><li>        <span class="hljs-comment">//2.创建一个FileReader的流的对象</span></li><li>        FileReader fr = <span class="hljs-keyword">new</span> FileReader(f);</li><li>        <span class="hljs-comment">//3.读取动作</span></li><li>        <span class="hljs-comment">//引入一个“快递员的小车”，这个“小车”一次拉5个快递：</span></li><li>        <span class="hljs-keyword">char</span>[] ch = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[<span class="hljs-number">5</span>];//缓冲数组</li><li>        <span class="hljs-keyword">int</span> len = fr.<span class="hljs-built_in">read</span>(ch);<span class="hljs-comment">//一次读取五个:返回值是这个数组中 的有效长度</span></li><li>        <span class="hljs-built_in">while</span>(len!=<span class="hljs-number">-1</span>){</li><li>            <span class="hljs-comment">//System.out.println(len);</span></li><li>            <span class="hljs-comment">//错误方式：</span></li><li>            <span class="hljs-comment">/*for (int i = 0 ;i &lt; ch.length;i++){</span></li><li>                System.out.println(ch[i]);</li><li>            }*/</li><li>            <span class="hljs-comment">//正确方式：</span></li><li>            <span class="hljs-comment">/*for (int i = 0 ;i &lt; len;i++){</span></li><li>                System.out.println(ch[i]);</li><li>            }*/</li><li>            <span class="hljs-comment">//正确方式2：将数组转为String：</span></li><li>            <span class="hljs-keyword">String</span> str = <span class="hljs-keyword">new</span> <span class="hljs-keyword">String</span>(ch,<span class="hljs-number">0</span>,len);</li><li>            System.out.<span class="hljs-built_in">print</span>(str);</li><li>            len = fr.<span class="hljs-built_in">read</span>(ch);</li><li>        }</li><li></li><li></li><li>        <span class="hljs-comment">//4.关闭流</span></li><li>        fr.<span class="hljs-built_in">close</span>();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

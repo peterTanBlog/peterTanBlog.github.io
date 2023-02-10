@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172988624A2" class="hljs d"><ol><li><span class="hljs-keyword">package</span> com.msb.test01;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Scanner;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {</li><li>        <span class="hljs-comment">//实现一个功能：键盘录入两个数，求商：</span></li><li>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请录入第一个数："</span>);</li><li>        <span class="hljs-keyword">if</span>(sc.hasNextInt()){</li><li>            <span class="hljs-keyword">int</span> num1 = sc.nextInt();</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请录入第二个数："</span>);</li><li>            <span class="hljs-keyword">if</span>(sc.hasNextInt()){</li><li>                <span class="hljs-keyword">int</span> num2 = sc.nextInt();</li><li>                <span class="hljs-keyword">if</span>(num2 == <span class="hljs-number">0</span>){</li><li>                    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"对不起，除数不能为0"</span>);</li><li>                }<span class="hljs-keyword">else</span>{</li><li>                    System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"商："</span>+num1/num2);</li><li>                }</li><li>            }<span class="hljs-keyword">else</span>{</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"对不起，你录入的不是int类型的数据！"</span>);</li><li>            }</li><li>        }<span class="hljs-keyword">else</span>{</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"对不起，你录入的不是int类型的数据！"</span>);</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>用if-else堵漏洞的缺点：
+			</div>
+		</div>
+		<div>（1）代码臃肿，业务代码和处理异常的代码混在一起。
+		</div>
+		<div>（2）可读性差
+		</div>
+		<div>（3）程序员需要花费大量的经历来维护这个漏洞
+		</div>
+		<div>（4）程序员很难堵住所有的漏洞。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

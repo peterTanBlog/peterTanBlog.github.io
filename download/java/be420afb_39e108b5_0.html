@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】查询指定位置的元素
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17162E3C65C" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestArray05</span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//查询指定位置的元素</span></li><li>                <span class="hljs-comment">//给定一个数组：</span></li><li>                <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">12</span>,<span class="hljs-number">34</span>,<span class="hljs-number">56</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">10</span>};</li><li>                <span class="hljs-comment">//查找索引为2的位置上对应的元素是什么？</span></li><li>                System.<span class="hljs-keyword">out</span>.println(arr[<span class="hljs-number">2</span>]);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>上面代码体现了数组的一个优点：
+			</div>
+		</div>
+		<div>在按照位置查询的时候，直接一步到位，效率非常高
+		</div>
+		<div><br />
+		</div>
+		<div>【2】查询指定元素的位置--》找出元素对应的索引&nbsp;
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17162EB4326" class="hljs axapta"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestArray06</span></span>{</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args){</li><li>                <span class="hljs-comment">//查询指定元素的位置--》找出元素对应的索引 </span></li><li>                <span class="hljs-comment">//给定一个数组：</span></li><li>                <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">12</span>,<span class="hljs-number">34</span>,<span class="hljs-number">56</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">56</span>};</li><li>                <span class="hljs-comment">//           0  1  2  3 4  5</span></li><li>                </li><li>                <span class="hljs-comment">//功能：查询元素888对应的索引：</span></li><li>                <span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span> = <span class="hljs-number">-1</span>; <span class="hljs-comment">//这个初始值只要不是数组的索引即可</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++){</li><li>                        <span class="hljs-keyword">if</span>(arr[i]==<span class="hljs-number">12</span>){</li><li>                                <span class="hljs-keyword">index</span> = i;<span class="hljs-comment">//只要找到了元素，那么index就变成为i</span></li><li>                                <span class="hljs-keyword">break</span>;<span class="hljs-comment">//只要找到这个元素，循环就停止</span></li><li>                        }</li><li>                }</li><li>                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">index</span>!=<span class="hljs-number">-1</span>){</li><li>                        System.out.println(<span class="hljs-string">"元素对应的索引："</span>+<span class="hljs-keyword">index</span>);</li><li>                }<span class="hljs-keyword">else</span>{<span class="hljs-comment">//index==-1</span></li><li>                        System.out.println(<span class="hljs-string">"查无次数！"</span>);</li><li>                }</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>【3】将查指定元素对应的索引的功能提取为方法：
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17162EEED29" class="hljs axapta"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestArray06</span></span>{</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args){</li><li>                <span class="hljs-comment">//查询指定元素的位置--》找出元素对应的索引 </span></li><li>                <span class="hljs-comment">//给定一个数组：</span></li><li>                <span class="hljs-keyword">int</span>[] arr = {<span class="hljs-number">12</span>,<span class="hljs-number">34</span>,<span class="hljs-number">56</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">56</span>};</li><li>                <span class="hljs-comment">//           0  1  2  3 4  5</span></li><li>                </li><li>                <span class="hljs-comment">//功能：查询元素888对应的索引：</span></li><li>                <span class="hljs-comment">//调用方法：</span></li><li>                <span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span> = getIndex(arr,<span class="hljs-number">999</span>);</li><li>                <span class="hljs-comment">//后续对index的值进行判断：</span></li><li>                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">index</span>!=<span class="hljs-number">-1</span>){</li><li>                        System.out.println(<span class="hljs-string">"元素对应的索引："</span>+<span class="hljs-keyword">index</span>);</li><li>                }<span class="hljs-keyword">else</span>{<span class="hljs-comment">//index==-1</span></li><li>                        System.out.println(<span class="hljs-string">"查无次数！"</span>);</li><li>                }</li><li>        }</li><li>        </li><li>        <span class="hljs-comment">/*</span></li><li>        定义一个方法：查询数组中指定的元素对应的索引：</li><li>        不确定因素：哪个数组，哪个指定元素  （形参）</li><li>        返回值：索引</li><li>        </li><li>        */</li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> getIndex(<span class="hljs-keyword">int</span>[] arr,<span class="hljs-keyword">int</span> ele){</li><li>                <span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span> = <span class="hljs-number">-1</span>; <span class="hljs-comment">//这个初始值只要不是数组的索引即可</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++){</li><li>                        <span class="hljs-keyword">if</span>(arr[i]==ele){</li><li>                                <span class="hljs-keyword">index</span> = i;<span class="hljs-comment">//只要找到了元素，那么index就变成为i</span></li><li>                                <span class="hljs-keyword">break</span>;<span class="hljs-comment">//只要找到这个元素，循环就停止</span></li><li>                        }</li><li>                }</li><li>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">index</span>;</li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

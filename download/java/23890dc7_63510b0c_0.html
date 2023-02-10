@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_173C87362A2" class="hljs processing"><ol><li></li><li><span class="hljs-keyword">public</span> class HashSet&lt;E&gt;{</li><li>    <span class="hljs-comment">//重要属性：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-keyword">HashMap</span>&lt;E,<span class="hljs-keyword">Object</span>&gt; <span class="hljs-built_in">map</span>;</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">Object</span> PRESENT = <span class="hljs-keyword">new</span> <span class="hljs-keyword">Object</span>();</li><li>    <span class="hljs-comment">//构造器：</span></li><li>    <span class="hljs-keyword">public</span> HashSet() {</li><li>        <span class="hljs-built_in">map</span> = <span class="hljs-keyword">new</span> <span class="hljs-keyword">HashMap</span>&lt;&gt;();<span class="hljs-comment">//HashSet底层就是利用HashMap来完成的</span></li><li>    }</li><li>        </li><li>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">boolean</span> <span class="hljs-built_in">add</span>(E e) {</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">map</span>.put(e, PRESENT)==<span class="hljs-keyword">null</span>;</li><li>    }      </li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1729C6C76C9" class="hljs d"><ol><li><span class="hljs-keyword">package</span> com.msb.test01;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Scanner;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test3 {</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {</li><li>        <span class="hljs-comment">//实现一个功能：键盘录入两个数，求商：</span></li><li>        <span class="hljs-keyword">try</span>{</li><li>            Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请录入第一个数："</span>);</li><li>            <span class="hljs-keyword">int</span> num1 = sc.nextInt();</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请录入第二个数："</span>);</li><li>            <span class="hljs-keyword">int</span> num2 = sc.nextInt();</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"商："</span>+num1/num2);</li><li>        }<span class="hljs-keyword">catch</span>(Exception ex){</li><li>            <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//第一种处理：什么都不写，什么都不做</span></li><li></li><li>            <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//第二种处理：输出自定义异常信息</span></li><li>            <span class="hljs-comment">//System.out.println("对不起，你的代码有问题！");</span></li><li></li><li>            <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//第三种处理：打印异常信息：</span></li><li>            <span class="hljs-comment">/*(1)调用toString方法，显示异常的类名（全限定路径）*/</span></li><li>            <span class="hljs-comment">/*System.out.println(ex);</span></li><li>            System.out.println(ex.toString());*/</li><li>            <span class="hljs-comment">/*(2)显示异常描述信息对应的字符串，如果没有就显示null</span></li><li>            System.out.println(ex.getMessage());*/</li><li>            <span class="hljs-comment">/*(3)显示异常的堆栈信息：将异常信息捕获以后，在控制台将异常的效果给我们展示出来，方便我们查看异常*/</span></li><li>           <span class="hljs-comment">/* ex.printStackTrace();*/</span></li><li></li><li>            <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//第四种处理：抛出异常：</span></li><li>            <span class="hljs-keyword">throw</span> ex;</li><li>        }</li><li></li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"----谢谢你使用计算器111"</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

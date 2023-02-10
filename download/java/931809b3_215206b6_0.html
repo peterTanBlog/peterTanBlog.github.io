@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>创建类：
+		</div>
+		<div>
+			<div>（1）属性（field 成员变量）
+			</div>
+			<div>属性用于定义该类或该类对象包含的数据或者说静态特征。属性作用范围是整个类体。
+			</div>
+			<div>属性定义格式：
+			</div>
+			<div>
+				<table style="font-family: 微软雅黑; font-size: 18pt; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; border-top-width: 2px; border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px; width: 759px; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent; ">
+					<tbody>
+						<tr>
+							<td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; ">[修饰符]&nbsp; 属性类型&nbsp; 属性名 = [默认值] ;
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div><br />
+			</div>
+			<div>（2）方法
+			</div>
+			<div>方法用于定义该类或该类实例的行为特征和功能实现。方法是类和对象行为特征的抽象。方法很类似于面向过程中的函数。面向过程中，函数是最基本单位，整个程序由一个个函数调用组成。面向对象中，整个程序的基本单位是类，方法是从属于类和对象的。
+			</div>
+			<div>方法定义格式：
+			</div>
+			<div>
+				<table style="font-family: 微软雅黑; font-size: 18pt; border-collapse: collapse; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; border-top-width: 2px; border-right-width: 1px; border-bottom-width: 2px; border-left-width: 1px; width: 759px; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent; ">
+					<tbody>
+						<tr>
+							<td style="border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; ">
+								<div>[修饰符]&nbsp; 方法返回值类型&nbsp; 方法名(形参列表) {
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; // n条语句
+								</div>
+								<div>}
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>void代表没有返回值；方法的作用：重用代码，封装功能，便于修改
+			</div>
+			<div><br />
+			</div>
+			<div>代码：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_171E96A81CA" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> * 创建类：人类</li><li> */</li><li><span class="hljs-keyword">public</span> class Person {</li><li>    <span class="hljs-comment">//名词---》属性---》成员变量---》放在类中方法外（注意：我们只把有需要的内容写到代码里，不相关的东西不要放在代码中）</span></li><li>    <span class="hljs-built_in">int</span> age ;<span class="hljs-comment">//年龄</span></li><li>    <span class="hljs-keyword">String</span> name;<span class="hljs-comment">//姓名</span></li><li>    <span class="hljs-keyword">double</span> <span class="hljs-built_in">height</span>;<span class="hljs-comment">//身高</span></li><li>    <span class="hljs-keyword">double</span> weight;<span class="hljs-comment">//体重</span></li><li></li><li>    <span class="hljs-comment">//动词---》方法</span></li><li>    <span class="hljs-comment">//吃饭</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> eat(){</li><li>        <span class="hljs-built_in">int</span> num = <span class="hljs-number">10</span>;<span class="hljs-comment">//局部变量：放在方法中</span></li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"我喜欢吃饭"</span>);</li><li>    }</li><li>    <span class="hljs-comment">//睡觉：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> sleep(<span class="hljs-keyword">String</span> address){</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"我在"</span>+address+<span class="hljs-string">"睡觉"</span>);</li><li>    }</li><li>    <span class="hljs-comment">//自我介绍：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> introduce(){</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"我的名字是："</span>+name+<span class="hljs-string">"，我的年龄是："</span>+age+<span class="hljs-string">",我的身高是："</span>+<span class="hljs-built_in">height</span>+<span class="hljs-string">",我的体重是："</span>+weight;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

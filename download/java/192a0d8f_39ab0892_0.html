@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>乘法口诀：
+			</div>
+			<div>1*1=1
+			</div>
+			<div>1*2=2&nbsp;&nbsp; 2*2=4
+			</div>
+			<div>1*3=3&nbsp;&nbsp; 2*3=6&nbsp;&nbsp; 3*3=9
+			</div>
+			<div>1*4=4&nbsp;&nbsp; 2*4=8&nbsp;&nbsp; 3*4=12&nbsp; 4*4=16
+			</div>
+			<div>1*5=5&nbsp;&nbsp; 2*5=10&nbsp; 3*5=15&nbsp; 4*5=20&nbsp; 5*5=25
+			</div>
+			<div>1*6=6&nbsp;&nbsp; 2*6=12&nbsp; 3*6=18&nbsp; 4*6=24&nbsp; 5*6=30&nbsp; 6*6=36
+			</div>
+			<div>1*7=7&nbsp;&nbsp; 2*7=14&nbsp; 3*7=21&nbsp; 4*7=28&nbsp; 5*7=35&nbsp; 6*7=42&nbsp; 7*7=49
+			</div>
+			<div>1*8=8&nbsp;&nbsp; 2*8=16&nbsp; 3*8=24&nbsp; 4*8=32&nbsp; 5*8=40&nbsp; 6*8=48&nbsp; 7*8=56&nbsp; 8*8=64
+			</div>
+			<div>1*9=9&nbsp;&nbsp; 2*9=18&nbsp; 3*9=27&nbsp; 4*9=36&nbsp; 5*9=45&nbsp; 6*9=54&nbsp; 7*9=63&nbsp; 8*9=72&nbsp; 9*9=81
+			</div>
+			<div><br />
+			</div>
+			<div>代码：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_17158A73CA4" class="hljs nimrod"><ol><li>public class <span class="hljs-type">TestFor11</span>{</li><li>    public <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> main(<span class="hljs-type">String</span>[] args){</li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">6</span>=<span class="hljs-number">6</span>   <span class="hljs-number">2</span>*<span class="hljs-number">6</span>=<span class="hljs-number">12</span>  <span class="hljs-number">3</span>*<span class="hljs-number">6</span>=<span class="hljs-number">18</span>  <span class="hljs-number">4</span>*<span class="hljs-number">6</span>=<span class="hljs-number">24</span>  <span class="hljs-number">5</span>*<span class="hljs-number">6</span>=<span class="hljs-number">30</span>  <span class="hljs-number">6</span>*<span class="hljs-number">6</span>=<span class="hljs-number">36</span></li><li>                /*</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"1*6=6"</span>+<span class="hljs-string">"\t"</span>);</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"2*6=12"</span>+<span class="hljs-string">"\t"</span>);</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"3*6=18"</span>+<span class="hljs-string">"\t"</span>);</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"4*6=24"</span>+<span class="hljs-string">"\t"</span>);</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"5*6=30"</span>+<span class="hljs-string">"\t"</span>);</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(<span class="hljs-string">"6*6=36"</span>+<span class="hljs-string">"\t"</span>);</li><li>                </li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">6</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*6="</span>+i*<span class="hljs-number">6</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                </li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">7</span>=<span class="hljs-number">7</span>   <span class="hljs-number">2</span>*<span class="hljs-number">7</span>=<span class="hljs-number">14</span>  <span class="hljs-number">3</span>*<span class="hljs-number">7</span>=<span class="hljs-number">21</span>  <span class="hljs-number">4</span>*<span class="hljs-number">7</span>=<span class="hljs-number">28</span>  <span class="hljs-number">5</span>*<span class="hljs-number">7</span>=<span class="hljs-number">35</span>  <span class="hljs-number">6</span>*<span class="hljs-number">7</span>=<span class="hljs-number">42</span>  <span class="hljs-number">7</span>*<span class="hljs-number">7</span>=<span class="hljs-number">49</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">7</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*7="</span>+i*<span class="hljs-number">7</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                </li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">8</span>=<span class="hljs-number">8</span>   <span class="hljs-number">2</span>*<span class="hljs-number">8</span>=<span class="hljs-number">16</span>  <span class="hljs-number">3</span>*<span class="hljs-number">8</span>=<span class="hljs-number">24</span>  <span class="hljs-number">4</span>*<span class="hljs-number">8</span>=<span class="hljs-number">32</span>  <span class="hljs-number">5</span>*<span class="hljs-number">8</span>=<span class="hljs-number">40</span>  <span class="hljs-number">6</span>*<span class="hljs-number">8</span>=<span class="hljs-number">48</span>  <span class="hljs-number">7</span>*<span class="hljs-number">8</span>=<span class="hljs-number">56</span>  <span class="hljs-number">8</span>*<span class="hljs-number">8</span>=<span class="hljs-number">64</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">8</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*8="</span>+i*<span class="hljs-number">8</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                */</li><li>                </li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">9</span>;j++){</li><li>                        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=j;i++){</li><li>                                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*"</span>+j+<span class="hljs-string">"="</span>+i*j+<span class="hljs-string">"\t"</span>);</li><li>                        }</li><li>                        //换行</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                }</li><li>        }</li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div>1*9=9&nbsp;&nbsp; 2*9=18&nbsp; 3*9=27&nbsp; 4*9=36&nbsp; 5*9=45&nbsp; 6*9=54&nbsp; 7*9=63&nbsp; 8*9=72&nbsp; 9*9=81
+			</div>
+			<div>1*8=8&nbsp;&nbsp; 2*8=16&nbsp; 3*8=24&nbsp; 4*8=32&nbsp; 5*8=40&nbsp; 6*8=48&nbsp; 7*8=56&nbsp; 8*8=64
+			</div>
+			<div>1*7=7&nbsp;&nbsp; 2*7=14&nbsp; 3*7=21&nbsp; 4*7=28&nbsp; 5*7=35&nbsp; 6*7=42&nbsp; 7*7=49
+			</div>
+			<div>1*6=6&nbsp;&nbsp; 2*6=12&nbsp; 3*6=18&nbsp; 4*6=24&nbsp; 5*6=30&nbsp; 6*6=36
+			</div>
+			<div>1*5=5&nbsp;&nbsp; 2*5=10&nbsp; 3*5=15&nbsp; 4*5=20&nbsp; 5*5=25
+			</div>
+			<div>1*4=4&nbsp;&nbsp; 2*4=8&nbsp;&nbsp; 3*4=12&nbsp; 4*4=16
+			</div>
+			<div>1*3=3&nbsp;&nbsp; 2*3=6&nbsp;&nbsp; 3*3=9
+			</div>
+			<div>1*2=2&nbsp;&nbsp; 2*2=4
+			</div>
+			<div>1*1=1
+			</div>
+			<div><br />
+			</div>
+			<div>代码：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_17158A907F1" class="hljs nimrod"><ol><li>public class <span class="hljs-type">TestFor12</span>{</li><li>    public <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> main(<span class="hljs-type">String</span>[] args){</li><li>                </li><li>                /*</li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">8</span>=<span class="hljs-number">8</span>   <span class="hljs-number">2</span>*<span class="hljs-number">8</span>=<span class="hljs-number">16</span>  <span class="hljs-number">3</span>*<span class="hljs-number">8</span>=<span class="hljs-number">24</span>  <span class="hljs-number">4</span>*<span class="hljs-number">8</span>=<span class="hljs-number">32</span>  <span class="hljs-number">5</span>*<span class="hljs-number">8</span>=<span class="hljs-number">40</span>  <span class="hljs-number">6</span>*<span class="hljs-number">8</span>=<span class="hljs-number">48</span>  <span class="hljs-number">7</span>*<span class="hljs-number">8</span>=<span class="hljs-number">56</span>  <span class="hljs-number">8</span>*<span class="hljs-number">8</span>=<span class="hljs-number">64</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">8</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*8="</span>+i*<span class="hljs-number">8</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                </li><li>                </li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">7</span>=<span class="hljs-number">7</span>   <span class="hljs-number">2</span>*<span class="hljs-number">7</span>=<span class="hljs-number">14</span>  <span class="hljs-number">3</span>*<span class="hljs-number">7</span>=<span class="hljs-number">21</span>  <span class="hljs-number">4</span>*<span class="hljs-number">7</span>=<span class="hljs-number">28</span>  <span class="hljs-number">5</span>*<span class="hljs-number">7</span>=<span class="hljs-number">35</span>  <span class="hljs-number">6</span>*<span class="hljs-number">7</span>=<span class="hljs-number">42</span>  <span class="hljs-number">7</span>*<span class="hljs-number">7</span>=<span class="hljs-number">49</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">7</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*7="</span>+i*<span class="hljs-number">7</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                 </li><li>                //<span class="hljs-number">1</span>*<span class="hljs-number">6</span>=<span class="hljs-number">6</span>   <span class="hljs-number">2</span>*<span class="hljs-number">6</span>=<span class="hljs-number">12</span>  <span class="hljs-number">3</span>*<span class="hljs-number">6</span>=<span class="hljs-number">18</span>  <span class="hljs-number">4</span>*<span class="hljs-number">6</span>=<span class="hljs-number">24</span>  <span class="hljs-number">5</span>*<span class="hljs-number">6</span>=<span class="hljs-number">30</span>  <span class="hljs-number">6</span>*<span class="hljs-number">6</span>=<span class="hljs-number">36</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">6</span>;i++){</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*6="</span>+i*<span class="hljs-number">6</span>+<span class="hljs-string">"\t"</span>);</li><li>                }</li><li>                //换行</li><li>                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                </li><li>                </li><li>                </li><li>                </li><li>                */</li><li>                </li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j=<span class="hljs-number">9</span>;j&gt;=<span class="hljs-number">1</span>;j--){</li><li>                        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i=<span class="hljs-number">1</span>;i&lt;=j;i++){</li><li>                                <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.print(i+<span class="hljs-string">"*"</span>+j+<span class="hljs-string">"="</span>+i*j+<span class="hljs-string">"\t"</span>);</li><li>                        }</li><li>                        //换行</li><li>                        <span class="hljs-type">System</span>.<span class="hljs-keyword">out</span>.println();</li><li>                }</li><li>        }</li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

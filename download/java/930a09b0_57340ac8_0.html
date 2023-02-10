@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>【1】什么是方法的重载：
+			</div>
+			<div>方法的重载是指一个类中可以定义多个方法名相同，但参数不同的方法。 调用时，会根据不同的参数自动匹配对应的方法。
+			</div>
+			<div><br />
+			</div>
+			<div>注意本质：重载的方法，实际是完全不同的方法，只是名称相同而已！
+			</div>
+			<div><br />
+			</div>
+			<div>【2】构成方法重载的条件：
+			</div>
+			<div>❀不同的含义：形参类型、形参个数、形参顺序不同
+			</div>
+			<div>❀&emsp;只有返回值不同不构成方法的重载
+			</div>
+			<div>如：int a(String str){}与 void a(String str){}不构成方法重载
+			</div>
+			<div>❀&emsp;只有形参的名称不同，不构成方法的重载
+			</div>
+			<div>如：int a(String str){}与int a(String s){}不构成方法重载
+			</div>
+			<div><br />
+			</div>
+			<div>【3】代码：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_1715DD718A0" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod05</span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//10+20:</span></li><li>                <span class="hljs-keyword">int</span> sum = <span class="hljs-keyword">add</span>(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(sum);</li><li>                </li><li>                <span class="hljs-comment">//20+40+80:</span></li><li>                <span class="hljs-comment">//System.out.println(add(add(20,40),80));</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">add</span>(<span class="hljs-number">20</span>,<span class="hljs-number">40</span>,<span class="hljs-number">80</span>));</li><li>                <span class="hljs-comment">//30+60+90+120:</span></li><li>                <span class="hljs-comment">//System.out.println(add(add(30,60),add(90,120)));</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">add</span>(<span class="hljs-number">30</span>,<span class="hljs-number">60</span>,<span class="hljs-number">90</span>,<span class="hljs-number">120</span>));</li><li>                <span class="hljs-comment">//9.8+4.7:</span></li><li>                <span class="hljs-comment">//System.out.println(add(9.8,4.7));</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">add</span>(<span class="hljs-number">9.8</span>,<span class="hljs-number">4.7</span>));</li><li>        }</li><li>        </li><li>        <span class="hljs-comment">//定义一个方法：两个数相加：两个int类型数据相加</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2</span>)</span>{</li><li>                <span class="hljs-keyword">return</span> num1+num2;</li><li>        }</li><li>        </li><li>        <span class="hljs-comment">//定义一个方法：三个数相加：</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2,<span class="hljs-keyword">int</span> num3</span>)</span>{</li><li>                <span class="hljs-keyword">return</span> num1+num2+num3;</li><li>        }</li><li>        </li><li>        <span class="hljs-comment">//定义一个方法：四个数相加：</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2,<span class="hljs-keyword">int</span> num3,<span class="hljs-keyword">int</span> num4</span>)</span>{</li><li>                <span class="hljs-keyword">return</span> num1+num2+num3+num4;</li><li>        }</li><li>        <span class="hljs-comment">//定义一个方法：两个数相加：两个double类型的数据相加</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> num1,<span class="hljs-keyword">double</span> num2</span>)</span>{</li><li>                <span class="hljs-keyword">return</span> num1+num2;</li><li>        }</li><li>        </li><li>        </li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div>总结：
+			</div>
+			<div>1.方法的重载：在同一个类中，方法名相同，形参列表不同的多个方法，构成了方法的重载。
+			</div>
+			<div>2.方法的重载只跟：方法名和形参列表有关，与修饰符，返回值类型无关。
+			</div>
+			<div>3.注意：形参列表不同指的是什么？
+			</div>
+			<div>（1）个数不同
+			</div>
+			<div>add() &nbsp; add(int num1) &nbsp; add(int num1,int num2)
+			</div>
+			<div>（2）顺序不同
+			</div>
+			<div>add(int num1,double num2) &nbsp; add(double num1,int num2)
+			</div>
+			<div>（3）类型不同
+			</div>
+			<div>add(int num1) &nbsp; add(double num1)
+			</div>
+			<div><br />
+			</div>
+			<div>4.请问下面的方法是否构成了方法的重载？
+			</div>
+			<div>(1)add(int a) &nbsp;和 &nbsp;add(int b) &nbsp; ---&gt;不构成,相当于方法的重复定义
+			</div>
+			<div>(2)public static int add(int a) 和 &nbsp;public static void add(int b) &nbsp;---&gt;不构成
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div>【4】扩充：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_1715DE2D1C8" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod06</span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-keyword">add</span>(<span class="hljs-number">5</span>);</li><li>                <span class="hljs-comment">//级别：byte,short,char--&gt;int--&gt;long--&gt;float---&gt;double</span></li><li>        }</li><li>        </li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">double</span> num1</span>)</span>{</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"------2"</span>);</li><li>        }</li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">float</span> num1</span>)</span>{</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"------3"</span>);</li><li>        }</li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">long</span> num1</span>)</span>{</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"------4"</span>);</li><li>        }</li><li>        <span class="hljs-comment">/*</span></li><li>        public static void add(int num1){</li><li>                System.out.println("------1");</li><li>        }</li><li>        */</li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

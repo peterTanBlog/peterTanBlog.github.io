@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】在什么情况下，try-catch后面的代码不执行？
+		</div>
+		<div>（1）throw抛出异常的情况
+		</div>
+		<div>（2）catch中没有正常的进行异常捕获
+		</div>
+		<div>（3）在try中遇到return
+		</div>
+		<div><br />
+		</div>
+		<div>【2】怎么样才可以将&nbsp;try-catch后面的代码 &nbsp;必须执行？
+		</div>
+		<div>只要将必须执行的代码放入finally中，那么这个代码无论如何一定执行。
+		</div>
+		<div><br />
+		</div>
+		<div>【3】return和finally执行顺序？
+		</div>
+		<div>先执行finally最后执行return
+		</div>
+		<div><br />
+		</div>
+		<div>【4】什么代码会放在finally中呢？
+		</div>
+		<div>关闭数据库资源，关闭IO流资源，关闭socket资源。
+		</div>
+		<div><br />
+		</div>
+		<div>【5】有一句话代码很厉害，它可以让finally中代码不执行!
+		</div>
+		<div><a href="System.exit(0);//终止当前的虚拟机执行">System.exit(0);//终止当前的虚拟机执行</a>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1729C84CCB4" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb.test01;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Scanner;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class Test3 {</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//实现一个功能：键盘录入两个数，求商：</span></li><li>        <span class="hljs-keyword">try</span>{</li><li>            Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"请录入第一个数："</span>);</li><li>            <span class="hljs-built_in">int</span> num1 = sc.nextInt();</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"请录入第二个数："</span>);</li><li>            <span class="hljs-built_in">int</span> num2 = sc.nextInt();</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"商："</span>+num1/num2);</li><li>            System.<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<span class="hljs-comment">//终止当前的虚拟机执行</span></li><li>            <span class="hljs-keyword">return</span>;</li><li>        }<span class="hljs-keyword">catch</span>(ArithmeticException ex){</li><li>            <span class="hljs-comment">//throw ex;</span></li><li>        }<span class="hljs-keyword">finally</span> {</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"----谢谢你使用计算器111"</span>);</li><li>        }</li><li></li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

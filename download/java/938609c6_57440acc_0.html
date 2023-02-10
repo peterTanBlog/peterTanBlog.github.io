@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>【1】数组的定义
+			</div>
+			<div>数组是相同类型数据的有序集合。数组描述的是相同类型的若干个数据，按照一定的先后次序排列组合而成。其中，每一个数据称作一个元素，每个元素可以通过一个索引（下标）来访问它们。
+			</div>
+			<div>数组的四个基本特点：
+			</div>
+			<div>1.<span style="color: #ff6600">长度是确定的</span>。数组一旦被创建，它的大小就是不可以改变的。 
+			</div>
+			<div>2.其元素的类型必须是相同类型，不允许出现混合类型。
+			</div>
+			<div>3.数组类型可以是任何数据类型，包括基本类型和引用类型。
+			</div>
+			<div>4.数组有索引的：索引从0开始，到 数组.length-1 结束&nbsp;
+			</div>
+			<div><span style="background-color: rgb(192, 192, 192);">5.数组变量属于引用类型，数组也是对象。</span>
+			</div>
+		</div>
+		<div>
+			<div><span style="background-color: rgb(192, 192, 192);">PS:数组变量属于引用类型，数组也是对象，数组中的每个元素相当于该对象的成员变量。数组本身就是对象，Java中对象是在堆中的，因此数组无论保存原始类型还是其他对象类型，数组对象本身是在堆中存储的。</span>
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>【2】数组的学习：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1715E78DB01" class="hljs lsl"><ol><li>public class TestArray02{</li><li>    public static void main(String[] args){</li><li>                <span class="hljs-comment">//数组的作用：用来存储相同类型的数据</span></li><li>                <span class="hljs-comment">//以int类型数据为案例：数组用来存储int类型数据</span></li><li>                <span class="hljs-comment">//<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">1.声明</span>(定义数组)</span></li><li>                int[] arr; <span class="hljs-comment">//定义一个int类型的数组，名字叫arr</span></li><li>                <span class="hljs-comment">//int arr2[];</span></li><li>                <span class="hljs-comment">//如果数组只声明，没有后续操作，那么这个数组相当于没定义</span></li><li>                <span class="hljs-comment">//int[] arr3 = null;//空 辨别：数组赋值为null和什么都没有赋值  不一样的效果 </span></li><li>                </li><li>                <span class="hljs-comment">//<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">2.创建</span></span></li><li>                arr = new int[<span class="hljs-number">4</span>];<span class="hljs-comment">//给数组开辟了一个长度为4的空间</span></li><li>                <span class="hljs-comment">//编译期声明和创建会被合为一句话: int[] arr = new int[4];</span></li><li>                </li><li>                <span class="hljs-comment">//<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">3.赋值</span></span></li><li>                arr[<span class="hljs-number">0</span>] = <span class="hljs-number">12</span>;</li><li>                arr[<span class="hljs-number">3</span>] = <span class="hljs-number">47</span>;</li><li>                arr[<span class="hljs-number">2</span>] = <span class="hljs-number">98</span>;</li><li>                arr[<span class="hljs-number">1</span>] = <span class="hljs-number">56</span>;</li><li>                arr[<span class="hljs-number">2</span>] = <span class="hljs-number">66</span>;</li><li>                <span class="hljs-comment">/*</span></li><li>                arr[4] = 93;</li><li>                出现异常：Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 4</li><li>                Array 数组</li><li>                Index 索引</li><li>                OutOf 超出</li><li>                Bounds 界限</li><li>                Exception 异常</li><li>                ---》数组索引越界异常  </li><li>                */</li><li>        </li><li>                <span class="hljs-comment">//<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">4.使用</span></span></li><li>                System.out.println(arr[<span class="hljs-number">2</span>]);</li><li>                System.out.println(arr[<span class="hljs-number">0</span>]+<span class="hljs-number">100</span>);</li><li>                <span class="hljs-comment">//通过数组一个属性来获取  length 长度</span></li><li>                System.out.println(<span class="hljs-string">"数组的长度是："</span>+arr.length);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

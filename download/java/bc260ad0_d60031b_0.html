@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172B1A1E07B" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb.test02;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Calendar;</li><li><span class="hljs-keyword">import</span> java.util.GregorianCalendar;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class Test06 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//Calendar是一个抽象类，不可以直接创建对象</span></li><li>        <span class="hljs-comment">//GregorianCalendar()子类 extends Calendar（父类是一个抽象类）</span></li><li>        Calendar cal = <span class="hljs-keyword">new</span> GregorianCalendar();</li><li>        Calendar cal2 = Calendar.getInstance();</li><li>        System.out.<span class="hljs-built_in">println</span>(cal);</li><li></li><li>        <span class="hljs-comment">//常用的方法：</span></li><li>        <span class="hljs-comment">// get方法，传入参数：Calendar中定义的常量</span></li><li>        System.out.<span class="hljs-built_in">println</span>(cal.<span class="hljs-built_in">get</span>(Calendar.YEAR));</li><li>        System.out.<span class="hljs-built_in">println</span>(cal.<span class="hljs-built_in">get</span>(Calendar.MONTH));</li><li>        System.out.<span class="hljs-built_in">println</span>(cal.<span class="hljs-built_in">get</span>(Calendar.DATE));</li><li>        System.out.<span class="hljs-built_in">println</span>(cal.<span class="hljs-built_in">get</span>(Calendar.DAY_OF_WEEK));</li><li>        System.out.<span class="hljs-built_in">println</span>(cal.getActualMaximum(Calendar.DATE));<span class="hljs-comment">//获取当月日期的最大天数</span></li><li>        System.out.<span class="hljs-built_in">println</span>(cal.getActualMinimum(Calendar.DATE));<span class="hljs-comment">//获取当月日期的最小天数</span></li><li></li><li>        <span class="hljs-comment">// set方法：可以改变Calendar中的内容</span></li><li>        cal.<span class="hljs-built_in">set</span>(Calendar.YEAR,<span class="hljs-number">1990</span>);</li><li>        cal.<span class="hljs-built_in">set</span>(Calendar.MONTH,<span class="hljs-number">3</span>);</li><li>        cal.<span class="hljs-built_in">set</span>(Calendar.DATE,<span class="hljs-number">16</span>);</li><li>        System.out.<span class="hljs-built_in">println</span>(cal);</li><li></li><li>        <span class="hljs-comment">//String---&gt;Calendar:</span></li><li>        <span class="hljs-comment">//分解：</span></li><li>        <span class="hljs-comment">//String---&gt;java.sql.Date:</span></li><li>        java.sql.Date date = java.sql.Date.valueOf(<span class="hljs-string">"2020-4-5"</span>);</li><li>        <span class="hljs-comment">//java.sql.Date--&gt;Calendar:</span></li><li>        cal.setTime(date);</li><li>        System.out.<span class="hljs-built_in">println</span>(cal);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

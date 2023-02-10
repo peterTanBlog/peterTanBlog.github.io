@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172B6DC2239" class="hljs gauss"><ol><li>package com.msb.test02;</li><li></li><li>import java.<span class="hljs-built_in">time</span>.LocalDateTime;</li><li>import java.<span class="hljs-built_in">time</span>.<span class="hljs-keyword">format</span>.DateTimeFormatter;</li><li>import java.<span class="hljs-built_in">time</span>.<span class="hljs-keyword">format</span>.FormatStyle;</li><li>import java.<span class="hljs-built_in">time</span>.temporal.TemporalAccessor;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li>public class Test10 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    public static void main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//格式化类：DateTimeFormatter</span></li><li></li><li>        <span class="hljs-comment">//方式一:预定义的标准格式。如: ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;IS0_LOCAL_TIME</span></li><li>        DateTimeFormatter df1 = DateTimeFormatter.ISO_LOCAL_DATE_TIME;</li><li>        <span class="hljs-comment">//df1就可以帮我们完成LocalDateTime和String之间的相互转换：</span></li><li>        <span class="hljs-comment">//LocalDateTime--&gt;String:</span></li><li>        LocalDateTime now = LocalDateTime.now();</li><li>        <span class="hljs-keyword">String</span> str = df1.<span class="hljs-keyword">format</span>(now);</li><li>        <span class="hljs-keyword">System</span>.out.println(str);<span class="hljs-comment">//2020-06-15T15:02:51.29</span></li><li></li><li>        <span class="hljs-comment">//String---&gt;LocalDateTime</span></li><li>        TemporalAccessor <span class="hljs-built_in">parse</span> = df1.<span class="hljs-built_in">parse</span>(<span class="hljs-string">"2020-06-15T15:02:51.29"</span>);</li><li>        <span class="hljs-keyword">System</span>.out.println(<span class="hljs-built_in">parse</span>);</li><li></li><li></li><li>        <span class="hljs-comment">//方式二:本地化相关的格式。如: oflocalizedDateTime()</span></li><li>        <span class="hljs-comment">//参数：FormatStyle.LONG / FormatStyle.MEDIUM / FormatStyle.SHORT</span></li><li>        <span class="hljs-comment">//FormatStyle.LONG :2020年6月15日 下午03时17分13秒</span></li><li>        <span class="hljs-comment">//FormatStyle.MEDIUM: 2020-6-15 15:17:42</span></li><li>        <span class="hljs-comment">//FormatStyle.SHORT:20-6-15 下午3:18</span></li><li>        DateTimeFormatter df2 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);</li><li>        <span class="hljs-comment">//LocalDateTime--&gt;String:</span></li><li>        LocalDateTime now1 = LocalDateTime.now();</li><li>        <span class="hljs-keyword">String</span> str2 = df2.<span class="hljs-keyword">format</span>(now1);</li><li>        <span class="hljs-keyword">System</span>.out.println(str2);</li><li></li><li>        <span class="hljs-comment">//String---&gt;LocalDateTime</span></li><li>        TemporalAccessor parse1 = df2.<span class="hljs-built_in">parse</span>(<span class="hljs-string">"20-6-15 下午3:18"</span>);</li><li>        <span class="hljs-keyword">System</span>.out.println(parse1);</li><li></li><li>        <span class="hljs-comment">//方式三: 自定义的格式。如: ofPattern( "yyyy-MM-dd hh:mm:ss") ---》重点，以后常用</span></li><li>        DateTimeFormatter df3 = DateTimeFormatter.ofPattern(<span class="hljs-string">"yyyy-MM-dd hh:mm:ss"</span>);</li><li>        <span class="hljs-comment">//LocalDateTime--&gt;String:</span></li><li>        LocalDateTime now2 = LocalDateTime.now();</li><li>        <span class="hljs-keyword">String</span> <span class="hljs-keyword">format</span> = df3.<span class="hljs-keyword">format</span>(now2);</li><li>        <span class="hljs-keyword">System</span>.out.println(<span class="hljs-keyword">format</span>);<span class="hljs-comment">//2020-06-15 03:22:03</span></li><li>        <span class="hljs-comment">//String---&gt;LocalDateTime</span></li><li>        TemporalAccessor parse2 = df3.<span class="hljs-built_in">parse</span>(<span class="hljs-string">"2020-06-15 03:22:03"</span>);</li><li>        <span class="hljs-keyword">System</span>.out.println(parse2);</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

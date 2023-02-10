@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】sql展示：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1756406F81E" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 创建表：</span></li><li><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_student(</li><li>        sno <span class="hljs-built_in">int</span>(<span class="hljs-number">6</span>) primary <span class="hljs-keyword">key</span> auto_increment, </li><li>        sname <span class="hljs-built_in">varchar</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>, </li><li>        sex <span class="hljs-built_in">char</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">default</span> <span class="hljs-string">'男'</span> <span class="hljs-keyword">check</span>(sex=<span class="hljs-string">'男'</span> || sex=<span class="hljs-string">'女'</span>),</li><li>        age <span class="hljs-built_in">int</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">check</span>(age&gt;=<span class="hljs-number">18</span> <span class="hljs-keyword">and</span> age&lt;=<span class="hljs-number">50</span>),</li><li>        enterdate <span class="hljs-built_in">date</span>,</li><li>        classname <span class="hljs-built_in">varchar</span>(<span class="hljs-number">10</span>),</li><li>        email <span class="hljs-built_in">varchar</span>(<span class="hljs-number">15</span>) <span class="hljs-keyword">unique</span></li><li>);</li><li><span class="hljs-comment">-- 添加数据：</span></li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-literal">null</span>,<span class="hljs-string">'张三'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">21</span>,<span class="hljs-string">'2023-9-1'</span>,<span class="hljs-string">'java01班'</span>,<span class="hljs-string">'zs@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-literal">null</span>,<span class="hljs-string">'李四'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">21</span>,<span class="hljs-string">'2023-9-1'</span>,<span class="hljs-string">'java01班'</span>,<span class="hljs-string">'ls@126.com'</span>);</li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> t_student <span class="hljs-keyword">values</span> (<span class="hljs-literal">null</span>,<span class="hljs-string">'露露'</span>,<span class="hljs-string">'男'</span>,<span class="hljs-number">21</span>,<span class="hljs-string">'2023-9-1'</span>,<span class="hljs-string">'java01班'</span>,<span class="hljs-string">'ll@126.com'</span>);</li><li></li><li><span class="hljs-comment">-- 查看学生表：</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student;</li><li></li><li><span class="hljs-comment">-- 添加一张表：快速添加：结构和数据跟t_student 都是一致的</span></li><li><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_student2</li><li><span class="hljs-keyword">as</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student;</li><li></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student2;</li><li></li><li></li><li><span class="hljs-comment">-- 快速添加，结构跟t_student一致，数据没有：</span></li><li><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_student3</li><li><span class="hljs-keyword">as</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student <span class="hljs-keyword">where</span> <span class="hljs-number">1</span>=<span class="hljs-number">2</span>;</li><li></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student3;</li><li></li><li><span class="hljs-comment">-- 快速添加：只要部分列，部分数据：</span></li><li><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> t_student4</li><li><span class="hljs-keyword">as</span></li><li><span class="hljs-keyword">select</span> sno,sname,age <span class="hljs-keyword">from</span> t_student <span class="hljs-keyword">where</span> sno = <span class="hljs-number">2</span>;</li><li></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> t_student4;</li><li></li><li><span class="hljs-comment">-- 删除数据操作 :清空数据</span></li><li><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> t_student;</li><li><span class="hljs-keyword">truncate</span> <span class="hljs-keyword">table</span> t_student;</li><li></li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>【2】delete和truncate的区别：
+		</div>
+		<div>
+			<div>从最终的结果来看，虽然使用TRUNCATE操作和使用DELETE操作都可以删除表中的全部记录，但是两者还是有很多区别的，其区别主要体现在以下几个方面： 
+			</div>
+			<div>(1)DELETE为数据操作语言DML；TRUNCATE为数据定义语言DDL。 
+			</div>
+			<div>(2) DELETE操作是将表中所有记录一条一条删除直到删除完；TRUNCATE操作则是保留了表的结构，重新创建了这个表，所有的状态都相当于新表。因此，TRUNCATE操作的效率更高。 
+			</div>
+			<div>(3)DELETE操作可以回滚；TRUNCATE操作会导致隐式提交，因此不能回滚（在第十章中会讲解事务的提交和回滚）。 
+			</div>
+			<div>(4)DELETE操作执行成功后会返回已删除的行数（如删除4行记录，则会显示“Affected rows：4”）；截断操作不会返回已删除的行量，结果通常是“Affected rows：0”。DELETE操作删除表中记录后，再次向表中添加新记录时，对于设置有自增约束字段的值会从删除前表中该字段的最大值加1开始自增；TRUNCATE操作则会重新从1开始自增。
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

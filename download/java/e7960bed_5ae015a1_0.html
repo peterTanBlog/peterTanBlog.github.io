@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>封装的User类：
+		</div>
+		<div>
+			<pre>
+<code id="ID_1730419377F" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test03;</li><li></li><li><span class="hljs-keyword">import</span> java.io.Serializable;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-title">User</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span></span> </span>{</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">9050691344308365540L</span>;</li><li>    <span class="hljs-keyword">private</span> String name;</li><li>    <span class="hljs-keyword">private</span> String pwd;</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPwd</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> pwd;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setPwd</span><span class="hljs-params">(String pwd)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.pwd = pwd;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">User</span><span class="hljs-params">(String name, String pwd)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>        <span class="hljs-keyword">this</span>.pwd = pwd;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>客户端：
+		</div>
+		<div>
+			<pre>
+<code id="ID_17304197352" class="hljs arduino"><ol><li>package com.msb.test03;</li><li></li><li><span class="hljs-keyword">import</span> java.io.*;</li><li><span class="hljs-keyword">import</span> java.net.Socket;</li><li><span class="hljs-keyword">import</span> java.util.Scanner;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> TestClient {<span class="hljs-comment">//客户端</span></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//1.创建套接字：指定服务器的ip和端口号：</span></li><li>        Socket s = <span class="hljs-keyword">new</span> Socket(<span class="hljs-string">"192.168.199.217"</span>,<span class="hljs-number">8888</span>);</li><li></li><li>        <span class="hljs-comment">//录入用户的账号和密码：</span></li><li>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"请录入您的账号："</span>);</li><li>        <span class="hljs-keyword">String</span> name = sc.next();</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"请录入您的密码："</span>);</li><li>        <span class="hljs-keyword">String</span> pwd = sc.next();</li><li>        <span class="hljs-comment">//将账号和密码封装为一个User的对象：</span></li><li>        User user = <span class="hljs-keyword">new</span> User(name,pwd);</li><li></li><li></li><li>        <span class="hljs-comment">//2.对于程序员来说，向外发送数据 感受 --》利用输出流：</span></li><li>        OutputStream os = s.getOutputStream();</li><li>        ObjectOutputStream oos = <span class="hljs-keyword">new</span> ObjectOutputStream(os);</li><li>        oos.writeObject(user);</li><li></li><li></li><li>        <span class="hljs-comment">//接收服务器端的回话--》利用输入流：</span></li><li>        InputStream is = s.getInputStream();</li><li>        DataInputStream dis = <span class="hljs-keyword">new</span> DataInputStream(is);</li><li>        <span class="hljs-keyword">boolean</span> b = dis.readBoolean();</li><li>        <span class="hljs-built_in">if</span>(b){</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"恭喜，登录成功"</span>);</li><li>        }<span class="hljs-built_in">else</span>{</li><li>            System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"对不起，登录失败"</span>);</li><li>        }</li><li></li><li>        <span class="hljs-comment">//3.关闭流  +  关闭网络资源：</span></li><li>        dis.<span class="hljs-built_in">close</span>();</li><li>        is.<span class="hljs-built_in">close</span>();</li><li>        oos.<span class="hljs-built_in">close</span>();</li><li>        os.<span class="hljs-built_in">close</span>();</li><li>        s.<span class="hljs-built_in">close</span>();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>服务器：
+			</div>
+		</div>
+		<div>
+			<pre>
+<code id="ID_1730419962F" class="hljs pony"><ol><li>package com.msb.test03;</li><li></li><li>import java.io.*;</li><li>import java.net.<span class="hljs-type">ServerSocket</span>;</li><li>import java.net.<span class="hljs-type">Socket</span>;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestServer</span> {<span class="hljs-comment">//服务器</span></span></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    public static void main(<span class="hljs-type">String</span>[] args) throws <span class="hljs-type">IOException</span>, <span class="hljs-type">ClassNotFoundException</span> {</li><li>        <span class="hljs-comment">//1.创建套接字： 指定服务器的端口号</span></li><li>        <span class="hljs-type">ServerSocket</span> ss = <span class="hljs-function"><span class="hljs-keyword">new</span> <span class="hljs-title">ServerSocket</span>(<span class="hljs-number">8888</span>);</span></li><li>        <span class="hljs-comment">//2.等着客户端发来的信息：</span></li><li>        <span class="hljs-title">Socket</span> <span class="hljs-title">s</span> = <span class="hljs-title">ss</span>.<span class="hljs-title">accept</span>();<span class="hljs-comment">//阻塞方法:等待接收客户端的数据，什么时候接收到数据，什么时候程序继续向下执行。</span></li><li>        <span class="hljs-comment">//accept()返回值为一个Socket，这个Socket其实就是客户端的Socket</span></li><li>        <span class="hljs-comment">//接到这个Socket以后，客户端和服务器才真正产生了连接，才真正可以通信了</span></li><li>        <span class="hljs-comment">//3.感受到的操作流：</span></li><li>        <span class="hljs-title">InputStream</span> <span class="hljs-title">is</span> = <span class="hljs-title">s</span>.<span class="hljs-title">getInputStream</span>();</li><li>        <span class="hljs-title">ObjectInputStream</span> <span class="hljs-title">ois</span> = <span class="hljs-title">new</span> <span class="hljs-title">ObjectInputStream</span>(is);</li><li></li><li>        <span class="hljs-comment">//4.读取客户端发来的数据：</span></li><li>        <span class="hljs-title">User</span> <span class="hljs-title">user</span> = (<span class="hljs-type">User</span>)(ois.readObject());</li><li></li><li>        <span class="hljs-comment">//对对象进行验证：</span></li><li>        <span class="hljs-title">boolean</span> <span class="hljs-title">flag</span> = <span class="hljs-title">false</span>;</li><li>        <span class="hljs-title">if</span>(user.getName().<span class="hljs-title">equals</span>("娜娜")&amp;&amp;<span class="hljs-title">user</span>.<span class="hljs-title">getPwd</span>().<span class="hljs-title">equals</span>("<span class="hljs-number">123123</span>")){</li><li>            <span class="hljs-title">flag</span> = <span class="hljs-title">true</span>;</li><li>        }</li><li></li><li>        <span class="hljs-comment">//向客户端输出结果：---》操作流---》输出流</span></li><li>        <span class="hljs-title">OutputStream</span> <span class="hljs-title">os</span> = <span class="hljs-title">s</span>.<span class="hljs-title">getOutputStream</span>();</li><li>        <span class="hljs-title">DataOutputStream</span> <span class="hljs-title">dos</span> = <span class="hljs-title">new</span> <span class="hljs-title">DataOutputStream</span>(os);</li><li>        <span class="hljs-title">dos</span>.<span class="hljs-title">writeBoolean</span>(flag);</li><li></li><li></li><li>        <span class="hljs-comment">//5.关闭流+关闭网络资源：</span></li><li>        <span class="hljs-title">dos</span>.<span class="hljs-title">close</span>();</li><li>        <span class="hljs-title">os</span>.<span class="hljs-title">close</span>();</li><li>        <span class="hljs-title">ois</span>.<span class="hljs-title">close</span>();</li><li>        <span class="hljs-title">is</span>.<span class="hljs-title">close</span>();</li><li>        <span class="hljs-title">s</span>.<span class="hljs-title">close</span>();</li><li>        <span class="hljs-title">ss</span>.<span class="hljs-title">close</span>();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>自定义的异常可以继承：运行时异常
+			</div>
+			<pre>
+<code id="ID_1729DC4DB34" class="hljs scala"><ol><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyException</span> <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-keyword">extends</span> <span class="hljs-title">RuntimeException</span> </span></span>{</li><li>    </li><li>    static <span class="hljs-keyword">final</span> long serialVersionUID = <span class="hljs-number">-70348971907</span>L;</li><li>    </li><li>    public <span class="hljs-type">MyException</span>(){</li><li></li><li>    }</li><li>    public <span class="hljs-type">MyException</span>(<span class="hljs-type">String</span> msg){</li><li>        <span class="hljs-keyword">super</span>(msg);</li><li>    }</li><li>}</li></ol></code></pre>
+			<div>也可以继承检查异常：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1729DC7BCAB" class="hljs scala"><ol><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyException</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span> </span>{</li><li></li><li>    static <span class="hljs-keyword">final</span> long serialVersionUID = <span class="hljs-number">-70348971907</span>L;</li><li></li><li>    public <span class="hljs-type">MyException</span>(){</li><li></li><li>    }</li><li>    public <span class="hljs-type">MyException</span>(<span class="hljs-type">String</span> msg){</li><li>        <span class="hljs-keyword">super</span>(msg);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>如果继承的是运行时异常，那么在使用的时候无需额外处理
+			</div>
+		</div>
+		<div>如果继承的是检查异常，那么使用的时候需要try-catch捕获或者throws向上抛
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

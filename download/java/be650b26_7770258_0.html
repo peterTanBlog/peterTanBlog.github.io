@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】/ &nbsp; 除法运算符 ： 表示两个数相除运算 &nbsp;
+		</div>
+		<div>&nbsp; &nbsp; &nbsp;% &nbsp; 取余运算符： 用来求余数的
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1713A1F380C" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestOpe01</span>{</li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//打印结果：</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-number">12</span>/<span class="hljs-number">3</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-number">12</span>%<span class="hljs-number">5</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-number">12</span>/<span class="hljs-number">3.0</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-number">12</span>%<span class="hljs-number">5.0</span>);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>【2】练习：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1713A2773E8" class="hljs cs"><ol><li>import java.util.Scanner;</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestOpe02</span>{</li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//实现功能：任意给出一个四位数，求出每位上的数字并输出</span></li><li>                </li><li>                <span class="hljs-comment">//1.任意给出一个四位数：</span></li><li>                Scanner input = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请录入一个四位数："</span>);</li><li>                <span class="hljs-keyword">int</span> num = input.nextInt();</li><li>                </li><li>                </li><li>                <span class="hljs-comment">//2.求出每位上的数字：</span></li><li>                <span class="hljs-comment">//个位数：</span></li><li>                <span class="hljs-keyword">int</span> num1 = num%<span class="hljs-number">10</span>;</li><li>                <span class="hljs-comment">//十位数：</span></li><li>                <span class="hljs-keyword">int</span> num2 = num/<span class="hljs-number">10</span>%<span class="hljs-number">10</span>;<span class="hljs-comment">//1234---&gt;123---&gt;3</span></li><li>                <span class="hljs-comment">//百位数：</span></li><li>                <span class="hljs-keyword">int</span> num3 = num/<span class="hljs-number">100</span>%<span class="hljs-number">10</span>;<span class="hljs-comment">//1234---&gt;12---&gt;2</span></li><li>                <span class="hljs-comment">//千位数：</span></li><li>                <span class="hljs-keyword">int</span> num4 = num/<span class="hljs-number">1000</span>;<span class="hljs-comment">//1234---&gt;1</span></li><li>                </li><li>                </li><li>                <span class="hljs-comment">//3.输出每位上的数字：</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"个位上的数为："</span>+num1);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"十位上的数为："</span>+num2);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"百位上的数为："</span>+num3);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"千位上的数为："</span>+num4);</li><li>        }</li><li>        </li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

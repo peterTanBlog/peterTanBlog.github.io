@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1757DEE318F" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 查询员工的编号，员工姓名，薪水，员工部门编号，部门名称：</span></li><li><span class="hljs-keyword">select</span> e.empno,e.ename,e.sal,e.deptno,d.dname</li><li><span class="hljs-keyword">from</span> emp e,dept d</li><li><span class="hljs-comment">-- 相当于99语法中的cross join ,出现笛卡尔积，没有意义</span></li><li><span class="hljs-keyword">select</span> e.empno,e.ename,e.sal,e.deptno,d.dname</li><li><span class="hljs-keyword">from</span> emp e,dept d</li><li><span class="hljs-keyword">where</span> e.deptno = d.deptno;</li><li><span class="hljs-comment">-- 相当于99语法中的natural join </span></li><li></li><li></li><li><span class="hljs-comment">-- 查询员工的编号，员工姓名，薪水，员工部门编号，部门名称，查询出工资大于2000的员工</span></li><li><span class="hljs-keyword">select</span> e.empno,e.ename,e.sal,e.deptno,d.dname</li><li><span class="hljs-keyword">from</span> emp e,dept d</li><li><span class="hljs-keyword">where</span> e.deptno = d.deptno <span class="hljs-keyword">and</span> e.sal &gt; <span class="hljs-number">2000</span>;</li><li></li><li><span class="hljs-comment">-- 查询员工的名字，岗位，上级编号，上级名称（自连接）：</span></li><li><span class="hljs-keyword">select</span> e1.ename,e1.job,e1.mgr ,e2.ename </li><li><span class="hljs-keyword">from</span> emp e1,emp e2</li><li><span class="hljs-keyword">where</span> e1.mgr = e2.empno;</li><li></li><li><span class="hljs-comment">-- 查询员工的编号、姓名、薪水、部门编号、部门名称、薪水等级</span></li><li><span class="hljs-keyword">select</span> e.empno,e.ename,e.sal,e.deptno,d.dname,s.grade </li><li><span class="hljs-keyword">from</span> emp e,dept d,salgrade s</li><li><span class="hljs-keyword">where</span> e.deptno = d.deptno <span class="hljs-keyword">and</span> e.sal &gt;= s.losal <span class="hljs-keyword">and</span> e.sal &lt;= s.hisal;</li><li></li><li><span class="hljs-comment">-- 总结：</span></li><li><span class="hljs-comment">-- 1.92语法麻烦 </span></li><li><span class="hljs-comment">-- 2.92语法中 表的连接条件 和  筛选条件  是放在一起的没有分开</span></li><li><span class="hljs-comment">-- 3.99语法中提供了更多的查询连接类型：cross,natural,inner,outer </span></li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

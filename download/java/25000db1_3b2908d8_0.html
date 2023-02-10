@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal" style="text-indent: 21pt; "><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">MySQL</span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">中提供了大量函数来简化用户对数据库的操作，比如字符串的处理、日期的运算、数值的运算等等。使用函数可以大大提高</span></span><span style="font-family: 微软雅黑; ">SELECT</span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">语句操作数据库的能力，同时也给数据的转换和处理提供了方便。</span></span><span style="font-family: 微软雅黑; ">&nbsp;（在sql中使用函数）</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 21pt; "><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">函数只是对查询结果中的数据进行处理，不会改变数据库中数据表的值。</span></span><span style="font-family: 微软雅黑; ">MySQL</span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">中的函数主要分为单行函数和多行函数两大类，下面我们将详细讲解这两大类函数。</span></span><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="background-color: rgb(153, 204, 0);"><strong><span style="font-family: 宋体; font-weight: bold; "><span style="font-family: 宋体">单行函数</span></span></strong><strong><span style="font-family: Calibri; font-weight: bold; ">&nbsp;</span></strong></span><strong><span style="font-family: Calibri; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 22pt; "><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">单行函数是指对每一条记录输入值进行计算，并得到相应的计算结果，然后返回给用户，也就是说，每条记录作为一个输入参数，经过函数计算得到每条记录的计算结果。</span></span><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 22pt; "><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">常用的单行函数主要包括字符串函数、数值函数、日期与时间函数、流程函数以及其他函数。</span></span><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 22pt; "><span style="font-family: 微软雅黑; font-size: x-large;"><o:p>&nbsp;</o:p></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="background-color: rgb(153, 204, 0);"><strong><span style="font-family: 宋体; font-weight: bold; "><span style="font-family: 宋体">多行函数</span></span></strong><strong><span style="font-family: Calibri; font-weight: bold; ">&nbsp;</span></strong></span><strong><span style="font-family: Calibri; font-weight: bold; "><o:p></o:p></span></strong></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 21pt; "><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">多行函数是指对一组数据进行运算，针对这一组数据（多行记录）只返回一个结果，也称为分组函数。</span></span><span style="font-family: 微软雅黑; ">&nbsp;</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 21pt; "><span style="font-family: 微软雅黑; font-size: x-large;"><o:p>&nbsp;</o:p></span>
+			</p>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175733AB104" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 函数举例：</span></li><li><span class="hljs-keyword">select</span> empno,ename,<span class="hljs-keyword">lower</span>(ename),<span class="hljs-keyword">upper</span>(ename),sal <span class="hljs-keyword">from</span> emp;</li><li><span class="hljs-comment">-- 函数的功能：封装了特定的一些功能，我们直接拿过来使用，可以实现对应的功能</span></li><li><span class="hljs-comment">-- 函数作用：为了提高select的能力</span></li><li><span class="hljs-comment">-- 注意：函数没有改变数据自身的值，而是在真实数据的上面进行加工处理，展示新的结果而已。</span></li><li></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal),<span class="hljs-keyword">min</span>(sal),<span class="hljs-keyword">count</span>(sal),<span class="hljs-keyword">sum</span>(sal),<span class="hljs-keyword">avg</span>(sal) <span class="hljs-keyword">from</span> emp;</li><li><span class="hljs-comment">-- 函数的分类：</span></li><li><span class="hljs-comment">-- lower(ename),upper(ename) ：改变每一条结果，每一条数据对应一条结果  -- 单行函数</span></li><li><span class="hljs-comment">-- max(sal),min(sal),count(sal),sum(sal),avg(sal):多条数据，最终展示一个结果  -- 多行函数</span></li></ol></code></pre>
+			<div>PS：除了多行函数（max,min,count,sum,avg），都是单行函数
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】习题引入：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1715E459E9C" class="hljs stata"><ol><li>import java.util.Scanner;</li><li>public <span class="hljs-keyword">class</span> TestArray01{</li><li>    public static void main(String[] <span class="hljs-keyword">args</span>){</li><li>                <span class="hljs-comment">//功能：键盘录入十个学生的成绩，求和，求平均数：</span></li><li>                <span class="hljs-comment">//定义一个求和的变量：</span></li><li>                int <span class="hljs-keyword">sum</span> = 0;</li><li>                Scanner <span class="hljs-keyword">sc</span> = new Scanner(System.<span class="hljs-keyword">in</span>);</li><li></li><li>                <span class="hljs-keyword">for</span>(int i=1;i&lt;=10;i++){<span class="hljs-comment">//i:控制循环次数</span></li><li>                        System.<span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"请录入第"</span>+i+<span class="hljs-string">"个学生的成绩："</span>);</li><li>                        int <span class="hljs-keyword">score</span> = <span class="hljs-keyword">sc</span>.nextInt();</li><li>                        <span class="hljs-keyword">sum</span> += <span class="hljs-keyword">score</span>;</li><li>                }</li><li>                </li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"十个学生的成绩之和为："</span>+<span class="hljs-keyword">sum</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"十个学生的成绩平均数为："</span>+<span class="hljs-keyword">sum</span>/10);</li><li>                </li><li>               <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-comment" style="color: rgb(192, 192, 192);">//本题的缺点：</span></span></li><li><span class="Apple-style-span" style="color: rgb(255, 255, 0); background-color: rgb(255, 255, 0);">                <span class="hljs-comment">//求第6个学生的成绩：？？？？？---》不能</span></span></li><li>                </li><li>        }</li><li>}</li></ol></code></pre>
+			<div>缺点：就是不能求每个学生的成绩具体是多少
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>解决：将成绩进行存储 &nbsp;----》 引入 ： 数组&nbsp;
+		</div>
+		<div><br />
+		</div>
+		<div>感受到数组的作用：数组用来存储数据的，在程序设计中，为了处理方便，数组用来将相同类型的若干数据组织起来。
+		</div>
+		<div>这个若干数据的集合我们称之为数组。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

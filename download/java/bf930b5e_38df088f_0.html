@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172DB188241" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.enum05;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{</li><li>    <span class="hljs-comment">//属性：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;</li><li>    <span class="hljs-keyword">private</span> String name;</li><li>    <span class="hljs-keyword">private</span> Gender sex;</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> Gender <span class="hljs-title">getSex</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> sex;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSex</span><span class="hljs-params">(Gender sex)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.sex = sex;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Person{"</span> +</li><li>                <span class="hljs-string">"age="</span> + age +</li><li>                <span class="hljs-string">", name='"</span> + name + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">", sex='"</span> + sex + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_172DB18A429" class="hljs crystal"><ol><li>public <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Gender</span> {</span></li><li>    男,</li><li>    女;</li><li>}</li><li></li></ol></code></pre>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_172DB18C178" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        Person p = <span class="hljs-keyword">new</span> Person();</li><li>        p.setAge(<span class="hljs-number">19</span>);</li><li>        p.setName(<span class="hljs-string">"lili"</span>);</li><li>        p.setSex(Gender.男);<span class="hljs-comment">//传入枚举类Gender的对象：--&gt;在入口处对参数进行了限制</span></li><li>        System.<span class="hljs-keyword">out</span>.println(p);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+					<div><br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>还可以通过枚举结合switch处理：
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172DB1B7D5F" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test02</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        Gender sex = Gender.男;</li><li>        <span class="hljs-comment">//switch后面的（）中可以传入枚举类型</span></li><li>        <span class="hljs-comment">//switch后面的（）:int,short,byte,char,String ,枚举</span></li><li>        <span class="hljs-keyword">switch</span> (sex){</li><li>            <span class="hljs-keyword">case</span> 女:</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"是个女孩"</span>);</li><li>                <span class="hljs-keyword">break</span>;</li><li>            <span class="hljs-keyword">case</span> 男:</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"是个男孩"</span>);</li><li>                <span class="hljs-keyword">break</span>;</li><li>        }</li><li>    }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

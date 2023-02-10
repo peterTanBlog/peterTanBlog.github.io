@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑; ">为防止不符合规范的数据存入数据库，在用户对数据进行插入、修改、删除等操作时，</span>MySQL提供了一种机制来检查数据库中的数据是否满足规定的条件，<span style="color: rgb(255, 102, 0); ">以保证数据库中数据的准确性和一致性</span>，这种机制就是<span style="font-family: 微软雅黑; color: rgb(255, 102, 0); ">完整性约束</span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">。</span></span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">MySQL中主要支持以下几种种完整性约束，如表所示。 </span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑; ">其中</span>Check约束是MySQL8中提供的支持。</span></span>
+			</p>
+			<p class="MsoNormal"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"></span>
+			</p>
+			<div align="center">
+				<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+					<tbody>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;">约束条件</span></strong><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;">约束描述</span></strong><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;PRIMARY KEY</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">主键约束，约束字段的值可唯一地标识对应的记录</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;NOT NULL</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">非空约束，约束字段的值不能为空 </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;UNIQUE</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;唯一约束，约束字段的值是唯一的</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr style="height:15.1500pt;">
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">CHECK </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">检查约束，限制某个字段的取值范围</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;DEFAULT</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;默认值约束，约束字段的默认值</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;AUTO_INCREMENT&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;自动增加约束，约束字段的值自动递增&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td width="218" valign="center" style="width:131.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;FOREIGN KEY</span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+							<td width="491" valign="center" style="width:294.7000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+								<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">外键约束，约束表与表之间的关系 </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p>
+			</p>
+			<p class="MsoNormal">
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

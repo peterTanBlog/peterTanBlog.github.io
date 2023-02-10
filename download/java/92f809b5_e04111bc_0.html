@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】抽象类和抽象方法的关系：
+		</div>
+		<div>抽象类中可以定义0-n个抽象方法。
+		</div>
+		<div>【2】抽象类作用：
+		</div>
+		<div>在抽象类中定义抽象方法，目的是为了为子类提供一个通用的模板，子类可以在模板的基础上进行开发，先重写父类的抽象方法，然后可以扩展子类自己的内容。抽象类设计避免了子类设计的随意性，通过抽象类，子类的设计变得更加严格，进行某些程度上的限制。
+		</div>
+		<div>使子类更加的通用。
+		</div>
+		<div><br />
+		</div>
+		<div>【3】代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172311E2BDF" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test03;</li><li></li><li><span class="hljs-comment">//4.一个类中如果有方法是抽象方法，那么这个类也要变成一个抽象类。</span></li><li><span class="hljs-comment">//5.一个抽象类中可以有0-n个抽象方法</span></li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{</li><li>    <span class="hljs-comment">//1.在一个类中，会有一类方法，子类对这个方法非常满意，无需重写，直接使用</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"一顿不吃饿得慌"</span>);</li><li>    }</li><li>    <span class="hljs-comment">//2.在一个类中，会有一类方法，子类对这个方法永远不满意，会对这个方法进行重写。</span></li><li>    <span class="hljs-comment">//3.一个方法的方法体去掉，然后被abstract修饰，那么这个方法就变成了一个抽象方法</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">say</span><span class="hljs-params">()</span></span>;</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span></span>;</li><li>}</li><li></li><li><span class="hljs-comment">//6.抽象类可以被其他类继承：</span></li><li><span class="hljs-comment">//7.一个类继承一个抽象类，那么这个类可以变成抽象类</span></li><li><span class="hljs-comment">//8.一般子类不会加abstract修饰，一般会让子类重写父类中的抽象方法</span></li><li><span class="hljs-comment">//9.子类继承抽象类，就必须重写全部的抽象方法</span></li><li><span class="hljs-comment">//10.子类如果没有重写父类全部的抽象方法，那么子类也可以变成一个抽象类。</span></li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span></span>{</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">say</span><span class="hljs-params">()</span> </span>{</li><li>        System.out.println(<span class="hljs-string">"我是东北人，我喜欢说东北话。。"</span>);</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>{</li><li>        System.out.println(<span class="hljs-string">"东北人喜欢睡炕。。"</span>);</li><li>    }</li><li>}</li><li></li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span></span>{</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{</li><li>        <span class="hljs-comment">//11.创建抽象类的对象：--&gt;抽象类不可以创建对象</span></li><li>        <span class="hljs-comment">//Person p = new Person();</span></li><li></li><li>        <span class="hljs-comment">//12.创建子类对象：</span></li><li>        Student s = <span class="hljs-keyword">new</span> Student();</li><li>        s.sleep();</li><li>        s.say();</li><li>        </li><li>        <span class="hljs-comment">//13.多态的写法：父类引用只想子类对象：</span></li><li>        Person p  = <span class="hljs-keyword">new</span> Student();</li><li>        p.say();</li><li>        p.sleep();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>【4】面试题：
+			</div>
+		</div>
+		<div>（1）抽象类不能创建对象，那么抽象类中是否有构造器？
+		</div>
+		<div>抽象类中一定有构造器。构造器的作用 &nbsp;给子类初始化对象的时候要先super调用父类的构造器。
+		</div>
+		<div><br />
+		</div>
+		<div>（2）抽象类是否可以被final修饰？
+		</div>
+		<div>不能被final修饰，因为抽象类设计的初衷就是给子类继承用的。要是被final修饰了这个抽象类了，就不存在继承了，就没有子类。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

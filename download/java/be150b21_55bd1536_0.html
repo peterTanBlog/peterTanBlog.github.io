@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】读取文本文件：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172F07493B5" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.msb.io02;</li><li></li><li><span class="hljs-keyword">import</span> java.io.<span class="hljs-keyword">File</span>;</li><li><span class="hljs-keyword">import</span> java.io.FileInputStream;</li><li><span class="hljs-keyword">import</span> java.io.FileNotFoundException;</li><li><span class="hljs-keyword">import</span> java.io.IOException;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test01 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> IOException {</li><li>        <span class="hljs-comment">//功能：利用字节流将文件中内容读到程序中来：</span></li><li>        <span class="hljs-comment">//1.有一个源文件：</span></li><li>        <span class="hljs-keyword">File</span> f = <span class="hljs-keyword">new</span> <span class="hljs-keyword">File</span>(<span class="hljs-string">"D:\\Test.txt"</span>);</li><li>        <span class="hljs-comment">//2.将一个字节流这个管 怼  到 源文件上：</span></li><li>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(f);</li><li>        <span class="hljs-comment">//3.开始读取动作</span></li><li>        <span class="hljs-comment">/*</span></li><li>        <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">细节1：</span></li><li>        文件是utf-8进行存储的，所以英文字符 底层实际占用1个字节</li><li>        但是中文字符，底层实际占用3个字节。</li><li></li><li>        <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">细节2：</span></li><li>        如果文件是文本文件，那么就不要使用字节流读取了，建议使用字符流。</li><li></li><li>        <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">细节3：</span></li><li>        read()读取一个字节，但是你有没有发现返回值是 int类型，而不是byte类型？</li><li>        read方法底层做了处理，让返回的数据都是“正数”</li><li>        就是为了避免如果字节返回的是-1的话，那到底是读入的字节，还是到文件结尾呢。</li><li>         */</li><li>        <span class="hljs-keyword">int</span> n = fis.<span class="hljs-keyword">read</span>();</li><li>        <span class="hljs-keyword">while</span>(n!=-<span class="hljs-number">1</span>){</li><li>            System.out.<span class="hljs-keyword">println</span>(n);</li><li>            n = fis.<span class="hljs-keyword">read</span>();</li><li>        }</li><li>        <span class="hljs-comment">//4.关闭流：</span></li><li>        fis.close();</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>【2】利用字节流读取非文本文件：（以图片为案例：）--》<span style="background-color: rgb(255, 255, 0);">一个字节一个字节的读取</span>：
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172F076C545" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.msb.io02;</li><li></li><li><span class="hljs-keyword">import</span> java.io.<span class="hljs-keyword">File</span>;</li><li><span class="hljs-keyword">import</span> java.io.FileInputStream;</li><li><span class="hljs-keyword">import</span> java.io.IOException;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test02 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> IOException {</li><li>        <span class="hljs-comment">//功能：利用字节流将文件中内容读到程序中来：</span></li><li>        <span class="hljs-comment">//1.有一个源文件：</span></li><li>        <span class="hljs-keyword">File</span> f = <span class="hljs-keyword">new</span> <span class="hljs-keyword">File</span>(<span class="hljs-string">"D:\\LOL.jpg"</span>);</li><li>        <span class="hljs-comment">//2.将一个字节流这个管 怼  到 源文件上：</span></li><li>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(f);</li><li>        <span class="hljs-comment">//3.开始读取动作</span></li><li>        <span class="hljs-keyword">int</span> <span class="hljs-keyword">count</span> = <span class="hljs-number">0</span>;<span class="hljs-comment">//定义一个计数器，用来计读入的字节的个数</span></li><li>        <span class="hljs-keyword">int</span> n = fis.<span class="hljs-keyword">read</span>();</li><li>        <span class="hljs-keyword">while</span>(n!=-<span class="hljs-number">1</span>){</li><li>            <span class="hljs-keyword">count</span>++;</li><li>            System.out.<span class="hljs-keyword">println</span>(n);</li><li>            n = fis.<span class="hljs-keyword">read</span>();</li><li>        }</li><li>        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">"count="</span>+<span class="hljs-keyword">count</span>);</li><li>        <span class="hljs-comment">//4.关闭流：</span></li><li>        fis.close();</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>【3】<span style="background-color: rgb(255, 255, 0);">利用字节类型的缓冲数组</span>：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172F07A2B52" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.msb.io02;</li><li></li><li><span class="hljs-keyword">import</span> java.io.<span class="hljs-keyword">File</span>;</li><li><span class="hljs-keyword">import</span> java.io.FileInputStream;</li><li><span class="hljs-keyword">import</span> java.io.IOException;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test03 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> IOException {</li><li>        <span class="hljs-comment">//功能：利用字节流将文件中内容读到程序中来：</span></li><li>        <span class="hljs-comment">//1.有一个源文件：</span></li><li>        <span class="hljs-keyword">File</span> f = <span class="hljs-keyword">new</span> <span class="hljs-keyword">File</span>(<span class="hljs-string">"D:\\LOL.jpg"</span>);</li><li>        <span class="hljs-comment">//2.将一个字节流这个管 怼  到 源文件上：</span></li><li>        FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(f);</li><li>        <span class="hljs-comment">//3.开始读取动作</span></li><li>        <span class="hljs-comment">//利用缓冲数组：（快递员的小车）</span></li><li>        <span class="hljs-keyword">byte</span>[] b = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>*<span class="hljs-number">6</span>];</li><li>        <span class="hljs-keyword">int</span> len = fis.<span class="hljs-keyword">read</span>(b);<span class="hljs-comment">//len指的就是读取的数组中的有效长度</span></li><li>        <span class="hljs-keyword">while</span>(len!=-<span class="hljs-number">1</span>){</li><li>            <span class="hljs-comment">//System.out.println(len);</span></li><li>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;len;i++){</li><li>                System.out.<span class="hljs-keyword">println</span>(b[i]);</li><li>            }</li><li>            len = fis.<span class="hljs-keyword">read</span>(b);</li><li>        }</li><li>        <span class="hljs-comment">//4.关闭流：</span></li><li>        fis.close();</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

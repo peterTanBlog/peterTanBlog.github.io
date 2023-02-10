@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>JAVA反射机制是在<span style="color: #ff6600">运行状态</span>中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，
+			</div>
+			<div>都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为java语言的反射机制。
+			</div>
+			<div><br />
+			</div>
+			<div>在编译后产生字节码文件的时候，类加载器子系统通过二进制字节流，负责从文件系统加载class文件。
+			</div>
+			<div>在执行程序（java.exe）时候，将字节码文件读入JVM中---&gt;这个过程叫做类的加载。然后在内存中对应创建一个java.lang.Class对象--&gt;这个对象会被放入字节码信息中,这个Class对象,就对应加载那个字节码信息,这个对象将被作为程序访问方法区中的这个类的各种数据的外部接口。
+			</div>
+			<div>所以：我们可以通过这个对象看到类的结构，这个对象就好像是一面镜子，透过镜子看到类的各种信息，我们形象的称之为反射
+			</div>
+			<div>这种“看透”class的能力（the ability of the program to examine itself）被称为introspection（内省、内观、反省）。Reflection和introspection是常被并提的两个术语。
+			</div>
+			<div><br />
+			</div>
+			<div>说明：在运行期间，如果我们要产生某个类的对象，Java虚拟机(JVM)会检查该类型的Class对象是否已被加载。
+			</div>
+			<div>如果没有被加载，JVM会根据类的名称找到.class文件并加载它。一旦某个类型的Class对象已被加载到内存，就可以用它来产生该类型的所有对象。
+			</div>
+			<div><br />
+			</div>
+			<div>补充:
+			</div>
+			<div>动态语膏vs静态语言
+			</div>
+			<div>1、动态语言
+			</div>
+			<div>是一类在运行时可以改变其结构的语言:例如新的函数、对象、甚至代码可以
+			</div>
+			<div>被引进，已有的函数可以被删除或是其他结构上的变化。通俗点说就是在运
+			</div>
+			<div>行时代码可以根据某些条件改变自身结构。
+			</div>
+			<div>主要动态语言: Object-C、 C#、JavaScript、 PHP、 Python、 Erlang 。
+			</div>
+			<div>2、静态语言
+			</div>
+			<div>与动态语言相对应的，运行时结构不可变的语言就是静态语言。如Java、C、
+			</div>
+			<div>C++。
+			</div>
+			<div><br />
+			</div>
+			<div>所以Java不是动态语言，但Java可以称之为“准动态语言”。即Java有一定的动
+			</div>
+			<div>态性，我们可以利用反射机制、字节码操作获得类似动态语言的特性。
+			</div>
+			<div>Java的动态性让编程的时候更加灵活!&nbsp;
+			</div>
+			<div>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

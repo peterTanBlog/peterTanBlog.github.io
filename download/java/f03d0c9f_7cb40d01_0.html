@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】以int类型为案例：
+		</div>
+		<div>比较的思路：将比较的数据做差，然后返回一个int类型的数据，将这个int类型的数值 &nbsp;按照&nbsp;=0&nbsp; &gt;0&nbsp; &lt;0
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_173C2AF3224" class="hljs gradle"><ol><li><span class="hljs-keyword">int</span> a = <span class="hljs-number">10</span>;</li><li>        <span class="hljs-keyword">int</span> b = <span class="hljs-number">20</span>;</li><li>        System.out.<span class="hljs-keyword">println</span>(a-b); <span class="hljs-comment">// =0  &gt;0  &lt;0</span></li></ol></code></pre>
+			<div>【2】比较String类型数据：
+			</div>
+			<div>String类实现了Comparable接口，这个接口中有一个抽象方法compareTo，String类中重写这个方法即可
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_173C2B2E225" class="hljs mipsasm"><ol><li>String a = <span class="hljs-string">"A"</span><span class="hljs-comment">;</span></li><li>        String <span class="hljs-keyword">b </span>= <span class="hljs-string">"B"</span><span class="hljs-comment">;</span></li><li>        System.out.println(a.compareTo(<span class="hljs-keyword">b));</span></li><li></li></ol></code></pre>
+			<div>【3】比较double类型数据：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_173C2B57431" class="hljs gradle"><ol><li> <span class="hljs-keyword">double</span> a = <span class="hljs-number">9.6</span>;</li><li>        <span class="hljs-keyword">double</span> b = <span class="hljs-number">9.3</span>;</li><li>       <span class="hljs-comment">/* System.out.println((int)(a-b));*/</span></li><li>        System.out.<span class="hljs-keyword">println</span>(((<span class="hljs-keyword">Double</span>) a).<span class="hljs-keyword">compareTo</span>((<span class="hljs-keyword">Double</span>) b));</li></ol></code></pre>
+				<div>【4】比较自定义的数据类型：
+				</div>
+			</div>
+			<div>（1）内部比较器：
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_173C2BC28BA" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test08;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-keyword">implements</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">Student</span>&gt;</span></span>{</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> height;</li><li>    <span class="hljs-keyword">private</span> String name;</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getHeight</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> height;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setHeight</span><span class="hljs-params">(<span class="hljs-keyword">double</span> height)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.height = height;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age, <span class="hljs-keyword">double</span> height, String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>        <span class="hljs-keyword">this</span>.height = height;</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Student{"</span> +</li><li>                <span class="hljs-string">"age="</span> + age +</li><li>                <span class="hljs-string">", height="</span> + height +</li><li>                <span class="hljs-string">", name='"</span> + name + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-title">compareTo</span></span><span class="hljs-params">(Student o)</span> </span>{</li><li>        <span class="hljs-comment">//按照年龄进行比较：</span></li><li>        <span class="hljs-comment">/*return this.getAge() - o.getAge();*/</span></li><li>        <span class="hljs-comment">//按照身高比较</span></li><li>        <span class="hljs-comment">/*return ((Double)(this.getHeight())).compareTo((Double)(o.getHeight()));*/</span></li><li>        <span class="hljs-comment">//按照名字比较：</span></li><li>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getName().compareTo(o.getName());</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_173C2BC4BE2" class="hljs haxe"><ol><li><span class="hljs-keyword">package</span> com.msb.test08;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test02</span> </span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//比较两个学生：</span></li><li>        Student s1 = <span class="hljs-keyword">new</span> <span class="hljs-type">Student</span>(<span class="hljs-number">14</span>,<span class="hljs-number">160.5</span>,<span class="hljs-string">"alili"</span>);</li><li>        Student s2 = <span class="hljs-keyword">new</span> <span class="hljs-type">Student</span>(<span class="hljs-number">14</span>,<span class="hljs-number">170.5</span>,<span class="hljs-string">"bnana"</span>);</li><li>        System.out.println(<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">s1.compareTo(s2)</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+					<div>（2）外部比较器：
+					</div>
+				</div>
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_173C2C12CBD" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test09;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Comparator;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span></span>{</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;</li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> height;</li><li>    <span class="hljs-keyword">private</span> String name;</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getAge</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setAge</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getHeight</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> height;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setHeight</span><span class="hljs-params">(<span class="hljs-keyword">double</span> height)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.height = height;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setName</span><span class="hljs-params">(String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span><span class="hljs-params">(<span class="hljs-keyword">int</span> age, <span class="hljs-keyword">double</span> height, String name)</span> </span>{</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>        <span class="hljs-keyword">this</span>.height = height;</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Student{"</span> +</li><li>                <span class="hljs-string">"age="</span> + age +</li><li>                <span class="hljs-string">", height="</span> + height +</li><li>                <span class="hljs-string">", name='"</span> + name + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li></li><li></li><li>}</li><li></li><li></li><li></li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BiJiao01</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Student</span>&gt; </span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student o1, Student o2)</span> </span>{</li><li>        <span class="hljs-comment">//比较年龄：</span></li><li>        <span class="hljs-keyword">return</span> o1.getAge()-o2.getAge();</li><li>    }</li><li>}</li><li></li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BiJiao02</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Student</span>&gt; </span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student o1, Student o2)</span> </span>{</li><li>        <span class="hljs-comment">//比较姓名：</span></li><li>        <span class="hljs-keyword">return</span> o1.getName().compareTo(o2.getName());</li><li>    }</li><li>}</li></ol></code></pre>
+				<div>
+					<div>
+						<div><br />
+						</div>
+						<pre>
+<code id="ID_173C2C4B41C" class="hljs java"><ol><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BiJiao03</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">Student</span>&gt; </span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Student o1, Student o2)</span> </span>{</li><li>        <span class="hljs-comment">//在年龄相同的情况下 比较身高  年龄不同比较年龄</span></li><li>        <span class="hljs-keyword">if</span>((o1.getAge()-o2.getAge())==<span class="hljs-number">0</span>){</li><li>            <span class="hljs-keyword">return</span> ((Double)(o1.getHeight())).compareTo((Double)(o2.getHeight()));</li><li>        }<span class="hljs-keyword">else</span>{<span class="hljs-comment">//年龄不一样</span></li><li>            <span class="hljs-keyword">return</span> o1.getAge()-o2.getAge();</li><li>        }</li><li>    }</li><li>}</li></ol></code></pre>
+						<div><br />
+						</div>
+					</div>
+					<pre>
+<code id="ID_173C2C1508C" class="hljs haxe"><ol><li><span class="hljs-keyword">package</span> com.msb.test09;</li><li></li><li><span class="hljs-keyword">import</span> com.msb.test09.Student;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Comparator;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test02</span> </span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//比较两个学生：</span></li><li>        Student s1 = <span class="hljs-keyword">new</span> <span class="hljs-type">Student</span>(<span class="hljs-number">9</span>,<span class="hljs-number">160.5</span>,<span class="hljs-string">"alili"</span>);</li><li>        Student s2 = <span class="hljs-keyword">new</span> <span class="hljs-type">Student</span>(<span class="hljs-number">14</span>,<span class="hljs-number">170.5</span>,<span class="hljs-string">"bnana"</span>);</li><li>        <span class="hljs-comment">//获取外部比较器：</span></li><li>        Comparator bj1 = <span class="hljs-keyword">new</span> <span class="hljs-type">BiJiao03</span>();</li><li>        System.out.println(bj1.compare(s1, s2));</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+					<div>【5】外部比较器和内部比较器 谁好呀？
+					</div>
+				</div>
+			</div>
+			<div>答案：外部比较器，多态，扩展性好
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

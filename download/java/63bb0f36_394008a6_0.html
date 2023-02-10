@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17399398E7F" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test04;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> * 1.什么是泛型方法：</li><li> * 不是带泛型的方法就是泛型方法</li><li> * 泛型方法有要求：这个方法的泛型的参数类型要和当前的类的泛型无关</li><li> * 换个角度：</li><li> * 泛型方法对应的那个泛型参数类型 和  当前所在的这个类 是否是泛型类，泛型是啥  无关</li><li> * 2.泛型方法定义的时候，前面要加上&lt;T&gt;</li><li> *     原因：如果不加的话，会把T当做一种数据类型，然而代码中没有T类型那么就会报错</li><li> * 3.T的类型是在调用方法的时候确定的</li><li> * 4.泛型方法可否是静态方法？可以是静态方法</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestGeneric</span>&lt;<span class="hljs-title">E</span>&gt; </span>{</li><li>    <span class="hljs-comment">//不是泛型方法 （不能是静态方法）</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">a</span><span class="hljs-params">(E e)</span></span>{</li><li></li><li>    }</li><li>    <span class="hljs-comment">//是泛型方法</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt;  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">b</span><span class="hljs-params">(T t)</span></span>{</li><li></li><li>    }</li><li></li><li>}</li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span></span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{</li><li>        TestGeneric&lt;String&gt; tg = <span class="hljs-keyword">new</span> TestGeneric&lt;&gt;();</li><li>        tg.a(<span class="hljs-string">"abc"</span>);</li><li>        tg.b(<span class="hljs-string">"abc"</span>);</li><li>        tg.b(<span class="hljs-number">19</span>);</li><li>        tg.b(<span class="hljs-keyword">true</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

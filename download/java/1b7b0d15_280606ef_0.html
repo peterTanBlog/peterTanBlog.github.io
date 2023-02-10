@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17226EAB038" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb.test02;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class Phone {<span class="hljs-comment">//手机类：</span></li><li>    <span class="hljs-comment">//属性：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> brand;<span class="hljs-comment">//品牌型号</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">double</span> price;<span class="hljs-comment">//价格</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-built_in">int</span> <span class="hljs-built_in">year</span> ;<span class="hljs-comment">//出产年份</span></li><li>    <span class="hljs-comment">//方法：</span></li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getBrand() {</li><li>        <span class="hljs-keyword">return</span> brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setBrand(<span class="hljs-keyword">String</span> brand) {</li><li>        <span class="hljs-keyword">this</span>.brand = brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">double</span> getPrice() {</li><li>        <span class="hljs-keyword">return</span> price;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setPrice(<span class="hljs-keyword">double</span> price) {</li><li>        <span class="hljs-keyword">this</span>.price = price;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> getYear() {</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">year</span>;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setYear(<span class="hljs-built_in">int</span> <span class="hljs-built_in">year</span>) {</li><li>        <span class="hljs-keyword">this</span>.<span class="hljs-built_in">year</span> = <span class="hljs-built_in">year</span>;</li><li>    }</li><li></li><li>    @Override</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> toString() {</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Phone{"</span> +</li><li>                <span class="hljs-string">"brand='"</span> + brand + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">", price="</span> + price +</li><li>                <span class="hljs-string">", year="</span> + <span class="hljs-built_in">year</span> +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//构造器：</span></li><li></li><li>    <span class="hljs-keyword">public</span> Phone() {</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> Phone(<span class="hljs-keyword">String</span> brand, <span class="hljs-keyword">double</span> price, <span class="hljs-built_in">int</span> <span class="hljs-built_in">year</span>) {</li><li>        <span class="hljs-keyword">this</span>.brand = brand;</li><li>        <span class="hljs-keyword">this</span>.price = price;</li><li>        <span class="hljs-keyword">this</span>.<span class="hljs-built_in">year</span> = <span class="hljs-built_in">year</span>;</li><li>    }</li><li></li><li></li><li>    <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//对equals方法进行重写：</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">    <span class="hljs-keyword">public</span> <span class="hljs-built_in">boolean</span> equals(<span class="hljs-keyword">Object</span> obj) {//Object obj = new Phone();</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        <span class="hljs-comment">//将obj转为Phone类型：</span></span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        Phone other = (Phone)obj;<span class="hljs-comment">//向下转型，为了获取子类中特有的内容</span></span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.getBrand()==other.getBrand()&amp;&amp;<span class="hljs-keyword">this</span>.getPrice()==other.getPrice()&amp;&amp;<span class="hljs-keyword">this</span>.getYear()==other.getYear()){</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        }</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">    }</span></li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_17226EAD1A3" class="hljs cs"><ol><li>package com.msb.test02;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li></li><li>        <span class="hljs-comment">//创建Phone类的对象：</span></li><li>        Phone p1 = <span class="hljs-keyword">new</span> Phone(<span class="hljs-string">"华为P40"</span>,<span class="hljs-number">2035.98</span>,<span class="hljs-number">2020</span>);</li><li>        Phone p2 = <span class="hljs-keyword">new</span> Phone(<span class="hljs-string">"华为P40"</span>,<span class="hljs-number">2035.98</span>,<span class="hljs-number">2020</span>);</li><li>        <span class="hljs-comment">//比较两个对象：p1和p2对象：</span></li><li>        <span class="hljs-comment">//==的作用：比较左右两侧的值是否想的，要么相等，返回true,要么不相等,返回false</span></li><li>        System.<span class="hljs-keyword">out</span>.println(p1==p2);<span class="hljs-comment">//--&gt;&gt;&gt;对于引用数据类型来说，比较的是地址值。---&gt;一定返回的是false</span></li><li></li><li>        <span class="hljs-comment">//Object类提供了一个方法 equals方法 ：作用：比较对象具体内容是否相等。</span></li><li>        boolean flag = p1.<span class="hljs-keyword">equals</span>(p2);<span class="hljs-comment">//点进源码发现：底层依旧比较的是==，比较的还是地址值。</span></li><li>        System.<span class="hljs-keyword">out</span>.println(flag);</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div>总结：
+				</div>
+			</div>
+		</div>
+		<div>equals作用：这个方法提供了对对象的内容是否相等 的一个比较方式，对象的内容指的就是属性。
+		</div>
+		<div>父类Object提供的equals就是在比较==地址，没有实际的意义，我们一般不会直接使用父类提供的方法，
+		</div>
+		<div>而是在子类中对这个方法进行重写。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

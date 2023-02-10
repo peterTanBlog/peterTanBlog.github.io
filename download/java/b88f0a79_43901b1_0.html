@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><span style="font-size: x-large;">join方法：当一个线程调用了join方法，这个线程就会先被执行，它执行结束以后才可以去执行其余的线程。</span>
+			</div>
+			<div><span style="font-size: x-large; background-color: rgb(255, 255, 0);">注意：必须先start，再join才有效。</span>
+			</div>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div><span style="font-size: x-large;">
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1741193B33A" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test07;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TestThread</span><span class="hljs-params">(String name)</span></span>{</li><li>        <span class="hljs-keyword">super</span>(name);</li><li>    }</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {</li><li>            System.out.println(<span class="hljs-keyword">this</span>.getName()+<span class="hljs-string">"----"</span>+i);</li><li>        }</li><li>    }</li><li>}</li><li></li><li><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>{</li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span> ; i++) {</li><li>            System.out.println(<span class="hljs-string">"main-----"</span>+i);</li><li>            <span class="hljs-keyword">if</span>(i == <span class="hljs-number">6</span>){</li><li>                <span class="hljs-comment">//创建子线程：</span></li><li>                TestThread tt = <span class="hljs-keyword">new</span> TestThread(<span class="hljs-string">"子线程"</span>);</li><li>                tt.start();</li><li>                tt.join();<span class="hljs-comment">//“半路杀出个程咬金”</span></li><li>            }</li><li></li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div></span>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

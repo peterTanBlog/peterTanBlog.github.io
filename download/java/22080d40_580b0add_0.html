@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】不相关的子查询引入：
+		</div>
+		<div>不相关的子查询：子查询可以独立运行，先运行子查询，再运行外查询。
+		</div>
+		<div>相关子查询：子查询不可以独立运行，并且先运行外查询，再运行子查询
+		</div>
+		<div><br />
+		</div>
+		<div>【2】不相关的子查询优缺点：
+		</div>
+		<div>好处：简单&nbsp;&nbsp; 功能强大（一些使用不相关子查询不能实现或者实现繁琐的子查询，可以使用相关子查询实现）
+		</div>
+		<div>缺点：稍难理解
+		</div>
+		<div><br />
+		</div>
+		<div>【3】sql展示：
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17597980FF9" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 【1】查询最高工资的员工  （不相关子查询）</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> sal = (<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal) <span class="hljs-keyword">from</span> emp)</li><li></li><li></li><li><span class="hljs-comment">-- 【2】查询本部门最高工资的员工   （相关子查询）</span></li><li><span class="hljs-comment">-- 方法1：通过不相关子查询实现：</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">10</span> <span class="hljs-keyword">and</span> sal = (<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">10</span>)</li><li><span class="hljs-keyword">union</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">20</span> <span class="hljs-keyword">and</span> sal = (<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">20</span>)</li><li><span class="hljs-keyword">union</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">30</span> <span class="hljs-keyword">and</span> sal = (<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = <span class="hljs-number">30</span>)</li><li><span class="hljs-comment">-- 缺点：语句比较多，具体到底有多少个部分未知</span></li><li></li><li><span class="hljs-comment">-- 方法2： 相关子查询</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp e <span class="hljs-keyword">where</span> sal = (<span class="hljs-keyword">select</span> <span class="hljs-keyword">max</span>(sal) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> deptno = e.deptno) <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> deptno</li><li></li><li><span class="hljs-comment">-- 【3】查询工资高于其所在岗位的平均工资的那些员工  （相关子查询）</span></li><li><span class="hljs-comment">-- 不相关子查询：</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> job = <span class="hljs-string">'CLERK'</span> <span class="hljs-keyword">and</span> sal &gt;= (<span class="hljs-keyword">select</span> <span class="hljs-keyword">avg</span>(sal) <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> job = <span class="hljs-string">'CLERK'</span>)</li><li><span class="hljs-keyword">union</span> ......</li><li><span class="hljs-comment">-- 相关子查询：</span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp e <span class="hljs-keyword">where</span> sal &gt;= (<span class="hljs-keyword">select</span> <span class="hljs-keyword">avg</span>(sal) <span class="hljs-keyword">from</span> emp e2 <span class="hljs-keyword">where</span> e2.job = e.job)</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

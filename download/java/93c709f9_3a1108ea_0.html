@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_171E98C4E30" class="hljs stata"><ol><li>package com.msb;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li>public <span class="hljs-keyword">class</span> <span class="hljs-keyword">Test</span> {<span class="hljs-comment">//测试类</span></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    public static void main(String[] <span class="hljs-keyword">args</span>) {</li><li>        <span class="hljs-comment">//创建一个人类的具体的对象/实例：</span></li><li>        <span class="hljs-comment">//创建一个对象，对象的名字叫：zs</span></li><li>        <span class="hljs-comment">//Person 属于 引用数据类型</span></li><li>        <span class="hljs-comment">//第一次加载类的时候，会进行类的加载，初始化创建对象的时候，对象的属性没有给赋值，有默认的初始化的值。</span></li><li>        Person zs = new Person();</li><li>        zs.name = <span class="hljs-string">"张三"</span>;</li><li>        zs.age = 19;</li><li>        zs.height = 180.4;</li><li>        zs.weight = 170.4;</li><li></li><li>        <span class="hljs-comment">//再创建一个对象：</span></li><li>        <span class="hljs-comment">//再次创建类的时候，就不会进行类的加载了，类的加载只在第一次需要的时候加载一次</span></li><li>        Person <span class="hljs-keyword">ls</span> = new Person();</li><li>        <span class="hljs-keyword">ls</span>.name = <span class="hljs-string">"李四"</span>;</li><li>        <span class="hljs-keyword">ls</span>.age = 18;</li><li>        <span class="hljs-keyword">ls</span>.height = 170.6;</li><li>        <span class="hljs-keyword">ls</span>.weight = 160.5;</li><li></li><li>        <span class="hljs-comment">//对属性值进行读取：</span></li><li>        System.<span class="hljs-keyword">out</span>.println(zs.name);</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">ls</span>.age);</li><li></li><li>        <span class="hljs-comment">//对方法进行操作：</span></li><li>        <span class="hljs-comment">//不同的对象，属性有自己的特有的值，但是方法都是调用类中通用的方法。</span></li><li>        <span class="hljs-comment">//属性：各个对象的属性是独立的，</span></li><li>        <span class="hljs-comment">//方法：各个对象的方法是共享的。</span></li><li>        zs.eat();</li><li>        <span class="hljs-keyword">ls</span>.eat();</li><li>        zs.<span class="hljs-keyword">sleep</span>(<span class="hljs-string">"教室"</span>);</li><li>        <span class="hljs-comment">/*String str = zs.introduce();</span></li><li>        System.out.println(str);*/</li><li>        System.<span class="hljs-keyword">out</span>.println(zs.introduce());</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

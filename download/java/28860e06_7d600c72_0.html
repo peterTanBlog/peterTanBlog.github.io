@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】JDK1.7和JDK1.8的LinkedList的源码是一致的
+		</div>
+		<div>【2】源码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1739EF36427" class="hljs gradle"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> LinkedList&lt;E&gt;{<span class="hljs-comment">//E是一个泛型，具体的类型要在实例化的时候才会最终确定</span></li><li>        <span class="hljs-keyword">transient</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">size</span> = <span class="hljs-number">0</span>;<span class="hljs-comment">//集合中元素的数量</span></li><li>        <span class="hljs-comment">//Node的内部类</span></li><li>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> Node&lt;E&gt; {</li><li>        E item;<span class="hljs-comment">//当前元素</span></li><li>        Node&lt;E&gt; <span class="hljs-keyword">next</span>;<span class="hljs-comment">//指向下一个元素地址</span></li><li>        Node&lt;E&gt; prev;<span class="hljs-comment">//上一个元素地址</span></li><li></li><li>        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; <span class="hljs-keyword">next</span>) {</li><li>            <span class="hljs-keyword">this</span>.item = element;</li><li>            <span class="hljs-keyword">this</span>.<span class="hljs-keyword">next</span> = <span class="hljs-keyword">next</span>;</li><li>            <span class="hljs-keyword">this</span>.prev = prev;</li><li>        }</li><li>    }</li><li></li><li>        <span class="hljs-keyword">transient</span> Node&lt;E&gt; first;<span class="hljs-comment">//链表的首节点</span></li><li>        <span class="hljs-keyword">transient</span> Node&lt;E&gt; last;<span class="hljs-comment">//链表的尾节点</span></li><li>        <span class="hljs-comment">//空构造器：</span></li><li>        <span class="hljs-keyword">public</span> LinkedList() {</li><li>    }</li><li>        <span class="hljs-comment">//添加元素操作：</span></li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> add(E e) {</li><li>        linkLast(e);</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</li><li>    }</li><li>        <span class="hljs-keyword">void</span> linkLast(E e) {<span class="hljs-comment">//添加的元素e</span></li><li>        <span class="hljs-keyword">final</span> Node&lt;E&gt; l = last;<span class="hljs-comment">//将链表中的last节点给l 如果是第一个元素的话 l为null</span></li><li>                <span class="hljs-comment">//将元素封装为一个Node具体的对象：</span></li><li>        <span class="hljs-keyword">final</span> Node&lt;E&gt; newNode = <span class="hljs-keyword">new</span> Node&lt;&gt;(l, e, <span class="hljs-keyword">null</span>);</li><li>                <span class="hljs-comment">//将链表的last节点指向新的创建的对象：</span></li><li>        last = newNode;</li><li>                </li><li>        <span class="hljs-keyword">if</span> (l == <span class="hljs-keyword">null</span>)<span class="hljs-comment">//如果添加的是第一个节点</span></li><li>            first = newNode;<span class="hljs-comment">//将链表的first节点指向为新节点</span></li><li>        <span class="hljs-keyword">else</span><span class="hljs-comment">//如果添加的不是第一个节点 </span></li><li>            l.<span class="hljs-keyword">next</span> = newNode;<span class="hljs-comment">//将l的下一个指向为新的节点</span></li><li>        <span class="hljs-keyword">size</span>++;<span class="hljs-comment">//集合中元素数量加1操作</span></li><li>        modCount++;</li><li>    }</li><li>        <span class="hljs-comment">//获取集合中元素数量</span></li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-keyword">size</span>() {</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">size</span>;</li><li>    }</li><li>        <span class="hljs-comment">//通过索引得到元素：</span></li><li>        <span class="hljs-keyword">public</span> E get(<span class="hljs-keyword">int</span> index) {</li><li>        checkElementIndex(index);<span class="hljs-comment">//健壮性考虑</span></li><li>        <span class="hljs-keyword">return</span> node(index).item;</li><li>    }</li><li>        </li><li>    Node&lt;E&gt; node(<span class="hljs-keyword">int</span> index) {</li><li>        <span class="hljs-comment">//如果index在链表的前半段，那么从前往后找</span></li><li></li><li>        <span class="hljs-keyword">if</span> (index &lt; (<span class="hljs-keyword">size</span> &gt;&gt; <span class="hljs-number">1</span>)) {</li><li>            Node&lt;E&gt; x = first;</li><li>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; index; i++)</li><li>                x = x.<span class="hljs-keyword">next</span>;</li><li>            <span class="hljs-keyword">return</span> x;</li><li>        } <span class="hljs-keyword">else</span> {<span class="hljs-comment">//如果index在链表的后半段，那么从后往前找</span></li><li>            Node&lt;E&gt; x = last;</li><li>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-keyword">size</span> - <span class="hljs-number">1</span>; i &gt; index; i--)</li><li>                x = x.prev;</li><li>            <span class="hljs-keyword">return</span> x;</li><li>        }</li><li>    }</li><li></li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

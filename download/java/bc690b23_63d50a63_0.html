@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>
+				<div><span style="font-size: x-large;">【1】Lock锁引入：</span>
+				</div>
+				<div><span style="font-size: x-large;">JDK1.5后新增新一代的线程同步方式:</span><span style="font-size: x-large; ">Lock锁</span>
+				</div>
+				<div><span style="font-size: x-large;">与采用synchronized相比，lock可提供多种锁方案，更灵活</span>
+				</div>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;">synchronized是Java中的关键字，这个关键字的识别是靠JVM来识别完成的呀。是虚拟机级别的。</span>
+			</div>
+			<div><span style="font-size: x-large;">但是Lock锁是API级别的，提供了相应的接口和对应的实现类，这个方式更灵活，表现出来的性能优于之前的方式。</span>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;">【2】代码演示：</span>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;">
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175DFD98B8E" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb.test04;</li><li></li><li><span class="hljs-keyword">import</span> java.util.concurrent.locks.Lock;</li><li><span class="hljs-keyword">import</span> java.util.concurrent.locks.ReentrantLock;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@author</span> : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicketThread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{</li><li>    <span class="hljs-keyword">int</span> ticketNum = <span class="hljs-number">10</span>;</li><li>    <span class="hljs-comment">//拿来一把锁：</span></li><li>    <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Lock lock = <span class="hljs-keyword">new</span> ReentrantLock();//多态  接口=实现类  可以使用不同的实现类</span></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-comment">//此处有1000行代码</span></li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span> ; i++) {</li><li>            <span class="hljs-comment">//打开锁：</span></li><li>            <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">lock.lock();</span></li><li>            <span class="hljs-keyword">try</span>{</li><li>                <span class="hljs-keyword">if</span>(ticketNum &gt; <span class="hljs-number">0</span>){</li><li>                    System.out.println(<span class="hljs-string">"我在"</span>+Thread.currentThread().getName()+<span class="hljs-string">"买到了北京到哈尔滨的第"</span> + ticketNum-- + <span class="hljs-string">"张车票"</span>);</li><li>                }</li><li>            }<span class="hljs-keyword">catch</span> (Exception ex){</li><li>                ex.printStackTrace();</li><li>            }<span class="hljs-keyword">finally</span> {</li><li>                <span class="hljs-comment">//关闭锁：---&gt;即使有异常，这个锁也可以得到释放</span></li><li>                <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">lock.unlock();</span></li><li>            }</li><li></li><li>        }</li><li>        <span class="hljs-comment">//此处有1000行代码</span></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div></span>
+			</div>
+			<div><span style="font-size: x-large; "><br /></span>
+			</div>
+			<div><span style="font-size: x-large;"><br /></span>
+			</div>
+			<div><span style="font-size: x-large;">【3】</span><span style="font-size: x-large; ">&nbsp;Lock和synchronized的区别</span>
+			</div>
+			<div><span style="font-size: x-large;">
+				<div><br />
+				</div>
+				<div><span style="font-size: x-large;">&nbsp; &nbsp; &nbsp; &nbsp; 1.Lock是显式锁（手动开启和关闭锁，别忘记关闭锁），synchronized是隐式锁</span>
+				</div>
+				<div><span style="font-size: x-large;">&nbsp; &nbsp; &nbsp; &nbsp; 2.Lock只有代码块锁，synchronized有代码块锁和方法锁</span>
+				</div>
+				<div><span style="font-size: x-large;">&nbsp; &nbsp; &nbsp; &nbsp; 3.使用Lock锁，JVM将花费较少的时间来调度线程，性能更好。并且具有更好的扩展性（提供更多的子类）</span>
+				</div>
+				<div><span style="font-size: x-large;"><br /></span>
+				</div>
+				<div><span style="font-size: x-large;">【4】优先使用顺序：</span>
+				</div>
+				<div><span style="font-size: x-large;"><br /></span>
+				</div>
+				<div><span style="font-size: x-large;">&nbsp; &nbsp; &nbsp; &nbsp; Lock----同步代码块（已经进入了方法体，分配了相应资源）----同步方法（在方法体之外）</span>
+				</div></span>
+			</div>
+			<div><span style="font-size: x-large;">
+				<div>
+				</div></span>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

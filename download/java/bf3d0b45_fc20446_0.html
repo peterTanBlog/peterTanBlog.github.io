@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】数学：枚举法：
+		</div>
+		<div>1&lt;x&lt;4
+		</div>
+		<div>2&lt;y&lt;5
+		</div>
+		<div>求x+y=6
+		</div>
+		<div><br />
+		</div>
+		<div>枚举法：一枚一枚的列举出来。前提：有限，确定
+		</div>
+		<div><br />
+		</div>
+		<div>【2】在java中，类的对象是有限个，确定的。这个类我们可以定义为枚举类。
+		</div>
+		<div>举例：
+		</div>
+		<div>星期：一二三四五六日 &nbsp;
+		</div>
+		<div>性别：男女
+		</div>
+		<div>季节：春夏秋冬
+		</div>
+		<div><br />
+		</div>
+		<div>【3】自定义枚举类：（JDK1.5之前自定义枚举类）
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172DAAC41D7" class="hljs haxe"><ol><li><span class="hljs-keyword">package</span> com.msb.enum01;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> * 定义枚举类：季节</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Season</span> </span>{</li><li>    <span class="hljs-comment">//属性：</span></li><li>    <span class="hljs-keyword">private</span> final <span class="hljs-keyword">String</span> seasonName ;<span class="hljs-comment">//季节名字</span></li><li>    <span class="hljs-keyword">private</span> final <span class="hljs-keyword">String</span> seasonDesc ;<span class="hljs-comment">//季节描述</span></li><li>    <span class="hljs-comment">//利用构造器对属性进行赋值操作：</span></li><li>    <span class="hljs-comment">//构造器私有化，外界不能调用这个构造器，只能Season内部自己调用</span></li><li>    <span class="hljs-keyword">private</span> Season(<span class="hljs-keyword">String</span> seasonName,<span class="hljs-keyword">String</span> seasonDesc){</li><li>        <span class="hljs-built_in">this</span>.seasonName = seasonName;</li><li>        <span class="hljs-built_in">this</span>.seasonDesc = seasonDesc;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//提供枚举类的有限的  确定的对象：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> final Season SPRING = <span class="hljs-keyword">new</span> <span class="hljs-type">Season</span>(<span class="hljs-string">"春天"</span>,<span class="hljs-string">"春暖花开"</span>);</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> final Season SUMMER = <span class="hljs-keyword">new</span> <span class="hljs-type">Season</span>(<span class="hljs-string">"夏天"</span>,<span class="hljs-string">"烈日炎炎"</span>);</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> final Season AUTUMN = <span class="hljs-keyword">new</span> <span class="hljs-type">Season</span>(<span class="hljs-string">"秋天"</span>,<span class="hljs-string">"硕果累累"</span>);</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> final Season WINTER = <span class="hljs-keyword">new</span> <span class="hljs-type">Season</span>(<span class="hljs-string">"冬天"</span>,<span class="hljs-string">"冰天雪地"</span>);</li><li></li><li>    <span class="hljs-comment">//额外因素：</span></li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getSeasonName() {</li><li>        <span class="hljs-keyword">return</span> seasonName;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getSeasonDesc() {</li><li>        <span class="hljs-keyword">return</span> seasonDesc;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//toString();</span></li><li></li><li>    @Override</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> toString() {</li><li>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Season{"</span> +</li><li>                <span class="hljs-string">"seasonName='"</span> + seasonName + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">", seasonDesc='"</span> + seasonDesc + <span class="hljs-string">'\''</span> +</li><li>                <span class="hljs-string">'}'</span>;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>测试类：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172DAAC7559" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestSeason</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        Season summer = Season.SUMMER;</li><li>        System.<span class="hljs-keyword">out</span>.println(summer<span class="hljs-comment">/*.toString()*/</span>);</li><li>        System.<span class="hljs-keyword">out</span>.println(summer.getSeasonName());</li><li>    }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

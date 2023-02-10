@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】基本功能：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1715D7813FC" class="hljs cs"><ol><li>import java.util.Scanner;</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod03</span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//功能：我心里有一个数，你来猜，看是否猜对</span></li><li>                <span class="hljs-comment">//1.你猜一个数</span></li><li>                Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请你猜一个数："</span>);</li><li>                <span class="hljs-keyword">int</span> yourGuessNum = sc.nextInt();</li><li>                <span class="hljs-comment">//2.我心里有一个数</span></li><li>                <span class="hljs-keyword">int</span> myHeartNum = <span class="hljs-number">5</span>;</li><li>                <span class="hljs-comment">//3.将两个数比对：</span></li><li>                System.<span class="hljs-keyword">out</span>.println(yourGuessNum==myHeartNum?<span class="hljs-string">"猜对了"</span>:<span class="hljs-string">"猜错了"</span>);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>对猜数功能提取为一个方法：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1715D7D154F" class="hljs cs"><ol><li>import java.util.Scanner;</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod03</span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//功能：我心里有一个数，你来猜，看是否猜对</span></li><li>                <span class="hljs-comment">//1.你猜一个数</span></li><li>                Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请你猜一个数："</span>);</li><li>                <span class="hljs-keyword">int</span> yourGuessNum = sc.nextInt();</li><li>                </li><li>                <span class="hljs-comment">//调用猜数的方法：</span></li><li>                guessNum(yourGuessNum);</li><li>        }</li><li>        </li><li>        <span class="hljs-comment">//方法的定义：功能：实现猜数功能：</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">guessNum</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> yourNum</span>)</span>{</li><li>                <span class="hljs-comment">//我心里有一个数(1-6)</span></li><li>                <span class="hljs-keyword">int</span> myHeartNum = (<span class="hljs-keyword">int</span>)(Math.random()*<span class="hljs-number">6</span>)+<span class="hljs-number">1</span>;</li><li>                <span class="hljs-comment">//将两个数比对：</span></li><li>                System.<span class="hljs-keyword">out</span>.println(yourNum==myHeartNum?<span class="hljs-string">"猜对了"</span>:<span class="hljs-string">"猜错了"</span>);	</li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

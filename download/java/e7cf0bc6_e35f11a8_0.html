@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】setName,getName方法来进行设置读取：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1740C6711D2" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test01;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> * 线程类叫：TestThread，不是说你名字中带线程单词你就具备多线程能力了（争抢资源能力）</li><li> * 现在想要具备能力，继承一个类：Thread，具备了争抢资源的能力</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{</li><li>    <span class="hljs-comment">/*</span></li><li>    一会线程对象就要开始争抢资源了，这个线程要执行的任务到底是啥？这个任务你要放在方法中</li><li>    但是这个方法不能是随便写的一个方法，必须是重写Thread类中的run方法</li><li>    然后线程的任务/逻辑写在run方法中</li><li>     */</li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-comment">//输出1-10</span></li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {</li><li>            <span class="hljs-type">System</span>.out.println(<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-keyword">this</span>.getName()</span>+i);</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_1740C6731DE" class="hljs cs"><ol><li>package com.msb.test01;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> * 测试类</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> {</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        <span class="hljs-comment">//给main方法这个主线程设置名字：</span></li><li>        <span class="hljs-comment">//Thread.currentThread()作用获取当前正在执行的线程</span></li><li>        <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Thread.currentThread().setName(<span class="hljs-string">"主线程"</span>);</span></li><li>        <span class="hljs-comment">//主线程中也要输出十个数：</span></li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Thread.currentThread().getName()</span>+<span class="hljs-string">"1-------"</span>+i);</li><li>        }</li><li></li><li>        <span class="hljs-comment">//制造其他线程，要跟主线程争抢资源：</span></li><li>        <span class="hljs-comment">//具体的线程对象：子线程</span></li><li>        TestThread tt = <span class="hljs-keyword">new</span> TestThread();</li><li>        tt.<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">setName</span>(<span class="hljs-string">"子线程"</span>);</li><li>        <span class="hljs-comment">//tt.run();//调用run方法，想要执行线程中的任务 --&gt;这个run方法不能直接调用，直接调用就会被当做一个普通方法</span></li><li>        <span class="hljs-comment">//想要tt子线程真正起作用比如要启动线程：</span></li><li>        tt.start();<span class="hljs-comment">//start()是Thread类中的方法</span></li><li></li><li>        <span class="hljs-comment">//主线程中也要输出十个数：</span></li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {</li><li>            System.<span class="hljs-keyword">out</span>.println<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">(Thread.currentThread().getName()</span>+<span class="hljs-string">"2-------"</span>+i);</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div>【2】通过构造器设置 名字：
+				</div>
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1740C698ED5" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test01;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> * 线程类叫：TestThread，不是说你名字中带线程单词你就具备多线程能力了（争抢资源能力）</li><li> * 现在想要具备能力，继承一个类：Thread，具备了争抢资源的能力</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{</li><li>    <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">public <span class="hljs-type">TestThread</span>(<span class="hljs-type">String</span> name){</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">        <span class="hljs-keyword">super</span>(name);//调用父类的有参构造器</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">    }</span></li><li>    <span class="hljs-comment">/*</span></li><li>    一会线程对象就要开始争抢资源了，这个线程要执行的任务到底是啥？这个任务你要放在方法中</li><li>    但是这个方法不能是随便写的一个方法，必须是重写Thread类中的run方法</li><li>    然后线程的任务/逻辑写在run方法中</li><li>     */</li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-comment">//输出1-10</span></li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {</li><li>            <span class="hljs-type">System</span>.out.println(<span class="hljs-keyword">this</span>.getName()+i);</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

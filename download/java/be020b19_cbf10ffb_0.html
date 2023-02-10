@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】System的属性：
+		</div>
+		<div>System.in &nbsp;:&nbsp;“标准”输入流。---》默认情况下 &nbsp;从键盘输入
+		</div>
+		<div>System.out &nbsp;:“标准”输出流。 ---》默认情况下，输出到控制台。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>【2】System.in ：“标准”输入流。---》默认情况下 &nbsp;从键盘输入
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172F9B53B06" class="hljs haxe"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test01</span> </span>{</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) throws IOException {</li><li>        <span class="hljs-comment">//得到的是标准的输入流：--》从键盘输入：</span></li><li>        <span class="hljs-comment">//InputStream in = System.in;</span></li><li>        <span class="hljs-comment">//调用方法：</span></li><li>        <span class="hljs-comment">//int n = in.read();//read方法等待键盘的录入，所以这个方法是一个阻塞方法。</span></li><li>        <span class="hljs-comment">//System.out.println(n);</span></li><li></li><li>        <span class="hljs-comment">//以前案例：从键盘录入一个int类型的数据：</span></li><li>        <span class="hljs-comment">//从上面的代码证明，键盘录入实际上是：System.in</span></li><li>        <span class="hljs-comment">//形象的理解：System.in管，这个管怼到键盘上去了，所以你从键盘录入的话，就从这个管到程序中了</span></li><li>        <span class="hljs-comment">//Scanner的作用：扫描器：起扫描作用的，扫键盘的从这根管出来的数据</span></li><li>        <span class="hljs-comment">/*Scanner sc = new Scanner(System.in);</span></li><li>        int i = sc.nextInt();</li><li>        System.out.println(i);*/</li><li></li><li>        <span class="hljs-comment">//既然Scanner是扫描的作用，不一定非得扫 System.in进来的东西，还可以扫描其他管的内容：</span></li><li>        Scanner sc = <span class="hljs-keyword">new</span> <span class="hljs-type">Scanner</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">FileInputStream</span>(<span class="hljs-keyword">new</span> <span class="hljs-type">File</span>(<span class="hljs-string">"d:\\Test.txt"</span>)));</li><li>        <span class="hljs-keyword">while</span>(sc.hasNext()){</li><li>            System.out.println(sc.next());</li><li>        }</li><li></li><li>    }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>【3】System.out &nbsp;: 返回的输出流 、 打印流（PrintStream）
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172F9B95CA6" class="hljs stata"><ol><li>package com.msb.io04;</li><li></li><li>import java.io.PrintStream;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-keyword">class</span> Test02 {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    public static void main(String[] <span class="hljs-keyword">args</span>) {</li><li>        <span class="hljs-comment">//写到控制台：</span></li><li>        PrintStream <span class="hljs-keyword">out</span> = System.<span class="hljs-keyword">out</span>;</li><li>        <span class="hljs-comment">//调用方法：</span></li><li>        <span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"你好1"</span>);<span class="hljs-comment">//直接在控制台写出，但是不换行</span></li><li>        <span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"你好2"</span>);</li><li>        <span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"你好3"</span>);</li><li>        <span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"你好4"</span>);</li><li></li><li>        <span class="hljs-keyword">out</span>.println(<span class="hljs-string">"我是中国人1"</span>);<span class="hljs-comment">//直接在控制台写出，并且换行操作</span></li><li>        <span class="hljs-keyword">out</span>.println(<span class="hljs-string">"我是中国人2"</span>);</li><li>        <span class="hljs-keyword">out</span>.println(<span class="hljs-string">"我是中国人3"</span>);</li><li>        <span class="hljs-keyword">out</span>.println(<span class="hljs-string">"我是中国人4"</span>);</li><li></li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"你是"</span>);</li><li>        System.<span class="hljs-keyword">out</span>.<span class="hljs-keyword">print</span>(<span class="hljs-string">"中国人"</span>);</li><li></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

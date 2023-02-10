@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】代码展示：
+		</div>
+		<div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175DFC45A9F" class="hljs java"><ol><li>ublic <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicketThread</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>{</li><li>    <span class="hljs-keyword">int</span> ticketNum = <span class="hljs-number">10</span>;</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-comment">//此处有1000行代码</span></li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span> ; i++) {</li><li>            buyTicket();</li><li>        }</li><li>        <span class="hljs-comment">//此处有1000行代码</span></li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buyTicket</span><span class="hljs-params">()</span></span>{<span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//锁住的是this</span></li><li>        <span class="hljs-keyword">if</span>(ticketNum &gt; <span class="hljs-number">0</span>){</li><li>            System.out.println(<span class="hljs-string">"我在"</span>+Thread.currentThread().getName()+<span class="hljs-string">"买到了北京到哈尔滨的第"</span> + ticketNum-- + <span class="hljs-string">"张车票"</span>);</li><li>        }</li><li>    }</li><li>}</li></ol></code></pre>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_175DFC48229" class="hljs java"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicketThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>{</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">BuyTicketThread</span><span class="hljs-params">(String name)</span></span>{</li><li>        <span class="hljs-keyword">super</span>(name);</li><li>    }</li><li>    <span class="hljs-comment">//一共10张票：</span></li><li>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> ticketNum = <span class="hljs-number">10</span>;<span class="hljs-comment">//多个对象共享10张票</span></li><li>    <span class="hljs-comment">//每个窗口都是一个线程对象：每个对象执行的代码放入run方法中</span></li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-comment">//每个窗口后面有100个人在抢票：</span></li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span> ; i++) {</li><li>            buyTicket();</li><li>        }</li><li>    }</li><li></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buyTicket</span><span class="hljs-params">()</span></span>{<span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//锁住的  同步监视器： BuyTicketThread.class</span></li><li>        <span class="hljs-keyword">if</span>(ticketNum &gt; <span class="hljs-number">0</span>){<span class="hljs-comment">//对票数进行判断，票数大于零我们才抢票</span></li><li>            System.out.println(<span class="hljs-string">"我在"</span>+Thread.currentThread().getName()+<span class="hljs-string">"买到了从北京到哈尔滨的第"</span> + ticketNum-- + <span class="hljs-string">"张车票"</span>);</li><li>        }</li><li>    }</li><li></li><li>}</li></ol></code></pre>
+					<div><br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>【2】总结：
+		</div>
+		<div>
+			<div><span style="font-size: x-large; ">总结1：</span>
+			</div>
+			<div><span style="font-size: x-large; ">多线程在争抢资源，就要实现线程的同步（就要进行加锁，</span><span style="font-size: x-large; ">并且这个锁必须是共享的，必须是唯一的。</span>
+			</div>
+			<div><span style="font-size: x-large; ">咱们的锁一般都是引用数据类型的。</span>
+			</div>
+			<div><span style="font-size: x-large; "><br /></span>
+			</div>
+			<div><span style="font-size: x-large; ">目的：解决了线程安全问题。</span>
+			</div>
+			<div><span style="font-size: x-large; "><br /></span>
+			</div>
+			<div><span style="font-size: x-large; "><br /></span>
+			</div>
+			<div><span style="font-size: x-large; "><br /></span>
+			</div>
+			<div><span style="font-size: x-large; ">
+				<div>总结2：关于同步方法 
+				</div>
+				<div>1) 不要将run()定义为同步方法 
+				</div>
+				<div>2) 非静态同步方法的同步监视器是this
+				</div>
+				<div>&nbsp; &nbsp; 静态同步方法的同步监视器是 类名.class 字节码信息对象
+				</div>
+				<div>3) 同步代码块的效率要高于同步方法
+				</div>
+				<div>&nbsp; &nbsp; &nbsp;原因：同步方法是将线程挡在了方法的外部，而同步代码块锁将线程挡在了代码块的外部，但是却是方法的内部
+				</div>
+				<div>4)&nbsp;同步方法的锁是this，一旦锁住一个方法，就锁住了所有的同步方法；同步代码块只是锁住使用该同步监视器的代码块，而没有锁住使用其他监视器的代码块&nbsp;
+				</div></span>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

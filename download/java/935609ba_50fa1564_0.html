@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>
+				<div>数组的初始化方式总共有三种：静态初始化、动态初始化、默认初始化。
+				</div>
+				<div><br />
+				</div>
+				<div>
+					<ul>
+						<li>静态初始化
+						</li>
+					</ul>
+				</div>
+				<div>除了用new关键字来产生数组以外，还可以直接在定义数组的同时就为数组元素分配空间并赋值。
+				</div>
+				<div><br />
+				</div>
+				<div>eg:
+				</div>
+				<div>int[][] arr = {{1,2},{4,5,6},{4,5,6,7,8,9,9}};
+				</div>
+				<div>int[][] arr =new int[][] {{1,2},{4,5,6},{4,5,6,7,8,9,9}};
+				</div>
+				<div>
+					<ul>
+						<li>动态初始化
+						</li>
+					</ul>
+				</div>
+				<div>数组定义与为数组元素分配空间并赋值的操作分开进行。
+				</div>
+				<div>eg:
+				</div>
+				<div>int[][] arr = new int[3][]; //本质上定义了一维数组长度为3，每个“格子”中放入的是一个数组
+				</div>
+				<div>arr[0] = new int[]{1,2};
+				</div>
+				<div>arr[1] = new int[]{3,4,5,6};
+				</div>
+				<div>arr[2] = new int[]{34,45,56};
+				</div>
+				<div><br />
+				</div>
+				<div>eg:
+				</div>
+				<div>int[][] arr = new int[3][2];&nbsp;
+				</div>
+				<div>
+					<table style="width: 60%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+						<tbody>
+							<tr>
+								<td style="border: 1px solid gray; padding: 4px;">
+									<div>public class TestArray16{
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; public static void main(String[] args){
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int[][] arr = new int[3][2]; 
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //本质上：定义一维数组，长度为3，每个数组“格子”中，有一个默认的长度为2的数组：
+									</div>
+									<div><br />
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; arr[1] = new int[]{1,2,3,4};
+									</div>
+									<div><br />
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //数组遍历：
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for(int[] a:arr){
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for(int num:a){
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.print(num+&quot;\t&quot;);
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; System.out.println();
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+									</div>
+									<div><br />
+									</div>
+									<div>&nbsp; &nbsp; &nbsp; &nbsp; }
+									</div>
+									<div>}
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div>
+					<ul>
+						<li>默认初始化
+						</li>
+					</ul>
+				</div>
+				<div>数组是引用类型，它的元素相当于类的实例变量，因此数组一经分配空间，其中的每个元素也被按照实例变量同样的方式被隐式初始化。
+				</div>
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

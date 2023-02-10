@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】条件运算符：又称： &nbsp;三元运算符/三目运算符
+		</div>
+		<div>【2】格式：
+		</div>
+		<div>&nbsp; a?b:c
+		</div>
+		<div>其中a是一个布尔类型的表达式，返回结果要么是true要么false，通过a的结果决定最终表达式的结果:
+		</div>
+		<div>如果a的结果是true，那么表达式最终结果为b
+		</div>
+		<div>如果a的结果是false，那么表达式最终结果为c
+		</div>
+		<div><br />
+		</div>
+		<div>代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171434612DC" class="hljs processing"><ol><li><span class="hljs-keyword">public</span> class TestOpe11{</li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args){</li><li>                <span class="hljs-built_in">int</span> num = (<span class="hljs-number">5</span>&gt;<span class="hljs-number">7</span>)?<span class="hljs-number">6</span>:<span class="hljs-number">9</span> ;</li><li>                System.out.<span class="hljs-built_in">println</span>(num);</li><li>                </li><li>                <span class="hljs-keyword">String</span> <span class="hljs-built_in">str</span> = (<span class="hljs-number">4</span>==<span class="hljs-number">4</span>)?<span class="hljs-string">"你好"</span>:<span class="hljs-string">"你不好"</span> ;</li><li>                System.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">str</span>);</li><li>                </li><li>                System.out.<span class="hljs-built_in">println</span>((<span class="hljs-number">4</span>==<span class="hljs-number">4</span>)?<span class="hljs-string">"你好"</span>:<span class="hljs-string">"你不好"</span>);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>练习：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171434B7996" class="hljs cs"><ol><li>import java.util.*;<span class="hljs-comment">//*代表所有</span></li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestOpe12</span>{</li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//实现功能：男孩女孩选择晚饭吃什么，如果意见一致，听男生的，如果意见不一致，听女生的</span></li><li>                </li><li>                <span class="hljs-comment">//1.要让男孩女孩选择晚饭吃什么：</span></li><li>                Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请选择今晚吃什么：1.火锅 2.烧烤 3.麻辣烫 4.西餐"</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请男孩选择："</span>);</li><li>                <span class="hljs-keyword">int</span> boyChoice = sc.nextInt();</li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"请女孩选择："</span>);</li><li>                <span class="hljs-keyword">int</span> girlChoice = sc.nextInt();</li><li>                <span class="hljs-comment">//2.判断：</span></li><li>                System.<span class="hljs-keyword">out</span>.println(boyChoice==girlChoice?<span class="hljs-string">"听男孩的"</span>:<span class="hljs-string">"听女孩的"</span>);</li><li>        }</li><li>}</li></ol></code></pre>
+			<div>PS:三目运算符可以代替后续我们要学习的if-else
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

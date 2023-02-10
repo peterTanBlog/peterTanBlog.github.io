@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>@Before:
+		</div>
+		<div>某一个方法中，加入了@Before注解以后，那么这个方法中的功能会在测试方法执行前先执行
+		</div>
+		<div>一般会在@Beforer修饰的那个方法中加入：加入一些申请资源的代码：申请数据库资源，申请IO资源，申请网络资源。。。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>@After:
+		</div>
+		<div>某一个方法中，加入了@After注解以后，那么这个方法中的功能会在测试方法执行后先执行
+		</div>
+		<div>一般会在@After修饰的那个方法中加入：加入释放资源的代码：释放数据库资源，释放IO资源，释放网络资源。。。
+		</div>
+		<div><br />
+		</div>
+		<div>代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172CD0C34B5" class="hljs d"><ol><li><span class="hljs-keyword">package</span> com.msb.test;</li><li></li><li><span class="hljs-keyword">import</span> com.msb.calculator.Calculator;</li><li><span class="hljs-keyword">import</span> org.junit.After;</li><li><span class="hljs-keyword">import</span> org.junit.Assert;</li><li><span class="hljs-keyword">import</span> org.junit.Before;</li><li><span class="hljs-keyword">import</span> org.junit.Test;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> CalculatorTest {</li><li>    <span class="hljs-keyword">@Before</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> init(){</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"方法执行开始了。。。"</span>);</li><li>    }</li><li>    <span class="hljs-keyword">@After</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> close(){</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"方法执行结束了。。。"</span>);</li><li>    }</li><li>    <span class="hljs-comment">//测试add方法</span></li><li>    <span class="hljs-keyword">@Test</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> testAdd(){</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"测试add方法"</span>);</li><li>        Calculator cal = <span class="hljs-keyword">new</span> Calculator();</li><li>        <span class="hljs-keyword">int</span> result = cal.add(<span class="hljs-number">10</span>, <span class="hljs-number">30</span>);</li><li>        <span class="hljs-comment">//System.out.println(result);--》程序的运行结果可以不关注</span></li><li>        <span class="hljs-comment">//加入断言：预测一下结果，判断一下我预测的结果和 实际的结果是否一致：</span></li><li>        Assert.assertEquals(<span class="hljs-number">40</span>,result);<span class="hljs-comment">//第一个参数：预测结果  第二个参数：实际结果</span></li><li>    }</li><li></li><li>    <span class="hljs-comment">//测试sub方法</span></li><li>    <span class="hljs-keyword">@Test</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> testSub(){</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"测试sub方法"</span>);</li><li>        Calculator cal = <span class="hljs-keyword">new</span> Calculator();</li><li>        <span class="hljs-keyword">int</span> result = cal.sub(<span class="hljs-number">10</span>, <span class="hljs-number">30</span>);</li><li>        System.<span class="hljs-keyword">out</span>.println(result);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_172AE1EF0FA" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.msb.test02;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Date;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {</li><li>        <span class="hljs-comment">//java.util.Date:</span></li><li>        Date d = <span class="hljs-keyword">new</span> Date();</li><li>        System.out.<span class="hljs-keyword">println</span>(d);</li><li>        System.out.<span class="hljs-keyword">println</span>(d.toString());</li><li>        System.out.<span class="hljs-keyword">println</span>(d.toGMTString());<span class="hljs-comment">//过期方法，过时方法，废弃方法。</span></li><li>        System.out.<span class="hljs-keyword">println</span>(d.toLocaleString());</li><li></li><li>        System.out.<span class="hljs-keyword">println</span>(d.getYear());<span class="hljs-comment">//120+1900=2020</span></li><li>        System.out.<span class="hljs-keyword">println</span>(d.getMonth());<span class="hljs-comment">//5 :返回的值在 0 和 11 之间，值 0 表示 1 月。</span></li><li>        <span class="hljs-comment">//返回自 1970 年 1 月 1 日 00:00:00 GMT 以来此 Date 对象表示的毫秒数。</span></li><li>        System.out.<span class="hljs-keyword">println</span>(d.getTime());<span class="hljs-comment">//1592055964263</span></li><li>        System.out.<span class="hljs-keyword">println</span>(System.currentTimeMillis());</li><li>        <span class="hljs-comment">/*</span></li><li>        （1）疑问：以后获取时间差用：getTime()还是currentTimeMillis()</li><li>        答案：currentTimeMillis()--》因为这个方法是静态的，可以类名.方法名直接调用</li><li>        （2）public static native long currentTimeMillis();</li><li>        本地方法</li><li>        为什么没有方法体？因为这个方法的具体实现不是通过java写的。</li><li>        （3）这个方法的作用：</li><li>        一般会去衡量一些算法所用的时间</li><li>         */</li><li>        <span class="hljs-keyword">long</span> startTime = System.currentTimeMillis();</li><li>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100000</span>; i++) {</li><li>            System.out.<span class="hljs-keyword">println</span>(i);</li><li>        }</li><li>        <span class="hljs-keyword">long</span> endTime = System.currentTimeMillis();</li><li>        System.out.<span class="hljs-keyword">println</span>(endTime-startTime);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

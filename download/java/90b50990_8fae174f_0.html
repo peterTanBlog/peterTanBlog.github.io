@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>案例：美团外卖 ---&gt;付款 &nbsp;---》要么用微信支付 要么用支付宝支付 &nbsp;
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17121243710" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test01;</li><li><span class="hljs-comment">//接口的制定方：美团外卖</span></li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Mtwm</span> </span>{</li><li>    <span class="hljs-comment">//在线支付功能：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">payOnline</span><span class="hljs-params">()</span></span>;</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_17121246014" class="hljs java"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WeChat</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Mtwm</span></span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">payOnline</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-comment">//具体实现微信支付的功能：</span></li><li>        System.out.println(<span class="hljs-string">"我已经点了外卖，正在使用微信支付"</span>);</li><li>    }</li><li>}</li></ol></code></pre>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_17121248F06" class="hljs java"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AliPay</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Mtwm</span> </span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">payOnline</span><span class="hljs-params">()</span> </span>{</li><li>        <span class="hljs-comment">//具体的支付宝支付：</span></li><li>        System.out.println(<span class="hljs-string">"我已经点了外卖，我正在使用支付宝进行支付"</span>);</li><li>    }</li><li>}</li></ol></code></pre>
+					<div>
+						<div><br />
+						</div>
+						<pre>
+<code id="ID_1712124B391" class="hljs java"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BankCard</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Mtwm</span></span>{</li><li>    <span class="hljs-meta">@Override</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">payOnline</span><span class="hljs-params">()</span> </span>{</li><li>        System.out.println(<span class="hljs-string">"我已经定了外卖，我正在用招商银行信用卡支付"</span>);</li><li>    }</li><li>}</li></ol></code></pre>
+						<div>测试类：
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<pre>
+<code id="ID_17121250200" class="hljs cs"><ol><li>package com.zhaoss.test01;</li><li></li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> {</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        <span class="hljs-comment">//定义一个字符串，用来模拟前台的支付方式：</span></li><li>        String str = <span class="hljs-string">"微信"</span>;</li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"微信"</span>.<span class="hljs-keyword">equals</span>(str)){<span class="hljs-comment">//str.equals("微信")---？避免空指针异常</span></li><li>            <span class="hljs-comment">//微信支付：</span></li><li>            <span class="hljs-comment">//new WeChat().payOnline();</span></li><li>            pay(<span class="hljs-keyword">new</span> WeChat());</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"支付宝"</span>.<span class="hljs-keyword">equals</span>(str)){</li><li>            <span class="hljs-comment">//支付宝支付：</span></li><li>            <span class="hljs-comment">//new AliPay().payOnline();</span></li><li>            pay(<span class="hljs-keyword">new</span> AliPay());</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"招商银行"</span>.<span class="hljs-keyword">equals</span>(str)){</li><li>            pay(<span class="hljs-keyword">new</span> BankCard());</li><li>        }</li><li>    }</li><li>    <span class="hljs-comment">//微信支付</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pay</span>(<span class="hljs-params">WeChat wc</span>)</span>{</li><li>        wc.payOnline();</li><li>    }</li><li>    <span class="hljs-comment">//支付宝支付</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pay</span>(<span class="hljs-params">AliPay ap</span>)</span>{</li><li>        ap.payOnline();</li><li>    }</li><li></li><li>    <span class="hljs-comment">//招商银行支付</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pay</span>(<span class="hljs-params">BankCard bc</span>)</span>{</li><li>        bc.payOnline();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>为了提高代码的扩展性---》面向对象特性：多态：
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17121279DF3" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test01;</li><li></li><li><span class="hljs-keyword">public</span> class Test {</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//定义一个字符串，用来模拟前台的支付方式：</span></li><li>        <span class="hljs-keyword">String</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"微信"</span>;</li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"微信"</span>.equals(<span class="hljs-built_in">str</span>)){<span class="hljs-comment">//str.equals("微信")---？避免空指针异常</span></li><li>            <span class="hljs-comment">//微信支付：</span></li><li>            pay(<span class="hljs-keyword">new</span> WeChat());</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"支付宝"</span>.equals(<span class="hljs-built_in">str</span>)){</li><li>            <span class="hljs-comment">//支付宝支付：</span></li><li>            pay(<span class="hljs-keyword">new</span> AliPay());</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"招商银行"</span>.equals(<span class="hljs-built_in">str</span>)){</li><li>            pay(<span class="hljs-keyword">new</span> BankCard());</li><li>        }</li><li>    }</li><li>    <span class="hljs-comment">//方法形参是接口，具体传入的是接口的实现类的对象---》多态的一种形式</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> pay(Mtwm m){</li><li>        m.payOnline();</li><li>    }</li><li><br></li><li></li><li>}</li><li></li></ol></code></pre>
+			<div>多态确实可以提高代码的扩展性，但是：扩展性没有达到最好。
+			</div>
+		</div>
+		<div>怎么没有达到最好：上面的分支，还是需要手动的删除或者添加。
+		</div>
+		<div>解决办法：反射机制
+		</div>
+		<div>利用反射实现上述功能：
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<pre>
+<code id="ID_1712131A1B1" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test01;</li><li></li><li><span class="hljs-keyword">import</span> java.lang.reflect.InvocationTargetException;</li><li><span class="hljs-keyword">import</span> java.lang.reflect.Method;</li><li></li><li><span class="hljs-keyword">public</span> class Demo {</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) <span class="hljs-keyword">throws</span> Exception {</li><li>        <span class="hljs-comment">//定义一个字符串，用来模拟前台的支付方式：</span></li><li>        <span class="hljs-keyword">String</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"com.zhaoss.test01.AliPay"</span>;  <span class="hljs-comment">//字符串：实际上：就是微信类的全限定路径</span></li><li></li><li>        <span class="hljs-comment">//下面的代码就是利用反射：</span></li><li>        Class  cls = Class.forName(<span class="hljs-built_in">str</span>);//cls--&gt;Class类具体的对象--》AliPay字节码信息</li><li>        <span class="hljs-keyword">Object</span> o = cls.newInstance();</li><li>        Method method = cls.getMethod(<span class="hljs-string">"payOnline"</span>);</li><li>        method.invoke(o);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

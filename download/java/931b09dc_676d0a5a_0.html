@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 10pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_176898E07A6" class="hljs swift"><ol><li>package com.msb.test08;</li><li></li><li><span class="hljs-keyword">import</span> java.util.Collection;</li><li><span class="hljs-keyword">import</span> java.util.Deque;</li><li><span class="hljs-keyword">import</span> java.util.Iterator;</li><li><span class="hljs-keyword">import</span> java.util.LinkedList;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test03</span> </span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-type">String</span>[] args) {</li><li>        <span class="hljs-comment">/*</span></li><li>        双端队列：</li><li>        Deque&lt;E&gt; extends Queue</li><li>        Queue一端放 一端取的基本方法  Deque是具备的</li><li>        在此基础上 又扩展了 一些 头尾操作（添加，删除，获取）的方法</li><li>         */</li><li>        <span class="hljs-type">Deque</span>&lt;<span class="hljs-type">String</span>&gt; d = new <span class="hljs-type">LinkedList</span>&lt;&gt;() ;</li><li>        d.offer(<span class="hljs-string">"A"</span>);</li><li>        d.offer(<span class="hljs-string">"B"</span>);</li><li>        d.offer(<span class="hljs-string">"C"</span>);</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d);<span class="hljs-comment">//[A, B, C]</span></li><li></li><li>        d.offerFirst(<span class="hljs-string">"D"</span>);</li><li>        d.offerLast(<span class="hljs-string">"E"</span>);</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d);<span class="hljs-comment">//[D, A, B, C, E]</span></li><li></li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d.poll());</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d);<span class="hljs-comment">//[A, B, C, E]</span></li><li></li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d.pollFirst());</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d.pollLast());</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(d);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

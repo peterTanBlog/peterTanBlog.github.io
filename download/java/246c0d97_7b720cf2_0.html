@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1<span style="font-size: x-large;">】select语句总结</span>
+		</div>
+		<div><span style="font-size: x-large;">
+			<div>select column, group_function(column)&nbsp; 
+			</div>
+			<div>from table&nbsp; 
+			</div>
+			<div>[where condition]&nbsp; 
+			</div>
+			<div>[group by&nbsp; group_by_expression]&nbsp; 
+			</div>
+			<div>[having group_condition]&nbsp; 
+			</div>
+			<div>[order by column];&nbsp;
+			</div>
+			<div><br />
+			</div>
+			<div>注意：顺序固定，不可以改变顺序
+			</div><br />【2】select语句的执行顺序</span>
+		</div>
+		<div>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">from--where -- group &nbsp;by– &nbsp;select</span><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;&nbsp;</span><span style="font-family: 微软雅黑; ">-</span><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;</span><span style="font-family: 微软雅黑; ">having-</span><span style="font-family: 微软雅黑; ">&nbsp;&nbsp;</span><span style="font-family: 微软雅黑; ">&nbsp;order &nbsp;by</span></span><span style="font-family: 微软雅黑; font-size: 12pt; "><o:p></o:p></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><br /></span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">【3】单表查询练习：</span></span>
+			</p>
+			<p class="MsoNormal"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; ">
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175788E023C" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 单表查询练习：</span></li><li><span class="hljs-comment">-- 列出工资最小值小于2000的职位</span></li><li><span class="hljs-keyword">select</span> job,<span class="hljs-keyword">min</span>(sal)</li><li><span class="hljs-keyword">from</span> emp</li><li><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> job</li><li><span class="hljs-keyword">having</span> <span class="hljs-keyword">min</span>(sal) &lt; <span class="hljs-number">2000</span> ;</li><li></li><li></li><li><span class="hljs-comment">-- 列出平均工资大于1200元的部门和工作搭配组合</span></li><li><span class="hljs-keyword">select</span> deptno,job,<span class="hljs-keyword">avg</span>(sal)</li><li><span class="hljs-keyword">from</span> emp</li><li><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> deptno,job</li><li><span class="hljs-keyword">having</span> <span class="hljs-keyword">avg</span>(sal) &gt; <span class="hljs-number">1200</span></li><li><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> deptno;</li><li></li><li></li><li><span class="hljs-comment">-- 统计[人数小于4的]部门的平均工资。 </span></li><li><span class="hljs-keyword">select</span> deptno,<span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>),<span class="hljs-keyword">avg</span>(sal)</li><li><span class="hljs-keyword">from</span> emp</li><li><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> deptno</li><li><span class="hljs-keyword">having</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) &lt; <span class="hljs-number">4</span></li><li></li><li></li><li></li><li><span class="hljs-comment">-- 统计各部门的最高工资，排除最高工资小于3000的部门。</span></li><li><span class="hljs-keyword">select</span> deptno,<span class="hljs-keyword">max</span>(sal)</li><li><span class="hljs-keyword">from</span> emp </li><li><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> deptno</li><li><span class="hljs-keyword">having</span> <span class="hljs-keyword">max</span>(sal) &lt; <span class="hljs-number">3000</span>;</li><li></li><li></li><li></li></ol></code></pre>
+				<div><br />
+				</div></span></span>
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

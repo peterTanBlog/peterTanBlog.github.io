@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171264D2806" class="hljs swift"><ol><li>package com.zhaoss.test03;</li><li></li><li><span class="hljs-keyword">import</span> java.lang.reflect.Constructor;</li><li><span class="hljs-keyword">import</span> java.lang.reflect.InvocationTargetException;</li><li></li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test01</span> </span>{</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-type">String</span>[] args) <span class="hljs-keyword">throws</span> <span class="hljs-type">NoSuchMethodException</span>, <span class="hljs-type">IllegalAccessException</span>, <span class="hljs-type">InvocationTargetException</span>, <span class="hljs-type">InstantiationException</span> {</li><li>        <span class="hljs-comment">//获取字节码信息：</span></li><li>        <span class="hljs-type">Class</span> cls = <span class="hljs-type">Student</span>.<span class="hljs-keyword">class</span>;</li><li></li><li>        <span class="hljs-comment">//通过字节码信息可以获取构造器：</span></li><li>        <span class="hljs-comment">//getConstructors只能获取当前运行时类的被public修饰的构造器</span></li><li>        <span class="hljs-type">Constructor</span>[] c1 = cls.getConstructors();</li><li>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Constructor</span> <span class="hljs-built_in">c</span>:c1){</li><li>            <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">c</span>);</li><li>        }</li><li></li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"-------------------"</span>);</li><li>        <span class="hljs-comment">//getDeclaredConstructors:获取运行时类的全部修饰符的构造器</span></li><li>        <span class="hljs-type">Constructor</span>[] c2 = cls.getDeclaredConstructors();</li><li>        <span class="hljs-keyword">for</span>(<span class="hljs-type">Constructor</span> <span class="hljs-built_in">c</span>:c2){</li><li>            <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(<span class="hljs-built_in">c</span>);</li><li>        }</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"-------------------"</span>);</li><li>        <span class="hljs-comment">//获取指定的构造器：</span></li><li>        <span class="hljs-comment">//得到空构造器</span></li><li>        <span class="hljs-type">Constructor</span> con1 = cls.getConstructor();</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(con1);</li><li></li><li>        <span class="hljs-comment">//得到两个参数的有参构造器：</span></li><li>        <span class="hljs-type">Constructor</span> con2 = cls.getConstructor(double.<span class="hljs-keyword">class</span>, double.<span class="hljs-keyword">class</span>);</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(con2);</li><li></li><li>        <span class="hljs-comment">//得到一个参数的有参构造器：并且是private修饰的</span></li><li>        <span class="hljs-type">Constructor</span> con3 = cls.getDeclaredConstructor(int.<span class="hljs-keyword">class</span>);</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(con3);</li><li></li><li>        <span class="hljs-comment">//有了构造器以后我就可以创建对象：</span></li><li>        <span class="hljs-type">Object</span> o1 = con1.newInstance();</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(o1);</li><li></li><li>        <span class="hljs-type">Object</span> o2 = con2.newInstance(<span class="hljs-number">180.5</span>, <span class="hljs-number">170.6</span>);</li><li>        <span class="hljs-type">System</span>.out.<span class="hljs-built_in">println</span>(o2);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

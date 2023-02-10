@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】练习1：
+		</div>
+		<div>
+			<pre>
+<code id="ID_171587B47CC" class="hljs gradle"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> TestFor09{</li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args){</li><li>               <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-comment">/* 输出1-100中被5整除的数,每行输出6个*/</span></span></li><li>                <span class="hljs-comment">//引入一个计数器：</span></li><li>                <span class="hljs-keyword">int</span> <span class="hljs-keyword">count</span> = <span class="hljs-number">0</span>;<span class="hljs-comment">//初始值为0</span></li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">100</span>;i++){</li><li>                        <span class="hljs-keyword">if</span>(i%<span class="hljs-number">5</span>==<span class="hljs-number">0</span>){<span class="hljs-comment">//被5整除的数</span></li><li>                                System.out.<span class="hljs-keyword">print</span>(i+<span class="hljs-string">"\t"</span>);</li><li>                                <span class="hljs-keyword">count</span>++;<span class="hljs-comment">//每在控制台输出一个数，count就加1操作</span></li><li>                                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">count</span>%<span class="hljs-number">6</span>==<span class="hljs-number">0</span>){</li><li>                                        System.out.<span class="hljs-keyword">println</span>();<span class="hljs-comment">//换行</span></li><li>                                }</li><li>                        }</li><li>                }</li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>【2】练习2：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171588F4284" class="hljs gradle"><ol><li><span class="hljs-keyword">import</span> java.util.Scanner;</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> TestFor10{</li><li>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args){</li><li>               <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-comment">/*</span></span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">                        实现一个功能： </span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">                   【1】请录入10个整数，当输入的数是666的时候，退出程序。</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">                   【2】判断其中录入正数的个数并输出。</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">                   【3】判断系统的退出状态：是正常退出还是被迫退出。</span></li><li><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">                */</span></li><li>                <span class="hljs-comment">//引入一个计数器：</span></li><li>                <span class="hljs-keyword">int</span> <span class="hljs-keyword">count</span> = <span class="hljs-number">0</span>;</li><li>                <span class="hljs-comment">//引入一个布尔类型的变量：</span></li><li>                <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>; <span class="hljs-comment">//---》理解为一个“开关”，默认情况下开关是开着的</span></li><li>                Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);</li><li>                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">10</span>;i++){<span class="hljs-comment">//i:循环次数</span></li><li>                        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">"请录入第"</span>+i+<span class="hljs-string">"个数："</span>);</li><li>                        <span class="hljs-keyword">int</span> num = sc.nextInt();</li><li>                        <span class="hljs-keyword">if</span>(num&gt;<span class="hljs-number">0</span>){<span class="hljs-comment">//录入的正数</span></li><li>                                <span class="hljs-keyword">count</span>++;</li><li>                        }</li><li>                        <span class="hljs-keyword">if</span>(num==<span class="hljs-number">666</span>){</li><li>                                flag = <span class="hljs-keyword">false</span>;<span class="hljs-comment">//当遇到666的时候，“开关”被关上了</span></li><li>                                <span class="hljs-comment">//退出循环：</span></li><li>                                <span class="hljs-keyword">break</span>;</li><li>                        }</li><li>                        </li><li>                }</li><li>                </li><li>                System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">"你录入的正数的个数为："</span>+<span class="hljs-keyword">count</span>);</li><li>                </li><li>                </li><li>                <span class="hljs-keyword">if</span>(flag){<span class="hljs-comment">//flag==true</span></li><li>                        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">"正常退出！"</span>);</li><li>                }<span class="hljs-keyword">else</span>{<span class="hljs-comment">//flag==false</span></li><li>                        System.out.<span class="hljs-keyword">println</span>(<span class="hljs-string">"被迫退出！"</span>);</li><li>                }</li><li>                </li><li>                </li><li>                </li><li>        }</li><li>}</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

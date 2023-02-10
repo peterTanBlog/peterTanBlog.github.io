@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171EE2ED6AB" class="hljs java"><ol><li><span class="hljs-keyword">package</span> com.msb2;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * <span class="hljs-doctag">@Auther</span>: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title" style="background-color: rgb(255, 255, 0);">Person</span> </span>{</li><li>    <span class="hljs-comment">//构造器：没有任何参数的构造器我们叫做：空参构造器--》空构造器</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">()</span></span>{</li><li>        <span class="hljs-comment">/*age = 19;</span></li><li>        name = "lili";</li><li>        height = 169.5;*/</li><li>    }</li><li>    <span class="hljs-comment">//属性：</span></li><li>    String name;</li><li>    <span class="hljs-keyword">int</span> age;</li><li>    <span class="hljs-keyword">double</span> height;</li><li>    <span class="hljs-comment">//方法：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>{</li><li>        System.out.println(<span class="hljs-string">"我喜欢吃饭"</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_171EE2F167D" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb2;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Test</span> {</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//创建一个Person类的具体的对象/实例/实体：</span></li><li>        <span class="hljs-comment">/*</span></li><li>        创建对象的过程：</li><li>        1.第一次遇到Person的时候，进行类的加载（只加载一次）</li><li>        2.创建对象，为这个对象在堆中开辟空间</li><li>        3.为对象进行属性的初始化动作</li><li></li><li>        new关键字实际上是在调用一个方法，这个方法叫构造方法（构造器）</li><li>        调用构造器的时候，如果你的类中没有写构造器，那么系统会默认给你分配一个构造器，只是我们看不到罢了。</li><li>        可以自己显式 的将构造器编写出来：</li><li>        构造器的格式：</li><li>        [修饰符] 构造器的名字(){</li><li></li><li>        }</li><li>        构造器和方法的区别：</li><li>        1.没有方法的返回值类型</li><li>        2.方法体内部不能有return语句</li><li>        3.构造器的名字很特殊，必须跟类名一样</li><li></li><li>        构造器的作用：不是为了创建对象，因为在调用构造器之前，这个对象就已经创建好了，并且属性有默认的初始化的值。</li><li>        调用构造器的目的是给属性进行赋值操作的。</li><li></li><li>        注意：我们一般不会在空构造器中进行初始化操作，因为那样的话每个对象的属性就一样了。</li><li>        实际上，我们只要保证空构造器的存在就可以了，里面的东西不用写</li><li>         */</li><li>        Person p = <span class="hljs-keyword">new</span> Person();</li><li>        System.out.<span class="hljs-built_in">println</span>(p.age);</li><li>        System.out.<span class="hljs-built_in">println</span>(p.name);</li><li>        System.out.<span class="hljs-built_in">println</span>(p.<span class="hljs-built_in">height</span>);</li><li></li><li>        Person p2 = <span class="hljs-keyword">new</span> Person();</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.age);</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.name);</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.<span class="hljs-built_in">height</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div>【1】什么是方法？
+			</div>
+			<div>方法(method)就是一段用来完成特定功能的代码片段，类似于其它语言的函数(function)。
+			</div>
+			<div>方法用于定义该类或该类的实例的行为特征和功能实现。 方法是类和对象行为特征的抽象。方法很类似于面向过程中的函数。面向过程中，函数是最基本单位，整个程序由一个个函数调用组成。面向对象中，整个程序的基本单位是类，方法是从属于类和对象的。
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<div>【2】方法声明格式：
+			</div>
+			<div>
+				<table style="width: 60%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+					<tbody>
+						<tr>
+							<td style="border: 1px solid gray; padding: 4px;">
+								<div>[修饰符1&nbsp; 修饰符2&nbsp; …]&nbsp; 返回值类型&nbsp; &nbsp; 方法名(形式参数列表){
+								</div>
+								<div>&nbsp; &nbsp; &nbsp; &nbsp; Java语句；… … …
+								</div>
+								<div>}
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table><br />
+			</div>
+		</div>
+		<div>【3】方法的调用方式：
+		</div>
+		<div>
+			<table style="width: 60%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+				<tbody>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">对象名.方法名(实参列表)
+						</td>
+					</tr>
+				</tbody>
+			</table><br />
+		</div>
+		<div>【4】方法的详细说明
+		</div>
+		<div>
+			<ul>
+				<li>形式参数：在方法声明时用于接收外界传入的数据。
+				</li>
+				<li>实参：调用方法时实际传给方法的数据。
+				</li>
+				<li>返回值：方法在执行完毕后返还给调用它的环境的数据。
+				</li>
+				<li>返回值类型：事先约定的返回值的数据类型，如无返回值，必须显示指定为为void。
+				</li>
+			</ul>
+			<div><br />
+			</div>
+		</div>
+		<div>【5】代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1715D514E0B" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod01</span>{</li><li>        </li><li>        <span class="hljs-comment">//方法的定义：（写方法）</span></li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2</span>)</span>{</li><li>                <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;</li><li>                sum += num1;</li><li>                sum += num2;</li><li>                <span class="hljs-keyword">return</span> sum;<span class="hljs-comment">//将返回值返回到方法的调用处</span></li><li>        }</li><li>        </li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//10+20:</span></li><li>                <span class="hljs-comment">//方法的调用：（用方法）</span></li><li>                <span class="hljs-keyword">int</span> num = <span class="hljs-keyword">add</span>(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(num);</li><li>                <span class="hljs-comment">/*</span></li><li>                int num1 = 10;</li><li>                int num2 = 20;</li><li>                int sum = 0;</li><li>                sum += num1;</li><li>                sum += num2;</li><li>                System.out.println(sum);</li><li>                */</li><li>                <span class="hljs-comment">//30+90:</span></li><li>                <span class="hljs-keyword">int</span> sum = <span class="hljs-keyword">add</span>(<span class="hljs-number">30</span>,<span class="hljs-number">90</span>);</li><li>                System.<span class="hljs-keyword">out</span>.println(sum);</li><li>                <span class="hljs-comment">/*</span></li><li>                int num3 = 30;</li><li>                int num4 = 90;	</li><li>                int sum1 = 0 ;</li><li>                sum1 += num3;</li><li>                sum1 += num4;</li><li>                System.out.println(sum1);</li><li>                */</li><li>                <span class="hljs-comment">//50+48:</span></li><li>                System.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">add</span>(<span class="hljs-number">50</span>,<span class="hljs-number">48</span>));</li><li>        </li><li>        }</li><li>        </li><li>        </li><li>}</li></ol></code></pre>
+			<div>【6】总结：
+			</div>
+			<div><br />
+			</div>
+			<div>
+				<div>1.方法是：对特定的功能进行提取，形成一个代码片段，这个代码片段就是我们所说的方法
+				</div>
+				<div>2.方法和方法是并列的关系，所以我们定义的方法不能写到main方法中
+				</div>
+				<div>3.方法的定义--》格式：
+				</div>
+				<div>&nbsp; &nbsp; &nbsp; &nbsp; 修饰符 方法返回值类型 方法名(形参列表){
+				</div>
+				<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 方法体;
+				</div>
+				<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return 方法返回值;
+				</div>
+				<div>&nbsp; &nbsp; &nbsp; &nbsp; }
+				</div>
+				<div><br />
+				</div>
+				<div>4.方法的作用：提高代码的复用性
+				</div>
+			</div>
+			<div>5.总结方法定义的格式：
+			</div>
+			<div>1) 修饰符: 暂时使用public static ---&gt;面向对象一章讲解
+			</div>
+			<div>2)&nbsp;方法返回值类型 &nbsp;: 方法的返回值对应的数据类型
+			</div>
+			<div>&nbsp; &nbsp;数据类型： 可以是基本数据类型（byte,short,int,long,float,double,char,boolean） 也可以是引用数据类型&nbsp;
+			</div>
+			<div>3)&nbsp;方法名 :见名知意，首字母小写，其余遵循驼峰命名， &nbsp;eg: addNum ,一般尽量使用英文来命名 &nbsp;
+			</div>
+			<div>4)&nbsp;形参列表 :方法定义的时候需要的形式参数 ： &nbsp;int &nbsp;num1, int num2 --&gt;相当于告诉方法的调用者：需要传入几个参数，需要传入的参数的类型
+			</div>
+			<div>&nbsp; &nbsp; 实际参数：方法调用的时候传入的具体的参数： &nbsp;10,20 &nbsp;--&gt;根据形式参数的需要传入的
+			</div>
+			<div><br />
+			</div>
+			<div>5)方法体：具体的业务逻辑代码
+			</div>
+			<div>6)&nbsp;return 方法返回值;
+			</div>
+			<div>方法如果有返回值的话： return+方法返回值，将返回值返回到方法的调用处
+			</div>
+			<div>方法没有返回值的话：return可以省略不写了，并且方法的返回值类型为：void
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_1715D5B3C50" class="hljs cs"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">TestMethod02</span>{</li><li>         </li><li>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> num1,<span class="hljs-keyword">int</span> num2</span>)</span>{</li><li>                <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;</li><li>                sum += num1;</li><li>                sum += num2;	</li><li>                System.<span class="hljs-keyword">out</span>.println(sum);</li><li>                <span class="hljs-comment">//return; </span></li><li>        }</li><li>        </li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>)</span>{</li><li>                <span class="hljs-comment">//10+20:</span></li><li>                <span class="hljs-comment">//方法的调用：（用方法）</span></li><li>                <span class="hljs-keyword">add</span>(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>); </li><li>                <span class="hljs-comment">//30+90:</span></li><li>                <span class="hljs-keyword">add</span>(<span class="hljs-number">30</span>,<span class="hljs-number">90</span>);</li><li>                <span class="hljs-comment">//50+48:</span></li><li>                <span class="hljs-comment">//System.out.println(add(50,48));//报错：TestMethod02.java:22: 错误: 此处不允许使用 '空' 类型</span></li><li>   </li><li>        }</li><li></li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div>什么时候有返回值，什么时候没有返回值？ 看心情--》看需求
+			</div>
+			<div><br />
+			</div>
+			<div>6.方法的定义需要注意什么？
+			</div>
+			<div>1）形参列表要怎么写：定义几个参数，分别是什么类型的 &nbsp;---》<span style="color: #ff6600">不确定因素我们会当做方法的形参</span>
+			</div>
+			<div>2) &nbsp;方法到底是否需要返回值 ，如果需要的话，返回值的类型是什么
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div>7.方法的调用需要注意什么？
+			</div>
+			<div>1）实际参数要怎么传入：传入几个参数，传入什么类型的
+			</div>
+			<div>2） 方法是否有返回值需要接受
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

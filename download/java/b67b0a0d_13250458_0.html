@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 10pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div><span style="font-size: x-large;">【1】利用同步代码块解决问题：</span>
+		</div>
+		<div><span style="font-size: x-large;">
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175E9B160F4" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProducerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{<span class="hljs-comment">//生产者线程</span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">ProducerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//生产十个商品 i:生产的次数</span></li><li>            synchronized (p){</li><li>                <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>){</li><li>                    <span class="hljs-comment">//生产费列罗巧克力</span></li><li>                    p.setBrand(<span class="hljs-string">"费列罗"</span>);</li><li>                    <span class="hljs-keyword">try</span> {</li><li>                        <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">100</span>);</li><li>                    } <span class="hljs-keyword">catch</span> (<span class="hljs-type">InterruptedException</span> e) {</li><li>                        e.printStackTrace();</li><li>                    }</li><li>                    p.setName(<span class="hljs-string">"巧克力"</span>);</li><li>                }<span class="hljs-keyword">else</span>{</li><li>                    <span class="hljs-comment">//生产哈尔滨啤酒</span></li><li>                    p.setBrand(<span class="hljs-string">"哈尔滨"</span>);</li><li>                    <span class="hljs-keyword">try</span> {</li><li>                        <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">100</span>);</li><li>                    } <span class="hljs-keyword">catch</span> (<span class="hljs-type">InterruptedException</span> e) {</li><li>                        e.printStackTrace();</li><li>                    }</li><li>                    p.setName(<span class="hljs-string">"啤酒"</span>);</li><li>                }</li><li></li><li>                <span class="hljs-comment">//将生产信息做一个打印：</span></li><li>                <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"生产者生产了："</span> + p.getBrand() + <span class="hljs-string">"---"</span> + p.getName());</li><li>            }</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175E9B17FB2" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{<span class="hljs-comment">//消费者线程</span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">CustomerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//i:消费次数</span></li><li>            synchronized (p){</li><li>                <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"消费者消费了："</span> + p.getBrand() + <span class="hljs-string">"---"</span> + p.getName());</li><li>            }</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div>【2】利用同步方法解决问题：
+				</div>
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175E9B7728E" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb.test11;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class Product {<span class="hljs-comment">//商品类</span></li><li>    <span class="hljs-comment">//品牌</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> brand;</li><li>    <span class="hljs-comment">//名字</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> name;</li><li>    <span class="hljs-comment">//setter,getter方法；</span></li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getBrand() {</li><li>        <span class="hljs-keyword">return</span> brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setBrand(<span class="hljs-keyword">String</span> brand) {</li><li>        <span class="hljs-keyword">this</span>.brand = brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getName() {</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setName(<span class="hljs-keyword">String</span> name) {</li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//生产商品</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> setProduct(<span class="hljs-keyword">String</span> brand,<span class="hljs-keyword">String</span> name){</li><li>        <span class="hljs-keyword">this</span>.setBrand(brand);</li><li>        <span class="hljs-keyword">try</span> {</li><li>            Thread.sleep(<span class="hljs-number">100</span>);</li><li>        } <span class="hljs-keyword">catch</span> (InterruptedException e) {</li><li>            e.printStackTrace();</li><li>        }</li><li>        <span class="hljs-keyword">this</span>.setName(name);</li><li></li><li></li><li>        <span class="hljs-comment">//将生产信息做一个打印：</span></li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"生产者生产了："</span> + <span class="hljs-keyword">this</span>.getBrand() + <span class="hljs-string">"---"</span> + <span class="hljs-keyword">this</span>.getName());</li><li>    }</li><li></li><li>    <span class="hljs-comment">//消费商品：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> getProduct(){</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"消费者消费了："</span> + <span class="hljs-keyword">this</span>.getBrand() + <span class="hljs-string">"---"</span> + <span class="hljs-keyword">this</span>.getName());</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div></span>
+		</div>
+		<div><span style="font-size: x-large; ">
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175E9B79E38" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test11;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{<span class="hljs-comment">//消费者线程</span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">CustomerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//i:消费次数</span></li><li>            p.getProduct();;</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_175E9CD28B0" class="hljs scala"><ol><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProducerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>{<span class="hljs-comment">//生产者线程</span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">ProducerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//生产十个商品 i:生产的次数</span></li><li>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>){</li><li>                p.setProduct(<span class="hljs-string">"费列罗"</span>,<span class="hljs-string">"巧克力"</span>);</li><li>            }<span class="hljs-keyword">else</span>{</li><li>                p.setProduct(<span class="hljs-string">"哈尔滨"</span>,<span class="hljs-string">"啤酒"</span>);</li><li>            }</li><li>        }</li><li>    }</li><li>}</li></ol></code></pre>
+					<div>（这个else中的代码在分解3中 演示了错误）
+					</div>
+				</div>
+			</div></span>
+		</div>
+		<div>
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

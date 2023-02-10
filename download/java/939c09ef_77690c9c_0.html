@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_171EE49B1DD" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb3.msb2;</li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Person</span> {</li><li></li><li>    <span class="hljs-comment">//属性：</span></li><li>    <span class="hljs-keyword">String</span> name;</li><li>    <span class="hljs-built_in">int</span> age;</li><li>    <span class="hljs-keyword">double</span> <span class="hljs-built_in">height</span>;</li><li></li><li>    <span class="hljs-comment">//空构造器</span></li><li>    <span class="hljs-keyword">public</span> Person(){</li><li></li><li>    }</li><li>    <span class="hljs-keyword">public</span> Person(<span class="hljs-keyword">String</span> name,<span class="hljs-built_in">int</span> age,<span class="hljs-keyword">double</span> <span class="hljs-built_in">height</span>){</li><li>        <span class="hljs-comment">//当形参名字和属性名字重名的时候，会出现就近原则：</span></li><li>        <span class="hljs-comment">//在要表示对象的属性前加上this.来修饰 ，因为this代表的就是你创建的那个对象</span></li><li>        <span class="hljs-keyword">this</span>.name = name;</li><li>        <span class="hljs-keyword">this</span>.age = age;</li><li>        <span class="hljs-keyword">this</span>.<span class="hljs-built_in">height</span> = <span class="hljs-built_in">height</span>;</li><li>    }</li><li>    <span class="hljs-keyword">public</span> Person(<span class="hljs-keyword">String</span> a,<span class="hljs-built_in">int</span> b){</li><li>        name = a;</li><li>        age = b;</li><li>    }</li><li></li><li>    <span class="hljs-comment">//方法：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> eat(){</li><li>        System.out.<span class="hljs-built_in">println</span>(<span class="hljs-string">"我喜欢吃饭"</span>);</li><li>    }</li><li>}</li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_171EE49E325" class="hljs processing"><ol><li><span class="hljs-keyword">package</span> com.msb3.msb2;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> class <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">Test </span>{</li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">/*</span></li><li>        1.一般保证空构造器的存在，空构造器中一般不会进行属性的赋值操作</li><li>        2.一般我们会重载构造器，在重载的构造器中进行属性赋值操作</li><li>        3.在重载构造器以后，假如空构造器忘写了，系统也不会给你分配默认的空构造器了，那么你要调用的话就会出错了。</li><li>        4. 当形参名字和属性名字重名的时候，会出现就近原则：</li><li>        在要表示对象的属性前加上this.来修饰 ，因为this代表的就是你创建的那个对象</li><li></li><li>         */</li><li></li><li>        Person p = <span class="hljs-keyword">new</span> Person();</li><li>        <span class="hljs-comment">/*p.age = 19;</span></li><li>        p.name = "lili";</li><li>        p.height = 180.4;*/</li><li></li><li>        Person p2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"lili"</span>,<span class="hljs-number">19</span>,<span class="hljs-number">180.4</span>);</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.age);</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.<span class="hljs-built_in">height</span>);</li><li>        System.out.<span class="hljs-built_in">println</span>(p2.name);</li><li></li><li>    }</li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

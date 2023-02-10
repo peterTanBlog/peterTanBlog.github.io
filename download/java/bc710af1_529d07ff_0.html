@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】代码：
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_176755C5ACC" class="hljs cpp"><ol><li>package com.msb.test04;</li><li></li><li><span class="hljs-keyword">import</span> java.util.concurrent.CopyOnWriteArrayList;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test {</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{</li><li>        CopyOnWriteArrayList&lt;Integer&gt; <span class="hljs-built_in">list</span> = <span class="hljs-keyword">new</span> CopyOnWriteArrayList&lt;&gt;();</li><li>        <span class="hljs-comment">//添加方法：</span></li><li>        <span class="hljs-built_in">list</span>.add(<span class="hljs-number">1</span>);</li><li>        <span class="hljs-built_in">list</span>.add(<span class="hljs-number">2</span>);</li><li>        <span class="hljs-built_in">list</span>.add(<span class="hljs-number">3</span>);</li><li>        <span class="hljs-built_in">list</span>.add(<span class="hljs-number">4</span>);</li><li>        System.out.println(<span class="hljs-built_in">list</span>);<span class="hljs-comment">//[1, 2, 3, 4]</span></li><li>        <span class="hljs-built_in">list</span>.add(<span class="hljs-number">3</span>);<span class="hljs-comment">//add方法无论元素是否存在，都可以添加进去--》添加重复的元素</span></li><li>        System.out.println(<span class="hljs-built_in">list</span>);<span class="hljs-comment">//[1, 2, 3, 4, 3]</span></li><li>        <span class="hljs-comment">//adj. 缺席的；缺少的；心不在焉的；茫然的</span></li><li>        <span class="hljs-built_in">list</span>.addIfAbsent(<span class="hljs-number">33</span>);<span class="hljs-comment">//添加不存在的元素--》不可以添加重复的数据</span></li><li>        System.out.println(<span class="hljs-built_in">list</span>);<span class="hljs-comment">//[1, 2, 3, 4, 3, 33]</span></li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>【2】源码分析：
+			</div>
+			<div><br />
+			</div>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_17675657D6A" class="hljs processing"><ol><li><span class="hljs-keyword">public</span> class CopyOnWriteArrayList&lt;E&gt;{</li><li>        <span class="hljs-comment">//底层基于数组实现的</span></li><li>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">Object</span>[] array;</li><li>        </li><li>        <span class="hljs-keyword">public</span> CopyOnWriteArrayList() {</li><li>        setArray(<span class="hljs-keyword">new</span> <span class="hljs-keyword">Object</span>[<span class="hljs-number">0</span>]);</li><li>    }</li><li>        </li><li>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> setArray(<span class="hljs-keyword">Object</span>[] a) {</li><li>        array = a; <span class="hljs-comment">// array = new Object[0]</span></li><li>    }</li><li>        <span class="hljs-comment">//add方法：</span></li><li>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">boolean</span> <span class="hljs-built_in">add</span>(E e) {</li><li>        <span class="hljs-keyword">final</span> ReentrantLock lock = <span class="hljs-keyword">this</span>.lock;</li><li>        lock.lock();</li><li>        <span class="hljs-keyword">try</span> {</li><li>                        <span class="hljs-comment">//返回底层array数组,给了elements</span></li><li>            <span class="hljs-keyword">Object</span>[] elements = getArray();</li><li>                        <span class="hljs-comment">//获取elements的长度---》获取老数组的长度</span></li><li>            <span class="hljs-built_in">int</span> len = elements.length;</li><li>                        <span class="hljs-comment">//完成数组的复制，将老数组中的元素复制到新数组中，并且新数组的长度加1操作</span></li><li>            <span class="hljs-keyword">Object</span>[] newElements = Arrays.copyOf(elements, len + <span class="hljs-number">1</span>);</li><li>                        <span class="hljs-comment">//将e元素放入新数组最后位置</span></li><li>            newElements[len] = e;</li><li>                        <span class="hljs-comment">//array数组的指向从老数组变为新数组</span></li><li>            setArray(newElements);</li><li>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</li><li>        } <span class="hljs-keyword">finally</span> {</li><li>            lock.unlock();</li><li>        }</li><li>    }</li><li>        </li><li>        </li><li>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">Object</span>[] getArray() {</li><li>        <span class="hljs-keyword">return</span> array;<span class="hljs-comment">//返回底层数组</span></li><li>    }</li><li>        </li><li>        </li><li>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">boolean</span> addIfAbsent(E e, <span class="hljs-keyword">Object</span>[] snapshot) {</li><li>        <span class="hljs-keyword">final</span> ReentrantLock lock = <span class="hljs-keyword">this</span>.lock;</li><li>        lock.lock();</li><li>        <span class="hljs-keyword">try</span> {</li><li>                        <span class="hljs-comment">//取出array数组给current</span></li><li>            <span class="hljs-keyword">Object</span>[] current = getArray();</li><li>            <span class="hljs-built_in">int</span> len = current.length;</li><li>            <span class="hljs-keyword">if</span> (snapshot != current) {</li><li>                <span class="hljs-comment">// Optimize for lost race to another addXXX operation</span></li><li>                <span class="hljs-built_in">int</span> common = Math.<span class="hljs-built_in">min</span>(snapshot.length, len);</li><li>                                <span class="hljs-comment">//遍历老数组：</span></li><li>                <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; common; i++)</li><li>                                        <span class="hljs-comment">//eq(e, current[i])将放入的元素和老数组的每一个元素进行比较，如果有重复的元素，就返回false，不添加了</span></li><li>                    <span class="hljs-keyword">if</span> (current[i] != snapshot[i] &amp;&amp; eq(e, current[i]))</li><li>                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</li><li>                <span class="hljs-keyword">if</span> (indexOf(e, current, common, len) &gt;= <span class="hljs-number">0</span>)</li><li>                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;</li><li>            }</li><li>                        <span class="hljs-comment">//完成数组的复制，将老数组中的元素复制到新数组中，并且新数组的长度加1操作</span></li><li>            <span class="hljs-keyword">Object</span>[] newElements = Arrays.copyOf(current, len + <span class="hljs-number">1</span>);</li><li>                        <span class="hljs-comment">//将e元素放入新数组最后位置</span></li><li>            newElements[len] = e;</li><li>                        <span class="hljs-comment">//array数组的指向从老数组变为新数组</span></li><li>            setArray(newElements);</li><li>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;</li><li>        } <span class="hljs-keyword">finally</span> {</li><li>            lock.unlock();</li><li>        }</li><li>    }</li><li>        </li><li>        </li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

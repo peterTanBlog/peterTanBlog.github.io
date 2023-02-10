@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>【1】类的组成：属性，方法，构造器，<span style="background-color: rgb(255, 255, 0);">代码块</span>，内部类
+		</div>
+		<div>【2】代码块分类：<span style="background-color: rgb(255, 255, 0);">普通块，构造块，静态块</span>，同步块（多线程）
+		</div>
+		<div>【3】代码：
+		</div>
+		<div>
+			<pre>
+<code id="ID_171F3854378" class="hljs cs"><ol><li>package com.msb6;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @Auther: msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> {</li><li>    <span class="hljs-comment">//属性</span></li><li>    <span class="hljs-keyword">int</span> a;</li><li>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> sa;</li><li></li><li>    <span class="hljs-comment">//方法</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">a</span>(<span class="hljs-params"></span>)</span>{</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"-----a"</span>);</li><li>        {</li><li>            <span class="hljs-comment">//普通块限制了局部变量的作用范围</span></li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"这是普通块"</span>);</li><li>            System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"----000000"</span>);</li><li>            <span class="hljs-keyword">int</span> num = <span class="hljs-number">10</span>;</li><li>            System.<span class="hljs-keyword">out</span>.println(num);</li><li>        }</li><li>        <span class="hljs-comment">//System.out.println(num);</span></li><li>        <span class="hljs-comment">//if(){}</span></li><li>        <span class="hljs-comment">//while(){}</span></li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">b</span>(<span class="hljs-params"></span>)</span>{</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"------b"</span>);</li><li>    }</li><li></li><li>    <span class="hljs-comment">//构造块</span></li><li>    {</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"------这是构造块"</span>);</li><li>    }</li><li>    <span class="hljs-comment">//静态块</span></li><li>    <span class="hljs-keyword">static</span>{</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"-----这是静态块"</span>);</li><li>        <span class="hljs-comment">//在静态块中只能方法：静态属性，静态方法</span></li><li>        System.<span class="hljs-keyword">out</span>.println(sa);</li><li>        b();</li><li>    }</li><li></li><li></li><li>    <span class="hljs-comment">//构造器</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Test</span>(<span class="hljs-params"></span>)</span>{</li><li>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">"这是空构造器"</span>);</li><li>    }</li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Test</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> a</span>)</span>{</li><li>        <span class="hljs-keyword">this</span>.a = a;</li><li>    }</li><li></li><li></li><li>    <span class="hljs-comment">//这是一个main方法，是程序的入口：</span></li><li>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span>(<span class="hljs-params">String[] args</span>) </span>{</li><li>        Test t = <span class="hljs-keyword">new</span> Test();</li><li>        t.a();</li><li></li><li>        Test t2 = <span class="hljs-keyword">new</span> Test();</li><li>        t2.a();</li><li>    }</li><li></li><li></li><li></li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>总结：
+		</div>
+		<div>（1）代码块执行顺序：
+		</div>
+		<div>最先执行静态块，只在类加载的时候执行一次，所以一般以后实战写项目：创建工厂，数据库的初始化信息都放入静态块。
+		</div>
+		<div>一般用于执行一些全局性的初始化操作。
+		</div>
+		<div><br />
+		</div>
+		<div>再执行构造块，（不常用）
+		</div>
+		<div>再执行构造器，
+		</div>
+		<div>再执行方法中的普通块。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,1598 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">1.</span></strong><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">字符串函数</span> &nbsp;（String StringBuilder）</span></strong><span style="font-family: 微软雅黑; ">&nbsp;</span></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:406.4000pt;margin-left:19.6000pt;
+mso-table-layout-alt:fixed;border:none;mso-border-left-alt:0.5000pt solid windowtext;
+mso-border-top-alt:0.5000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;
+mso-border-insideh:0.5000pt solid windowtext;mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="212" valign="top" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">函数</span></strong><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="top" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;CONCAT(str1, str2, </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">···</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">, strn) </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">将</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str1</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">、</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str2</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">···</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">strn</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">拼接成一个新的字符串</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">INSERT(str, index, n, newstr) </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">将字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">从第</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">index</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">位置开始的</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符替换成字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">newstr &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">LENGTH(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">获取字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的长度</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; LOWER(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">将字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">中的每个字符转换为小写</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; <a name="OLE_LINK82">UPPER(str)</a> &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">将字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">中的每个字符转换为大写</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; LEFT(str, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">获取字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">最左边的</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; RIGHT(str, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">获取字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">最右边的</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">LPAD(str, n, &nbsp;pad) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">使用字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">pad</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">在</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的最左边进行填充，直到长度为</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符为止</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">RPAD(str, n, &nbsp;pad) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">使用字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">pad</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">在</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的最右边进行填充，直到长度为</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符为止</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; LTRIM(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">去除字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">左侧的空格</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; RTRIM(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">去除字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">右侧的空格</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; TRIM(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">去除字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">左右两侧的空格</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">REPLACE(str,oldstr,newstr) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">用字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">newstr</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">替换字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">中所有的子字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">oldstr &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; REVERSE(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">将字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">中的字符逆序</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">STRCMP(str1, str2) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">比较字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str1</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">和</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str2</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的大小</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="212" valign="center" style="width:127.5500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">SUBSTRING(str,index,n) </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="464" valign="center" style="width:278.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">获取从字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">的</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">index</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">位置开始的</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">个字符</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;"><o:p>&nbsp;</o:p></span></strong>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">2. </span></strong><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">数值函数</span> <span style="font-family: 微软雅黑">（</span>Math）</span></strong><span style="font-family: 微软雅黑; ">&nbsp;&nbsp; &nbsp; </span></span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:406.4000pt;margin-left:19.6000pt;
+mso-table-layout-alt:fixed;border:none;mso-border-left-alt:0.5000pt solid windowtext;
+mso-border-top-alt:0.5000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;
+mso-border-insideh:0.5000pt solid windowtext;mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="224" valign="top" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">函数</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="top" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; ABS(num) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的绝对值</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CEIL(num) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回大于</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的最小整数（向上取整）</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; FLOOR(num) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回小于</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的最大整数（向下取整）</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;MOD(num1, num2) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num1/num2</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的余数（取模）</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; PI() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回圆周率的值</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">POW(num,n)/POWER(num, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">的</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">次方</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; RAND(num) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">0~1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">之间的随机数</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; ROUND(num, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">x</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">四舍五入后的值，该值保留到小数点后</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">位</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="224" valign="center" style="width:134.6500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">TRUNCATE(num, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="452" valign="center" style="width:271.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">被舍去至小数点后</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">位的值</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;"><o:p>&nbsp;</o:p></span></strong>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">3. </span></strong><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">日期与时间函数</span></span></strong><span style="font-family: 微软雅黑; ">&nbsp; &nbsp; &nbsp; </span></span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="276" valign="top" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">函数</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="top" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CURDATE() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CURTIME() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前时间</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; NOW() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前日期和时间</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; SYSDATE() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回<a name="OLE_LINK99">该函数执行时的日期和时</a>间</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; DAYOFYEAR(date) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">为一年中的第几天</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; WEEK(date)/WEEKOFYEAR(date) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">为一年中的第几周</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; DATE_FORMAT(date, &nbsp; format) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回按字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">format</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">格式化后的日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;"><a name="OLE_LINK97">DATE_ADD(date, &nbsp; INTERVAL expr unit) &nbsp; </a></span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">/ADDDATE(date, INTERVAL expr unit) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">加上一个时间间隔后的新时间值</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;DATE_SUB(date, &nbsp; INTERVAL expr unit) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">/SUBDATE(date, &nbsp; INTERVAL expr unit) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">减去一个时间间隔后的新时间值</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="276" valign="center" style="width:166.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;DATEDIFF(date1, &nbsp; date2) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="433" valign="center" style="width:259.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回起始日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">与结束日期</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">date2</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">之间的间隔天数</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;"><o:p>&nbsp;</o:p></span></strong>
+			</p>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_17573715DFD" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 单行函数包含：</span></li><li><span class="hljs-comment">-- 1.字符串函数</span></li><li><span class="hljs-keyword">select</span> ename,<span class="hljs-keyword">length</span>(ename),<span class="hljs-keyword">substring</span>(ename,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-keyword">from</span> emp;</li><li><span class="hljs-comment">-- substring字符串截取，2:从字符下标为2开始，3：截取长度3    （下标从1开始）</span></li><li><span class="hljs-comment">-- 2.数值函数</span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">abs</span>(<span class="hljs-number">-5</span>),<span class="hljs-keyword">ceil</span>(<span class="hljs-number">5.3</span>),<span class="hljs-keyword">floor</span>(<span class="hljs-number">5.9</span>),<span class="hljs-keyword">round</span>(<span class="hljs-number">3.14</span>) <span class="hljs-keyword">from</span> dual; <span class="hljs-comment">-- dual实际就是一个伪表 </span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">abs</span>(<span class="hljs-number">-5</span>) 绝对值,<span class="hljs-keyword">ceil</span>(<span class="hljs-number">5.3</span>) 向上取整,<span class="hljs-keyword">floor</span>(<span class="hljs-number">5.9</span>) 向下取整,<span class="hljs-keyword">round</span>(<span class="hljs-number">3.14</span>) 四舍五入;  <span class="hljs-comment">-- 如果没有where条件的话，from dual可以省略不写</span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">ceil</span>(sal) <span class="hljs-keyword">from</span> emp;</li><li><span class="hljs-keyword">select</span> <span class="hljs-number">10</span>/<span class="hljs-number">3</span>,<span class="hljs-number">10</span>%<span class="hljs-number">3</span>,<span class="hljs-keyword">mod</span>(<span class="hljs-number">10</span>,<span class="hljs-number">3</span>) ;</li><li><span class="hljs-comment">-- 3.日期与时间函数 </span></li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> emp;</li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">curdate</span>(),<span class="hljs-keyword">curtime</span>() ; <span class="hljs-comment">-- curdate()年月日 curtime()时分秒</span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">now</span>(),<span class="hljs-keyword">sysdate</span>(),<span class="hljs-keyword">sleep</span>(<span class="hljs-number">3</span>),<span class="hljs-keyword">now</span>(),<span class="hljs-keyword">sysdate</span>() <span class="hljs-keyword">from</span> dual; <span class="hljs-comment">-- now(),sysdate() 年月日时分秒</span></li><li></li><li><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> emp <span class="hljs-keyword">values</span> (<span class="hljs-number">9999</span>,<span class="hljs-string">'lili'</span>,<span class="hljs-string">'SALASMAN'</span>,<span class="hljs-number">7698</span>,<span class="hljs-keyword">now</span>(),<span class="hljs-number">1000</span>,<span class="hljs-literal">null</span>,<span class="hljs-number">30</span>);</li><li><span class="hljs-comment">-- now()可以表示年月日时分秒，但是插入数据的时候还是要参照表的结构的</span></li><li>desc emp;</li></ol></code></pre>
+			<div><br />
+			</div>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">4. </span></strong><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">流程函数（</span> IF &nbsp;SWITCH）</span></strong><span style="font-family: 微软雅黑; ">&nbsp;</span></span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="346" valign="top" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">间隔类型</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="top" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr style="height:4.5000pt;">
+						<td width="346" valign="center" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; IF(condition, t, f) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="center" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">如果条件</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">condition</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">为真，则返回</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">t</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，否则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">f &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="346" valign="center" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; IFNULL(value1, value2) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="center" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">如果</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">不为</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">null</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，否则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value2 &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="346" valign="center" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; NULLIF(value1, value2) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="center" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">如果</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">等于</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value2</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">null</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，否则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value1 &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="346" valign="center" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CASE value WHEN &nbsp; [value1] THEN result1 [WHEN [value2] THEN result2 ...] [ELSE result] END &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="center" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">如果</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">等于</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">value1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">result1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，···，否则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">result &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="346" valign="center" style="width:208.1500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CASE WHEN [<a name="OLE_LINK112">condition1</a>] THEN result1 [WHEN [condition2] THEN &nbsp; result2 ...] [ELSE result] END &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="363" valign="center" style="width:217.8500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">如果条件</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">condition1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">为真，则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">result1</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">，···，否则返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">result &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-weight:bold;font-size:12.0000pt;"><o:p>&nbsp;</o:p></span></strong>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">5.JSON</span></strong><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; "><span style="font-family: 微软雅黑">函数</span></span></strong><span style="font-family: 微软雅黑; ">&nbsp;&nbsp; </span></span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="236" valign="top" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">函数</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="top" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="top" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_APPEND() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="top" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">在</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档中追加数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_INSERT () &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">在</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档中插入数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_REPLACE () &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">替换</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档中的数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_REMOVE () &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">从</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档的指定位置移除数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr style="height:16.0000pt;">
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_CONTAINS() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">判断</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档中是否包含某个数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; JSON_SEARCH() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">查找</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">JSON</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">文档中给定字符串的路径</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table><br />
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;
+font-size:12.0000pt;"><o:p>&nbsp;</o:p></span></strong>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-size: 18pt"><strong><span class="15" style="font-family: 微软雅黑; font-weight: bold; ">6.其他函数</span></strong><span style="font-family: 微软雅黑; ">&nbsp;&nbsp; &nbsp; </span></span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="1" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;mso-table-layout-alt:fixed;
+border:none;mso-border-left-alt:0.5000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;
+mso-border-right-alt:0.5000pt solid windowtext;mso-border-bottom-alt:0.5000pt solid windowtext;mso-border-insideh:0.5000pt solid windowtext;
+mso-border-insidev:0.5000pt solid windowtext;mso-padding-alt:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;">
+				<tbody>
+					<tr>
+						<td width="236" valign="top" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">函数</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="top" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><strong><span class="15" style="mso-spacerun:'yes';font-family:微软雅黑;font-weight:bold;">描述</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; DATABASE() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前数据库名</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; VERSION() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">MySQL</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的版本号</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; USER() &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回当前登录的用户名</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; INET_ATON(IP) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">IP</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">地址的数字表示</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; INET_NTOA &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">返回数字代表的</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">IP</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">地址</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; PASSWORD(str) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">实现对字符串</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">str</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的加密操作</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; FORMAT(num, n) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">实现对数字</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">num</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">的格式化操作，保留</span><span style="font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';font-size:10.5000pt;
+mso-font-kerning:1.0000pt;">n</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">位小数</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="236" valign="center" style="width:141.7500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:0.5000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; CONVERT(data, &nbsp; type) &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="473" valign="center" style="width:284.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:0.5000pt solid windowtext;
+border-top:none;mso-border-top-alt:0.5000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:0.5000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">实现将数据</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">data</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">转换成</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">type</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">类型的操作</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:10.5000pt;mso-font-kerning:1.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:10.5000pt;
+mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;">&nbsp;</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:'Times New Roman';
+font-size:12.0000pt;mso-font-kerning:1.0000pt;"><o:p></o:p></span>
+			</p>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175738DCF71" class="lang-sql hljs"><ol><li><span class="hljs-comment">-- 4.流程函数</span></li><li><span class="hljs-comment">-- if相关</span></li><li><span class="hljs-keyword">select</span> empno,ename,sal,<span class="hljs-keyword">if</span>(sal&gt;=<span class="hljs-number">2500</span>,<span class="hljs-string">'高薪'</span>,<span class="hljs-string">'底薪'</span>) <span class="hljs-keyword">as</span> <span class="hljs-string">'薪资等级'</span> <span class="hljs-keyword">from</span> emp; <span class="hljs-comment">-- if-else 双分支结构</span></li><li><span class="hljs-keyword">select</span> empno,ename,sal,comm,sal+<span class="hljs-keyword">ifnull</span>(comm,<span class="hljs-number">0</span>) <span class="hljs-keyword">from</span> emp; <span class="hljs-comment">-- 如果comm是null，那么取值为0 -- 单分支</span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">nullif</span>(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>),<span class="hljs-keyword">nullif</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">from</span> dual; <span class="hljs-comment">--  如果value1等于value2，则返回null，否则返回value1  </span></li><li><span class="hljs-comment">-- case相关：</span></li><li><span class="hljs-comment">-- case等值判断</span></li><li><span class="hljs-keyword">select</span> empno,ename,job,</li><li><span class="hljs-keyword">case</span> job </li><li> <span class="hljs-keyword">when</span> <span class="hljs-string">'CLERK'</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'店员'</span></li><li> <span class="hljs-keyword">when</span> <span class="hljs-string">'SALESMAN'</span>  <span class="hljs-keyword">then</span> <span class="hljs-string">'销售'</span></li><li> <span class="hljs-keyword">when</span> <span class="hljs-string">'MANAGER'</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'经理'</span></li><li> <span class="hljs-keyword">else</span> <span class="hljs-string">'其他'</span></li><li><span class="hljs-keyword">end</span> <span class="hljs-string">'岗位'</span>,</li><li>sal <span class="hljs-keyword">from</span> emp;</li><li></li><li><span class="hljs-comment">-- case区间判断:</span></li><li><span class="hljs-keyword">select</span> empno,ename,sal,</li><li><span class="hljs-keyword">case</span> </li><li> <span class="hljs-keyword">when</span> sal&lt;=<span class="hljs-number">1000</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'A'</span></li><li> <span class="hljs-keyword">when</span> sal&lt;=<span class="hljs-number">2000</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'B'</span></li><li> <span class="hljs-keyword">when</span> sal&lt;=<span class="hljs-number">3000</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'C'</span></li><li> <span class="hljs-keyword">else</span> <span class="hljs-string">'D'</span></li><li><span class="hljs-keyword">end</span> <span class="hljs-string">'工资等级'</span>,</li><li>deptno <span class="hljs-keyword">from</span> emp;</li><li></li><li></li><li></li><li>from emp;</li><li></li><li></li><li><span class="hljs-comment">-- 5.JSON函数  </span></li><li></li><li><span class="hljs-comment">-- 6.其他函数</span></li><li><span class="hljs-keyword">select</span> <span class="hljs-keyword">database</span>(),<span class="hljs-keyword">user</span>(),<span class="hljs-keyword">version</span>() <span class="hljs-keyword">from</span> dual;</li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

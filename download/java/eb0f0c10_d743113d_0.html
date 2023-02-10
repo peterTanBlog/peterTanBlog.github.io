@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal" style="text-indent: 21.0000pt; mso-char-indent-count: 2.0000; mso-layout-grid-align: none; layout-grid-mode: char; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">不仅可以使用父类做方法的形参，还可以</span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">使用父类做方法的返回值类型，真实返回的对象可以是该类的任意一个子类对象</span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">。</span></span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="text-indent: 21.0000pt; mso-char-indent-count: 2.0000; mso-layout-grid-align: none; layout-grid-mode: char; line-height: 100%"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑"></span></span>
+			</p>
+			<p class="MsoNormal" style="line-height: 100%"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">简单工厂模式</span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">的实现，它是解决大量对象创建问题的一个解决方案。将创建和使用分开，工厂负责创建，使用者直接调用即可。简单工厂模式的基本要求是</span></span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormalIndent" style="margin-left: 41.95pt; text-indent: -21pt; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: Wingdings; "><span style="mso-list:Ignore;">²<span>&nbsp;</span></span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">定义一个</span>static方法，通过类名直接调用</span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormalIndent" style="margin-left: 41.95pt; text-indent: -21pt; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: Wingdings; "><span style="mso-list:Ignore;">²<span>&nbsp;</span></span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">返回值类型是父类类型，返回的可以是其任意子类类型</span></span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormalIndent" style="margin-left: 41.95pt; text-indent: -21pt; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: Wingdings; "><span style="mso-list:Ignore;">²<span>&nbsp;</span></span></span><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">传入一个字符串类型的参数，工厂根据参数创建对应的子类产品</span></span></span><span style="font-family: 微软雅黑; font-size: 10.5pt; "><o:p></o:p></span>
+			</p>
+			<p class="MsoNormalIndent" style="margin-left: 41.95pt; text-indent: -21pt; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑"><br /></span></span></span>
+			</p>
+			<p class="MsoNormalIndent" style="margin-left: 41.95pt; text-indent: -21pt; line-height: 100%"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_172309EE1DE" class="hljs haxe"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) {</li><li>        Girl g = <span class="hljs-keyword">new</span> <span class="hljs-type">Girl</span>();</li><li></li><li>        <span class="hljs-comment">//Cat c = new Cat();</span></li><li>        <span class="hljs-comment">//Dog d = new Dog();</span></li><li>        <span class="hljs-comment">//Pig p = new Pig();</span></li><li>        Animal an = <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">PetStore.getAnimal(<span class="hljs-string">"狗"</span>);</span></li><li></li><li>        g.play(an);</li><li>    }</li><li>}</li></ol></code></pre>
+				<div><br />
+				</div>
+				<div><br />
+				</div>
+				<div>
+					<div><br />
+					</div>
+					<pre>
+<code id="ID_172309F3861" class="hljs haxe"><ol><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PetStore</span> </span>{<span class="hljs-comment">//宠物店 ---》<span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">工厂类</span></span></li><li>    <span class="hljs-comment">//方法：提供动物</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Animal getAnimal(<span class="hljs-keyword">String</span> petName){<span class="hljs-comment">//多态的应用场合（二）</span></li><li>        Animal an = <span class="hljs-literal">null</span>;</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"猫"</span>.equals(petName)){<span class="hljs-comment">//petName.equals("猫") --》这样写容易发生空指针异常</span></li><li>            an = <span class="hljs-keyword">new</span> <span class="hljs-type">Cat</span>();</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"狗"</span>.equals(petName)){</li><li>            an = <span class="hljs-keyword">new</span> <span class="hljs-type">Dog</span>();</li><li>        }</li><li></li><li>        <span class="hljs-keyword">if</span>(<span class="hljs-string">"猪"</span>.equals(petName)){</li><li>            an = <span class="hljs-keyword">new</span> <span class="hljs-type">Pig</span>();</li><li>        }</li><li></li><li>        <span class="hljs-keyword">return</span> an;</li><li>    }</li><li>}</li></ol></code></pre>
+					<div><br />
+					</div>
+				</div>
+				<div><br />
+				</div></span></span></span>
+			</p>
+			<p>
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

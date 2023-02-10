@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///${exe}/scripts/highlight.styles/${SyntaxHighlightStyleName}.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 10pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div><span style="font-size: x-large;">出现问题：</span>
+		</div>
+		<div><span style="font-size: x-large;">1.生产者和消费者没有交替输出</span>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div><span style="font-size: x-large;">2.打印数据错乱</span>
+		</div>
+		<div><span style="font-size: x-large;">哈尔滨 - null</span>
+		</div>
+		<div><span style="font-size: x-large;">费列罗啤酒</span>
+		</div>
+		<div><span style="font-size: x-large;">哈尔滨巧克力</span>
+		</div>
+		<div><span style="font-size: x-large;">----没有加同步</span>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div><span style="font-size: x-large;">代码展示：</span>
+		</div>
+		<div><span style="font-size: x-large;"><br /></span>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175E4A44D63" class="hljs haxe"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-title">Product</span> </span></span><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">{<span class="hljs-comment">//商品类</span></span></li><li>    <span class="hljs-comment">//品牌</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> brand;</li><li>    <span class="hljs-comment">//名字</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> name;</li><li>    <span class="hljs-comment">//setter,getter方法；</span></li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getBrand() {</li><li>        <span class="hljs-keyword">return</span> brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> void setBrand(<span class="hljs-keyword">String</span> brand) {</li><li>        <span class="hljs-built_in">this</span>.brand = brand;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getName() {</li><li>        <span class="hljs-keyword">return</span> name;</li><li>    }</li><li></li><li>    <span class="hljs-keyword">public</span> void setName(<span class="hljs-keyword">String</span> name) {</li><li>        <span class="hljs-built_in">this</span>.name = name;</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175E4A48817" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"><span class="hljs-title">ProducerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span></span><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">{<span class="hljs-comment">//生产者线程</span></span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">ProducerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//生产十个商品 i:生产的次数</span></li><li>            <span class="hljs-keyword">if</span>(i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>){</li><li>                <span class="hljs-comment">//生产费列罗巧克力</span></li><li>                p.setBrand(<span class="hljs-string">"费列罗"</span>);</li><li>                <span class="hljs-keyword">try</span> {</li><li>                    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">100</span>);</li><li>                } <span class="hljs-keyword">catch</span> (<span class="hljs-type">InterruptedException</span> e) {</li><li>                    e.printStackTrace();</li><li>                }</li><li>                p.setName(<span class="hljs-string">"巧克力"</span>);</li><li>            }<span class="hljs-keyword">else</span>{</li><li>                <span class="hljs-comment">//生产哈尔滨啤酒</span></li><li>                p.setBrand(<span class="hljs-string">"哈尔滨"</span>);</li><li>                <span class="hljs-keyword">try</span> {</li><li>                    <span class="hljs-type">Thread</span>.sleep(<span class="hljs-number">100</span>);</li><li>                } <span class="hljs-keyword">catch</span> (<span class="hljs-type">InterruptedException</span> e) {</li><li>                    e.printStackTrace();</li><li>                }</li><li>                p.setName(<span class="hljs-string">"啤酒"</span>);</li><li>            }</li><li></li><li>            <span class="hljs-comment">//将生产信息做一个打印：</span></li><li>            <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"生产者生产了："</span> + p.getBrand() + <span class="hljs-string">"---"</span> + p.getName());</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175E4A4BB0F" class="hljs scala"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li>public <span class="hljs-class"><span class="hljs-keyword">class</span><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-title">CustomerThread</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span></span><span class="Apple-style-span" style="background-color: rgb(255, 255, 0);">{<span class="hljs-comment">//消费者线程</span></span></li><li>    <span class="hljs-comment">//共享商品：</span></li><li>    <span class="hljs-keyword">private</span> <span class="hljs-type">Product</span> p;</li><li></li><li>    public <span class="hljs-type">CustomerThread</span>(<span class="hljs-type">Product</span> p) {</li><li>        <span class="hljs-keyword">this</span>.p = p;</li><li>    }</li><li></li><li>    <span class="hljs-meta">@Override</span></li><li>    public void run() {</li><li>        <span class="hljs-keyword">for</span> (int i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span> ; i++) {<span class="hljs-comment">//i:消费次数</span></li><li>            <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"消费者消费了："</span> + p.getBrand() + <span class="hljs-string">"---"</span> + p.getName());</li><li>        }</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+				<div><br />
+				</div>
+			</div>
+		</div>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_175E4A4DC92" class="hljs haxe"><ol><li><span class="hljs-keyword">package</span> com.msb.test10;</li><li></li><li><span class="hljs-comment">/**</span></li><li> * @author : msb-zhaoss</li><li> */</li><li><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{</li><li>    <span class="hljs-comment">//这是main方法，程序的入口</span></li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> void main(<span class="hljs-keyword">String</span>[] args) {</li><li>        <span class="hljs-comment">//共享的商品：</span></li><li>        Product p = <span class="hljs-keyword">new</span> <span class="hljs-type">Product</span>();</li><li>        <span class="hljs-comment">//创建生产者和消费者线程：</span></li><li>        ProducerThread pt = <span class="hljs-keyword">new</span> <span class="hljs-type">ProducerThread</span>(p);</li><li>        CustomerThread ct = <span class="hljs-keyword">new</span> <span class="hljs-type">CustomerThread</span>(p);</li><li></li><li>        pt.start();</li><li>        ct.start();</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<p class="MsoNormal" style="text-indent:21.0000pt;mso-layout-grid-align:none;layout-grid-mode:char;
+mso-pagination:widow-orphan;text-align:left;"><span style="font-size: x-large;"><span style="font-family: 微软雅黑; "><span style="font-family: 微软雅黑">事务的隔离级别用于决定如何控制并发用户读写数据的操作。数据库是允许多用户并发访问的，如果多个用户同时开启事务并对同一数据进行读写操作的话，有可能会出现脏读、不可重复读和幻读问题，所以</span>MySQL中提供了四种隔离级别来解决上述问题。 </span><span style="font-family: 微软雅黑; "><o:p></o:p></span></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="font-family: 微软雅黑; font-size: x-large;"><span style="font-family: 微软雅黑">&nbsp; &nbsp; 事务的隔离级别从低到高依次为</span>READ UNCOMMITTED、READ COMMITTED、REPEATABLE READ以及SERIALIZABLE，隔离级别越低，越能支持高并发的数据库操作。</span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+			</p>
+			<table class="MsoNormalTable" border="0" cellspacing="0" style="border-collapse:collapse;width:426.0000pt;border:none;
+mso-padding-alt:0.0000pt 0.0000pt 0.0000pt 0.0000pt ;">
+				<tbody>
+					<tr>
+						<td width="257" valign="top" style="width:154.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:1.0000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:1.0000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" align="center" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:center;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; </span><strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;">隔离级别</span></strong><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="141" valign="top" style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:1.0000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; </span><strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;">脏读</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="177" valign="top" style="width:106.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:1.0000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; </span><strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;">不可重复读</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="134" valign="top" style="width:80.4000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:1.0000pt solid windowtext;mso-border-top-alt:1.0000pt solid windowtext;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; </span><strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-weight:bold;font-size:12.0000pt;mso-font-kerning:0.0000pt;">幻读</span></strong><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp;&nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="257" valign="top" style="width:154.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:1.0000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; READ UNCOMMITTED </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="141" valign="top" style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="177" valign="top" style="width:106.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="134" valign="top" style="width:80.4000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="257" valign="top" style="width:154.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:1.0000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; READ COMMITTED &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="141" valign="top" style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="177" valign="top" style="width:106.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="134" valign="top" style="width:80.4000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="257" valign="top" style="width:154.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:1.0000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; REPEATABLE READ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="141" valign="top" style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="177" valign="top" style="width:106.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="134" valign="top" style="width:80.4000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;background:rgb(248,248,248);">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; √ &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td width="257" valign="top" style="width:154.2500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;
+mso-border-left-alt:1.0000pt solid windowtext;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; SERIALIZABLE &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="141" valign="top" style="width:85.0500pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="177" valign="top" style="width:106.3000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+						<td width="134" valign="top" style="width:80.4000pt;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:none;
+mso-border-left-alt:none;border-right:1.0000pt solid windowtext;mso-border-right-alt:1.0000pt solid windowtext;
+border-top:none;mso-border-top-alt:none;border-bottom:1.0000pt solid windowtext;
+mso-border-bottom-alt:1.0000pt solid windowtext;">
+							<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;mso-pagination:widow-orphan;
+text-align:left;"><span style="mso-spacerun:'yes';font-family:微软雅黑;mso-bidi-font-family:宋体;
+font-size:12.0000pt;mso-font-kerning:0.0000pt;">&nbsp; × &nbsp; </span><span style="font-family:微软雅黑;mso-bidi-font-family:宋体;font-size:12.0000pt;
+mso-font-kerning:0.0000pt;"><o:p></o:p></span>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p>&nbsp;PS：√ &nbsp;代表会出现问题 &nbsp; ， ×代表不会出现问题 = 解决问题</o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p>
+				<div><br />
+				</div>
+				<pre>
+<code id="ID_175A88CA38E" class="hljs sql"><ol><li></li><li><span class="hljs-comment">-- 查看默认的事务隔离级别  MySQL默认的是repeatable read  </span></li><li><span class="hljs-keyword">select</span> @@transaction_isolation;  </li><li><span class="hljs-comment">-- 设置事务的隔离级别   （设置当前会话的隔离级别）</span></li><li><span class="hljs-keyword">set</span> <span class="hljs-keyword">session</span> <span class="hljs-keyword">transaction</span> <span class="hljs-keyword">isolation</span> <span class="hljs-keyword">level</span> <span class="hljs-keyword">read</span> uncommitted;  </li><li><span class="hljs-keyword">set</span> <span class="hljs-keyword">session</span> <span class="hljs-keyword">transaction</span> <span class="hljs-keyword">isolation</span> <span class="hljs-keyword">level</span> <span class="hljs-keyword">read</span> committed;  </li><li><span class="hljs-keyword">set</span> <span class="hljs-keyword">session</span> <span class="hljs-keyword">transaction</span> <span class="hljs-keyword">isolation</span> <span class="hljs-keyword">level</span> repeatable <span class="hljs-keyword">read</span>;  </li><li><span class="hljs-keyword">set</span> <span class="hljs-keyword">session</span> <span class="hljs-keyword">transaction</span> <span class="hljs-keyword">isolation</span> <span class="hljs-keyword">level</span> <span class="hljs-keyword">serializable</span>;  </li><li></li><li><span class="hljs-keyword">start</span> <span class="hljs-keyword">transaction</span> ;</li><li><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">account</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">1</span>;</li></ol></code></pre>
+				<div><br />
+				</div></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+			<p class="MsoNormal" style="mso-layout-grid-align:none;layout-grid-mode:char;"><span style="font-family: 微软雅黑; font-size: x-large;"><o:p><br /></o:p></span>
+			</p>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>

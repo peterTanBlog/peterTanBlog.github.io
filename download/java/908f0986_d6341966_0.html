@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="file:///D:/soft_setup/nyfedit7pro/scripts/highlight.styles/default.css" />
+		<style>
+			body, table{font-family: 微软雅黑; font-size: 18pt}
+			
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	
+<link rel="stylesheet" type="text/css" href="1817fd6e_11c10399_0.css">
+</head>
+	<body>
+		<div>
+			<div><br />
+			</div>
+			<pre>
+<code id="ID_1712162AF8B" class="hljs gradle"><ol><li><span class="hljs-keyword">package</span> com.zhaoss.test02;</li><li></li><li><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Test {</li><li>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) <span class="hljs-keyword">throws</span> ClassNotFoundException {</li><li>        <span class="hljs-comment">//案例：以Person的字节码信息为案例</span></li><li>        <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//方式1：通过getClass()方法获取</span></li><li>        Person p = <span class="hljs-keyword">new</span> Person();</li><li>        <span class="hljs-keyword">Class</span> c1 = p.getClass();</li><li>        System.out.<span class="hljs-keyword">println</span>(c1);</li><li></li><li>        <span class="hljs-comment" style="background-color: rgb(255, 255, 0);">//方式2：通过内置class属性：</span></li><li>        <span class="hljs-keyword">Class</span> c2 = Person.<span class="hljs-keyword">class</span>;</li><li>        System.out.<span class="hljs-keyword">println</span>(c2);</li><li></li><li>        System.out.<span class="hljs-keyword">println</span>(c1==c2);</li><li></li><li>        <span class="hljs-comment">//注意：方式1和方式2  不常用</span></li><li></li><li>       <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-comment">//方式3：--》用的最多：调用Class类提供的静态方法forName</span></span></li><li>        <span class="hljs-keyword">Class</span> c3 = <span class="hljs-keyword">Class</span>.forName(<span class="hljs-string">"com.zhaoss.test02.Person"</span>);</li><li>       <span class="Apple-style-span" style="background-color: rgb(255, 255, 0);"> <span class="hljs-comment">//方式4：利用类的加载器(了解技能点)</span></span></li><li>        ClassLoader loader = Test.<span class="hljs-keyword">class</span>.getClassLoader();</li><li>        <span class="hljs-keyword">Class</span> c4 = loader.loadClass(<span class="hljs-string">"com.zhaoss.test02.Person"</span>);</li><li>    }</li><li>}</li><li></li></ol></code></pre>
+			<div><br />
+			</div>
+		</div>
+	
+<script type="text/javascript" language="javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript" src="itemlink.js"></script><footer style="font-size: small; font-style: italic; text-align: right; margin-top: 16em; padding-top: 4px; border-top: 2px solid gray;">Generated with <a href="http://www.wjjsoft.com/mybase.html?ref=htmltree_export" target=_blank>Mybase Desktop 8.2.12</a></footer></body>
+</html>
